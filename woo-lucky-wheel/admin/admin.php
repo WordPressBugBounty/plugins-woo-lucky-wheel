@@ -191,9 +191,9 @@ class VI_WOO_LUCKY_WHEEL_Admin_Admin {
 
 		ob_start();
 
-		$keyword = filter_input( INPUT_GET, 'keyword', FILTER_SANITIZE_STRING );
+		$keyword = isset( $_GET['keyword'] ) ? sanitize_text_field( $_GET['keyword'] ) : '';
 		if ( ! $keyword ) {
-			$keyword = filter_input( INPUT_POST, 'keyword', FILTER_SANITIZE_STRING );
+			$keyword = isset( $_POST['keyword'] ) ? sanitize_text_field( $_POST['keyword'] ) : '';
 		}
 		if ( empty( $keyword ) ) {
 			die();
@@ -228,7 +228,7 @@ class VI_WOO_LUCKY_WHEEL_Admin_Admin {
 
 		ob_start();
 
-		$keyword = filter_input( INPUT_GET, 'keyword', FILTER_SANITIZE_STRING );
+		$keyword = isset( $_GET['keyword'] ) ? sanitize_text_field( $_GET['keyword'] ) : '';
 
 		if ( empty( $keyword ) ) {
 			die();
@@ -293,7 +293,7 @@ class VI_WOO_LUCKY_WHEEL_Admin_Admin {
 			return;
 		}
 		ob_start();
-		$keyword = filter_input( INPUT_GET, 'keyword', FILTER_SANITIZE_STRING );
+		$keyword = isset( $_GET['keyword'] ) ? sanitize_text_field( $_GET['keyword'] ) : '';
 		if ( empty( $keyword ) ) {
 			die();
 		}
@@ -341,7 +341,7 @@ class VI_WOO_LUCKY_WHEEL_Admin_Admin {
 
 		ob_start();
 
-		$keyword = filter_input( INPUT_GET, 'keyword', FILTER_SANITIZE_STRING );
+		$keyword = isset( $_GET['keyword'] ) ? sanitize_text_field( $_GET['keyword'] ) : '';
 
 		if ( empty( $keyword ) ) {
 			die();
@@ -943,8 +943,14 @@ class VI_WOO_LUCKY_WHEEL_Admin_Admin {
                     <table class="form-table">
                         <tbody>
                         <tr>
+                            <th><?php esc_html_e( 'Field', 'woo-lucky-wheel' ); ?></th>
+                            <th><?php esc_html_e( 'Enable', 'woo-lucky-wheel' ); ?></th>
+                            <th><?php esc_html_e( 'On mobile', 'woo-lucky-wheel' );?></th>
+                            <th><?php esc_html_e( 'Required', 'woo-lucky-wheel' );?></th>
+                        </tr>
+                        <tr>
                             <th>
-                                <label for="custom_field_name_enable"><?php esc_html_e( 'Enable field name', 'woo-lucky-wheel' ) ?></label>
+                                <label for="custom_field_name_enable"><?php esc_html_e( 'Name', 'woo-lucky-wheel' ) ?></label>
                             </th>
                             <td>
                                 <div class="vi-ui toggle checkbox">
@@ -955,11 +961,6 @@ class VI_WOO_LUCKY_WHEEL_Admin_Admin {
                                     <label></label>
                                 </div>
                             </td>
-                        </tr>
-                        <tr>
-                            <th>
-                                <label for="custom_field_name_enable_mobile"><?php esc_html_e( 'Enable field name on mobile', 'woo-lucky-wheel' ) ?></label>
-                            </th>
                             <td>
                                 <div class="vi-ui toggle checkbox">
                                     <input class="custom_field_name_enable_mobile" type="checkbox"
@@ -969,11 +970,6 @@ class VI_WOO_LUCKY_WHEEL_Admin_Admin {
                                     <label></label>
                                 </div>
                             </td>
-                        </tr>
-                        <tr>
-                            <th>
-                                <label for="custom_field_name_required"><?php esc_html_e( 'Field name is required', 'woo-lucky-wheel' ) ?></label>
-                            </th>
                             <td>
                                 <div class="vi-ui toggle checkbox">
                                     <input class="custom_field_name_required" type="checkbox"
@@ -985,30 +981,17 @@ class VI_WOO_LUCKY_WHEEL_Admin_Admin {
                             </td>
                         </tr>
                         <tr>
-                            <td></td>
-                        </tr>
-                        <tr>
                             <th>
-                                <label for="custom_field_mobile_enable"><?php esc_html_e( 'Enable field mobile', 'woo-lucky-wheel' ) ?></label>
+                                <label for="custom_field_mobile_enable"><?php esc_html_e( 'Phone number', 'woo-lucky-wheel' ) ?></label>
                             </th>
                             <td>
                                 <a class="vi-ui button" target="_blank"
                                    href="https://1.envato.market/qXBNY"><?php esc_html_e( 'Upgrade This Feature', 'woo-lucky-wheel' ) ?></a>
                             </td>
-                        </tr>
-                        <tr>
-                            <th>
-                                <label for="custom_field_mobile_enable_mobile"><?php esc_html_e( 'Enable field mobile on mobile', 'woo-lucky-wheel' ) ?></label>
-                            </th>
                             <td>
                                 <a class="vi-ui button" target="_blank"
                                    href="https://1.envato.market/qXBNY"><?php esc_html_e( 'Upgrade This Feature', 'woo-lucky-wheel' ) ?></a>
                             </td>
-                        </tr>
-                        <tr>
-                            <th>
-                                <label for="custom_field_mobile_required"><?php esc_html_e( 'Field mobile is required', 'woo-lucky-wheel' ) ?></label>
-                            </th>
                             <td>
                                 <a class="vi-ui button" target="_blank"
                                    href="https://1.envato.market/qXBNY"><?php esc_html_e( 'Upgrade This Feature', 'woo-lucky-wheel' ) ?></a>

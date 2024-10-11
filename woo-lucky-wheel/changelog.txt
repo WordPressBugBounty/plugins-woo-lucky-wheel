@@ -1,7 +1,10 @@
+/**1.1.5 - 2024.10.11**/
+– Updated: Compatible WC 9.3 and  WP 6.6
+- Updated: Class support
+
 /**1.1.4 - 2024.07.03**/
 - Fixed: Style pointer
 – Updated: Compatible WC 9.0.2 and  WP 6.5.5
-- Updated: Security update
 - Updated: Update support file
 
 /**1.1.3 - 2024.04.13**/

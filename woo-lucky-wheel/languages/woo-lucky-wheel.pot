@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Lucky Wheel for WooCommerce\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-24 03:08+0000\n"
+"POT-Creation-Date: 2024-10-11 02:51+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -15,249 +15,249 @@ msgstr ""
 "X-Generator: Loco https://localise.biz/\n"
 "X-Loco-Version: 2.2.0; wp-5.0.3"
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1516
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1499
 msgid ""
 " must be enabled in your shipping zone and be set to require \"a valid free "
 "shipping coupon\" (see the \"Free Shipping Requires\" setting)."
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/frontend/frontend.php:723
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/frontend/frontend.php:723
 msgid " seconds"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1770
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1753
 msgid ""
 " The API key for connecting with your MailChimp account. Get your API key "
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/frontend/frontend.php:731
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/frontend/frontend.php:731
 msgid " to be able to spin again."
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:741
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:741
 msgid " to hide wheel on homepage"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:720
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:720
 msgid " to show only on cart page"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:737
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:737
 msgid " to show only on cart page and checkout page"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:723
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:723
 msgid " to show only on checkout page"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:729
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:729
 msgid " to show only on WooCommerce shop page"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:732
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:732
 msgid " to show only on WooCommerce single product page"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1472
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1455
 msgid "\"Checkout\" with link to checkout page"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:717
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:717
 msgid ""
 "\"Home page\", \"Blog page\" and \"Shop page\" options above must be "
 "disabled to run these conditional tags."
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1148
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1131
 #, php-format
 msgid "%s - Premium version only"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/frontend/frontend.php:725
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/frontend/frontend.php:725
 #, php-format
 msgid "%s days %s hours %s minutes %s seconds"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/frontend/frontend.php:727
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/frontend/frontend.php:727
 #, php-format
 msgid "%s hours %s minutes %s seconds"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/frontend/frontend.php:729
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/frontend/frontend.php:729
 #, php-format
 msgid "%s minutes %s seconds"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/frontend/frontend.php:272
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/frontend/frontend.php:272
 msgid "*Please enter a valid email address"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/frontend/frontend.php:271
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/frontend/frontend.php:271
 msgid "*Please enter your email"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1309
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1292
 msgid "*The total Probability: "
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1806
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1789
 msgid "Active Campaign"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1815
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1798
 msgid "Active Campaign API Key"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1824
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1807
 msgid "Active Campaign API URL"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1833
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1816
 msgid "Active Campaign list"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:772
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:779
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:772
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:779
 msgid "Add Image"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/woo-lucky-wheel.php:119
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/woo-lucky-wheel.php:119
 msgctxt "Add new on Admin bar"
 msgid "Emails"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1172
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1155
 msgid "Adjust font size of text on the wheel by(%)"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1181
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1164
 msgid "Adjust wheel size by(%)"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/woo-lucky-wheel.php:118
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/woo-lucky-wheel.php:118
 msgctxt "Admin menu"
 msgid "Emails"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:495
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:495
 msgid "Ajax"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:488
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:488
 msgid "Ajax endpoint"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1509
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1492
 msgid "Allow free shipping"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:2296
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:2279
 msgid "Allow URL Open"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1764
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1747
 msgid "API key"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1713
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1696
 msgid "Apply To All Qualifying Items In Cart"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1319
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1302
 msgid "Auto Color"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1332
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1315
 msgid "Automatically hide wheel after finishing spinning"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:595
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:595
 msgid "Automatically show wheel after initial time"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:787
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:787
 msgid "Background color"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:802
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:802
 msgid "Background effect"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:754
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:754
 msgid "Background image"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1037
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1020
 msgid "Bottom - Premium version only"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:580
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:580
 msgid "Bottom Left"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:581
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:581
 msgid "Bottom Right"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1439
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1422
 msgid "Button \"Shop now\" background color"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1430
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1413
 msgid "Button \"Shop now\" color"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1448
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1431
 msgid "Button \"Shop now\" font size(px)"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1419
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1402
 msgid "Button \"Shop now\" title"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1399
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1382
 msgid "Button \"Shop now\" URL"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:837
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:837
 msgid "Button spin"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:863
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:863
 msgid "Button spin background color"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:848
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:848
 msgid "Button spin color"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:2454
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:2437
 msgid "Cancel"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1031
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1014
 msgid "Center"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1566
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1549
 msgid ""
 "Check this box if the coupon cannot be used in conjunction with other "
 "coupons."
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1514
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1497
 msgid "Check this box if the coupon grants free shipping. A "
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1576
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1559
 msgid ""
 "Check this box if the coupon should not apply to items on sale. Per-item "
 "coupons will only work if the item is not on sale. Per-cart coupons will "
 "only work if there are items in the cart that are not on sale."
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/frontend/frontend.php:827
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/frontend/frontend.php:934
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/frontend/frontend.php:827
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/frontend/frontend.php:934
 msgid "Checkout"
 msgstr ""
 
@@ -267,285 +267,266 @@ msgid ""
 "coupons."
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1210
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1193
 msgid "Color"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:735
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:735
 msgid ""
 "Combining 2 or more conditionals using || to show wheel if 1 of the "
 "conditionals matched. e.g use "
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:704
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:704
 msgid "Conditional tags"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/frontend/frontend.php:763
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/frontend/frontend.php:877
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/frontend/frontend.php:763
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/frontend/frontend.php:877
 msgid ""
 "Congrats! You have won a {coupon_label} discount coupon. The coupon was sent "
 "to the email address that you had entered to spin. Thank You!"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1734
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1717
 msgid "Coupon code prefix"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1387
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1478
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1370
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1461
 msgid "Coupon code/custom value will be sent to customer."
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:2252
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:2235
 msgid "Coupon Given"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1356
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1368
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1389
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1339
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1351
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1372
 msgid "Coupon label/custom label that customers win"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1206
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1189
 msgid "Coupon Type"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1530
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1513
 msgid "Coupon will expire after x(days) since it's generated and sent"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/woo-lucky-wheel.php:151
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/woo-lucky-wheel.php:151
 msgid "Coupons"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1231
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1214
 msgid "Custom"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:932
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:932
 msgid "Custom css"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:449
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:449
 msgid "Custom Fields"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:545
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:545
 msgid "Custom popup icon"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:563
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:563
 msgid "Custom popup icon background color"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:554
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:554
 msgid "Custom popup icon color"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/woo-lucky-wheel.php:147
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/woo-lucky-wheel.php:147
 msgid "Customer name"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1385
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1368
 msgid "Customer's name."
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1474
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1457
 msgid "Customers'name if they enter"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:532
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:642
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:661
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1528
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:532
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:642
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:661
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1511
 msgid "Days"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:518
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:518
 msgid "Delay between each spin of an email"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1106
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1089
 msgid "Displayed Currency"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/woo-lucky-wheel.php:117
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/woo-lucky-wheel.php:117
 msgid "Email"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:457
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:457
 msgid "Email API"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1373
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1356
 msgid "Email content"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1361
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1344
 msgid "Email heading"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/frontend/frontend.php:630
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/frontend/frontend.php:630
 msgid "Email is invalid"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1349
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1332
 msgid "Email subject"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/woo-lucky-wheel.php:121
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/woo-lucky-wheel.php:121
 msgid "Email Subscribe"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1476
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1459
 msgid "Email that customers enter to spin"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:50
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:50
 msgid "Emails"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:2251
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:2234
 msgid "Emails Subcribed"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:464
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1756
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:464
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:947
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1739
 msgid "Enable"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:992
-msgid "Enable field mobile"
-msgstr ""
-
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1001
-msgid "Enable field mobile on mobile"
-msgstr ""
-
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:947
-msgid "Enable field name"
-msgstr ""
-
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:961
-msgid "Enable field name on mobile"
-msgstr ""
-
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1750
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1733
 msgid "Enable Mailchimp"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:476
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:476
 msgid "Enable mobile"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1273
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1256
 msgid "Enter Code"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:613
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:613
 msgid "Enter min,max to set random between min and max (seconds)."
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:708
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:708
 msgid "Ex: !is_page(array(123,41,20))"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1664
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1647
 msgid "Exclude categories"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1608
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1591
 msgid "Exclude Products"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1570
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1553
 msgid "Exclude sale items"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1227
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1210
 msgid "Existing coupon"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1391
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1374
 msgid "Expiry date of the coupon."
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:2271
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:2254
 msgid "Export Emails"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1010
-msgid "Field mobile is required"
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:946
+msgid "Field"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:975
-msgid "Field name is required"
-msgstr ""
-
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:2284
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:2267
 msgid "file_get_contents"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1230
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1213
 msgid "Fixed cart discount"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1229
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1212
 msgid "Fixed product discount"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1516
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1499
 msgid "free shipping method"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:2262
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:2245
 msgid "From"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1129
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1112
 msgid "From 3s to 15s."
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1494
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1477
 msgid "Frontend message if lost"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1458
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1441
 msgid "Frontend Message if win"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:908
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:908
 msgid "GDPR checkbox"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:921
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:921
 msgid "GDPR message"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:443
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:443
 msgid "General"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1771
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1754
 msgid "here"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:619
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:619
 msgid "Hide popup icon"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:531
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:641
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:660
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:531
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:641
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:660
 msgid "Hours"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1701
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1684
 msgid "How many times this coupon can be used before it is void."
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1729
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1712
 msgid "How many times this coupon can be used by an individual user."
 msgstr ""
 
@@ -553,563 +534,579 @@ msgstr ""
 msgid "http://villatheme.com"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/frontend/frontend.php:379
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/frontend/frontend.php:529
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/frontend/frontend.php:379
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/frontend/frontend.php:529
 msgid "I agree with the term and condition"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:631
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:631
 msgid "If customers close and not spin, show popup again after"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1636
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1619
 msgid "Include categories"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1581
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1564
 msgid "Include Products"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1205
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1188
 msgid "Index"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1561
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1544
 msgid "Individual use only"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:453
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:453
 msgid "Inform Result"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:608
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:608
 msgid "Initial time"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1207
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1190
 msgid "Label"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1470
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1453
 msgid "Label of coupon that customers win"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/woo-lucky-wheel.php:150
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/woo-lucky-wheel.php:150
 msgid "Labels"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/woo-lucky-wheel.php:149
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/woo-lucky-wheel.php:149
 msgid "Last spin"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1342
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1325
 msgid "Left 0 to disable this feature"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:713
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:713
 msgid ""
 "Let you control on which pages Lucky Wheel for Woocommerce appears using "
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1706
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1689
 msgid "Limit usage to X items"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/woo-lucky-wheel.php:116
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/woo-lucky-wheel.php:116
 msgid "Lucky Wheel Email"
 msgstr ""
 
 #. Name of the plugin
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:45
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:45
 msgid "Lucky Wheel for WooCommerce"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/woo-lucky-wheel.php:127
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/woo-lucky-wheel.php:127
 msgid "Lucky Wheel for WooCommerce emails."
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:438
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:438
 msgid "Lucky Wheel for WooCommerce Settings"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:2245
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:2228
 msgid "Lucky Wheel Report"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1777
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1760
 msgid "Mailchimp lists"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1166
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1149
 msgid "Make all wheel slices visible on desktop"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1549
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1532
 msgid "Maximum spend"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:578
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:578
 msgid "Middle Left"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:579
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:579
 msgid "Middle Right"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1535
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1518
 msgid "Minimum spend"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:530
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:640
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:659
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:530
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:640
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:659
 msgid "Minutes"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/frontend/frontend.php:637
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:953
+msgid "Name"
+msgstr ""
+
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/frontend/frontend.php:637
 msgid "Name is required"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/frontend/frontend.php:277
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/frontend/frontend.php:277
 msgid "Name is required!"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/frontend/frontend.php:388
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/frontend/frontend.php:538
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/frontend/frontend.php:388
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/frontend/frontend.php:538
 msgid "Never"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:166
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/frontend/frontend.php:40
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:166
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/frontend/frontend.php:40
 msgid "never expires"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/woo-lucky-wheel.php:125
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/woo-lucky-wheel.php:125
 msgid "No Email found in Trash."
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/woo-lucky-wheel.php:124
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/woo-lucky-wheel.php:124
 msgid "No Email found."
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1556
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1539
 msgid "No maximum"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1542
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1525
 msgid "No minimum"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/frontend/frontend.php:394
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/frontend/frontend.php:544
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/frontend/frontend.php:394
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/frontend/frontend.php:544
 msgid "No thanks"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1226
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1209
 msgid "Non"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/woo-lucky-wheel.php:148
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/woo-lucky-wheel.php:148
 msgid "Number of spins"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:2452
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:2435
 msgid "OK"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/frontend/frontend.php:661
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:948
+msgid "On mobile"
+msgstr ""
+
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/frontend/frontend.php:661
 msgid "OOPS! You are not lucky today. Sorry."
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/woo-lucky-wheel.php:123
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/woo-lucky-wheel.php:123
 msgid "Parent Email:"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1228
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1211
 msgid "Percentage discount"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/frontend/frontend.php:255
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:985
+msgid "Phone number"
+msgstr ""
+
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/frontend/frontend.php:255
 msgid "Please agree with our term and condition."
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1643
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1671
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1626
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1654
 msgid "Please enter categories name"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/frontend/frontend.php:360
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/frontend/frontend.php:510
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/frontend/frontend.php:360
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/frontend/frontend.php:510
 msgid "Please enter your email"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/frontend/frontend.php:351
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/frontend/frontend.php:501
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/frontend/frontend.php:351
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/frontend/frontend.php:501
 msgid "Please enter your mobile"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/frontend/frontend.php:341
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/frontend/frontend.php:491
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/frontend/frontend.php:341
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/frontend/frontend.php:491
 msgid "Please enter your name"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1587
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1615
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1570
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1598
 msgid "Please Fill In Your Product Title"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/woo-lucky-wheel.php:227
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/woo-lucky-wheel.php:227
 msgid ""
 "Please install and activate WooCommerce to use Lucky Wheel for WooCommerce."
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1026
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1009
 msgid "Pointer position"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:445
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:445
 msgid "Pop-up"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:594
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:594
 msgid "Popup icon"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:572
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:572
 msgid "Popup icon position"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:583
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:583
 msgid "Position of the popup on screen"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:71
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:71
 msgid "Preview emails"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1021
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1004
 msgid "Preview Wheel"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1209
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1192
 msgid "Probability(%)"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1659
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1642
 msgid ""
 "Product categories that the coupon will be applied to, or that need to be in "
 "the cart in order for the \"Fixed cart discount\" to be applied."
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1687
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1670
 msgid ""
 "Product categories that the coupon will not be applied to, or that cannot be "
 "in the cart in order for the \"Fixed cart discount\" to be applied."
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1603
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1586
 msgid ""
 "Products that the coupon will be applied to, or that need to be in the cart "
 "in order for the \"Fixed cart discount\" to be applied"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1631
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1614
 msgid ""
 "Products that the coupon will not be applied to, or that cannot be in the "
 "cart in order for the \"Fixed cart discount\" to be applied."
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1039
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1022
 msgid "Random - Premium version only"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:601
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:601
 msgid "Random one of these above - Premium version only"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/frontend/frontend.php:391
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/frontend/frontend.php:541
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/frontend/frontend.php:391
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/frontend/frontend.php:541
 msgid "Remind later"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:767
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:767
 msgid "Remove"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:52
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:52
 msgid "Report"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:502
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:949
+msgid "Required"
+msgstr ""
+
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:502
 msgid "REST API"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1035
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1018
 msgid "Right - Premium version only"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1876
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1859
 msgid "Save"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/woo-lucky-wheel.php:122
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/woo-lucky-wheel.php:122
 msgid "Search Email"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:528
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:658
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:528
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:658
 msgid "Seconds"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1340
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1323
 msgid "seconds"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:892
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:892
 msgid "Select font"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:589
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:589
 msgid "Select intent"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1846
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1829
 msgid "SendGrid"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1855
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1838
 msgid "SendGrid API Key"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1864
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1847
 msgid "Sendgrid lists"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/woo-lucky-wheel.php:101
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/woo-lucky-wheel.php:101
 msgid "Settings"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:156
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1393
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1994
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/frontend/frontend.php:33
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:156
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1376
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1977
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/frontend/frontend.php:33
 msgid "Shop now"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1159
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1142
 msgid "Show full wheel"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:679
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:679
 msgid "Show only on Blog page"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:667
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:667
 msgid "Show only on Homepage"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:692
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:692
 msgid "Show only on Shop page"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:880
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:880
 msgid "Show text option to not display wheel again"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:597
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:597
 msgid ""
 "Show wheel after users scroll down a specific value - Premium version only"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:599
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:599
 msgid ""
 "Show wheel when users move mouse over the top to close browser - Premium "
 "version only"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1305
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1288
 msgid "Slices positions are sortable by drag and drop."
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1190
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1173
 msgid "Slices text color"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/frontend/frontend.php:685
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/frontend/frontend.php:685
 msgid ""
 "Sorry, this email is marked as spam now. Please enter another email to "
 "continue."
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1408
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1391
 msgid "Suggested products"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:58
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:2280
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:58
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:2263
 msgid "System Status"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:811
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:811
 msgid "Text color"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1374
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1357
 msgid ""
 "The content of email sending to customers to inform them the coupon code "
 "they receive"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1366
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1349
 msgid ""
 "The heading of emails sending to customers which include discount coupon "
 "code."
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1715
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1698
 msgid ""
 "The maximum number of individual items this coupon can apply to when using "
 "product discount."
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1557
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1540
 msgid "The maximum spend to use the coupon."
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1543
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1526
 msgid "The minimum spend to use the coupon."
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1354
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1337
 msgid ""
 "The subject of emails sending to customers which include discount coupon "
 "code."
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1414
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1397
 msgid ""
 "These products will be added at the end of email content with product image "
 "thumbnail, product title, product price and a button linked to product page "
 "which is design the same as button {shop_now}"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/frontend/frontend.php:715
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/frontend/frontend.php:715
 msgid "This email has reach the maximum spins."
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1522
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1505
 msgid "Time to live"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:509
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:509
 msgid "Times spinning per email"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:2264
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:2247
 msgid "To"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:726
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:726
 msgid "to show only on WooCommerce category page"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1033
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1016
 msgid "Top - Premium version only"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:576
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:576
 msgid "Top Left"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:577
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:577
 msgid "Top Right"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:2250
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:2233
 msgid "Total Spins"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/frontend/frontend.php:367
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/frontend/frontend.php:517
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/frontend/frontend.php:367
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/frontend/frontend.php:517
 msgid "Try Your Lucky"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1758
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1741
 msgid "Turn on to use MailChimp system"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:455
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:455
 msgid "Unique Coupon"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1727
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1710
 msgid "Unlimited Usage"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:549
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:558
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:567
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:806
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:996
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1005
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1014
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1065
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1091
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1100
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1110
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1122
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1176
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1185
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1413
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1423
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1434
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1443
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1452
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1488
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1810
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1819
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1828
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1837
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1850
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1859
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1868
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:549
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:558
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:567
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:806
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:989
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:993
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:997
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1048
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1074
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1083
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1093
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1105
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1159
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1168
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1396
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1406
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1417
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1426
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1435
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1471
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1793
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1802
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1811
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1820
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1833
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1842
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1851
 msgid "Upgrade This Feature"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1693
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1676
 msgid "Usage limit per coupon"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1720
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1703
 msgid "Usage limit per user"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:719
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:722
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:725
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:728
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:731
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:719
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:722
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:725
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:728
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:731
 msgid "Use "
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:740
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:740
 msgid ""
 "Use exclamation mark(!) before a conditional to hide wheel if the "
 "conditional matched. e.g use "
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1214
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1197
 msgid ""
 "Use {coupon_amount} for WooCommerce coupon type to refer to the amount of "
 "that coupon. e.g: Coupon type is percentage discount, coupon value is 10 "
 "then {coupon_amount} will become 10% when printing out on the wheel."
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1208
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1191
 msgid "Value"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/woo-lucky-wheel.php:120
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/woo-lucky-wheel.php:120
 msgid "View Email"
 msgstr ""
 
@@ -1117,90 +1114,90 @@ msgstr ""
 msgid "VillaTheme"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:45
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:45
 msgid "WC Lucky Wheel"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:447
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:447
 msgid "Wheel Background"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1087
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1070
 msgid "Wheel border color"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1096
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1079
 msgid "Wheel border dot color"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1061
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1044
 msgid "Wheel center background image"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1072
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1055
 msgid "Wheel center color"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:826
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:826
 msgid "Wheel description"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1046
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1029
 msgid "Wheel pointer color"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:451
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:451
 msgid "Wheel Settings"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1134
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1117
 msgid "Wheel speed"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1116
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1099
 msgid "Wheel spinning duration"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:649
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:649
 msgid "When finishing a spin, show popup again after"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1484
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1467
 msgid "Winning effect"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:714
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:714
 msgid "WP's conditional tags"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/frontend/frontend.php:233
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/frontend/frontend.php:233
 #, php-format
 msgid "You can only spin 1 time every %s days"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/frontend/frontend.php:230
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/frontend/frontend.php:230
 #, php-format
 msgid "You can only spin 1 time every %s hours"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/frontend/frontend.php:227
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/frontend/frontend.php:227
 #, php-format
 msgid "You can only spin 1 time every %s minutes"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/frontend/frontend.php:224
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/frontend/frontend.php:224
 #, php-format
 msgid "You can only spin 1 time every %s seconds"
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/frontend/frontend.php:731
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/frontend/frontend.php:731
 msgid "You have to wait "
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/frontend/frontend.php:221
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/frontend/frontend.php:221
 msgid "You have to wait until your next spin."
 msgstr ""
 
-#: D:/git-2024/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:2107
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:2090
 msgid "Your settings have been saved!"
 msgstr ""

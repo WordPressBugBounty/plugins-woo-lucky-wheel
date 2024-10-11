@@ -932,7 +932,8 @@ class VI_WOO_LUCKY_WHEEL_Frontend_Frontend {
 				$result_notification = str_replace( '{customer_name}', '<strong>' . ( isset( $_POST['user_name'] ) ? wc_clean( $_POST['user_name'] ) : '' ) . '</strong>', $result_notification );
 				$result_notification = str_replace( '{customer_email}', '<strong>' . $email . '</strong>', $result_notification );
 				$result_notification = str_replace( '{checkout}', '<a href="' . wc_get_checkout_url() . '">' . esc_html__( 'Checkout', 'woo-lucky-wheel' ) . '</a>', $result_notification );
-			}
+				$result_notification = str_replace( array( '\n', '/n' ), ' ', $result_notification );
+            }
 		}
 		do_action( 'woo_lucky_wheel_get_email', $email, $name, $mobile );
 		$data = array(

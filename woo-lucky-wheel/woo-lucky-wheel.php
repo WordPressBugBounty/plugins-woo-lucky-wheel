@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Lucky Wheel for WooCommerce
  * Description: Collect customer's emails by spinning the lucky wheel game to get discount coupons.
- * Version: 1.1.4
+ * Version: 1.1.5
  * Author: VillaTheme
  * Author URI: http://villatheme.com
  * License:           GPL v2 or later
@@ -11,9 +11,9 @@
  * Domain Path: /languages
  * Copyright 2018-2024 VillaTheme.com. All rights reserved.
  * Requires at least: 5.0
- * Tested up to: 6.5.5
+ * Tested up to: 6.6
  * WC requires at least: 7.0.0
- * WC tested up to: 9.0.2
+ * WC tested up to: 9.3
  * Requires PHP: 7.0
  * Requires Plugins: woocommerce
  */
@@ -21,7 +21,7 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
-define( 'VI_WOO_LUCKY_WHEEL_VERSION', '1.1.4' );
+define( 'VI_WOO_LUCKY_WHEEL_VERSION', '1.1.5' );
 include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
 if ( is_plugin_active( 'woocommerce-lucky-wheel/woocommerce-lucky-wheel.php' ) ) {
 	return;
