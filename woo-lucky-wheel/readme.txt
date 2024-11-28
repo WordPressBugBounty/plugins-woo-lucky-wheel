@@ -3,13 +3,13 @@ Contributors: villatheme, mrt3vn
 Donate link: https://www.villatheme.com/donate
 Tags: fortune wheel, mailchimp, wheelio for woocommerce, woocommerce fortune wheel, lucky wheel
 Requires at least: 5.0
-Tested up to: 6.6
-WC tested up to: 9.3
+Tested up to: 6.7
+WC tested up to: 9.4
 Stable tag: trunk
 License: GPL v2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-Collect customer's emails by spinning the lucky wheel game to get discount coupons.
+Engage customers with a fun spin-the-wheel game! Collect emails and reward them with discount coupons instantly.
 
 == Description ==
 
@@ -311,6 +311,13 @@ Subscribed emails from lucky wheel spin and win will be saved to your database. 
 1. Subscribe email on popup
 
 == Changelog ==
+/**1.1.6 - 2024.11.28**/
+- Added: Option help you can choose between using the plugin's default background image or replacing it with one of your own
+– Updated: Remove the option 'Enable mobile' and add an option 'Small screen'
+– Updated: Add 12 preset color palette selections for the wheel slides
+– Updated: New design for settings page
+- Updated: Compatibility with WC9.4 and WP6.7
+
 /**1.1.5 - 2024.10.11**/
 – Updated: Compatible WC 9.3 and  WP 6.6
 - Updated: Class support

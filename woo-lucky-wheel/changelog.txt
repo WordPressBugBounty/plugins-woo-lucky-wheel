@@ -1,3 +1,10 @@
+/**1.1.6 - 2024.11.28**/
+- Added: Option help you can choose between using the plugin's default background image or replacing it with one of your own
+– Updated: Remove the option 'Enable mobile' and add an option 'Small screen'
+– Updated: Add 12 preset color palette selections for the wheel slides
+– Updated: New design for settings page
+- Updated: Compatibility with WC9.4 and WP6.7
+
 /**1.1.5 - 2024.10.11**/
 – Updated: Compatible WC 9.3 and  WP 6.6
 - Updated: Class support

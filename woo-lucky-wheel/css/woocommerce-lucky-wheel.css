@@ -1,3 +1,6 @@
+.wlwl_lucky_wheel_wrap:not(.wlwl_lucky_wheel_active){
+    display: none !important;
+}
 .wlwl_lucky_wheel_content,
 .wlwl_lucky_wheel_content * {
     box-sizing: border-box;
@@ -671,7 +674,9 @@
 }
 
 .wlwl_lucky_wheel_content.wlwl_lucky_wheel_content_mobile .wheel-content-wrapper {
-    display: block !important;
+    flex-direction: column-reverse;
+    justify-content: flex-end;
+    gap: 30px;
 }
 
 .wlwl_lucky_wheel_content.wlwl_lucky_wheel_content_mobile {
@@ -691,6 +696,11 @@
 .wlwl_lucky_wheel_content.wlwl_lucky_wheel_content_mobile .wheel-content-wrapper .wheel_content_right {
     padding: 0;
     width: 100% !important;
+    min-height: auto;
+}
+.wlwl_lucky_wheel_content.wlwl_lucky_wheel_content_mobile .wheel-content-wrapper .wheel_content_left {
+    width: 100% !important;
+    margin-left: 0;
 }
 
 .wlwl_lucky_wheel_content.wlwl_lucky_wheel_content_mobile .wlwl-close span,

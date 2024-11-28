@@ -1,6 +1,19 @@
 *{
     box-sizing: border-box;
 }
+.wlwl-button-save-settings-container {
+    position: sticky;
+    bottom: 20px;
+    z-index: 9;
+    display: inline-block;
+}
+.wlwl-wheel-fields-accordion .form-table td, .wlwl-wheel-fields-accordion .form-table th, .wlwl-wheel-fields-accordion .form-table td p {
+    border: 1px solid #ebebeb;
+    text-align: center;
+}
+.vi-ui.tab .accordion {
+    margin-bottom: 30px;
+}
 .ui.attached.segment {
     width: inherit;
 }
@@ -99,8 +112,19 @@ div[data-tab="custom-fields"] .form-table th {
     cursor: pointer;
 }
 
+
 .color_palette {
+    display: none;
     justify-content: center;
+    flex-wrap: wrap;
+    max-width: 200px;
+}
+.color_palette .wlwl_color_palette {
+    width: 20px;
+    height: 20px;
+    float: left;
+    border: 1px solid #ffffff;
+    cursor: pointer;
 }
 
 .wheel-settings .ui-sortable .wheel_col .remove_field {

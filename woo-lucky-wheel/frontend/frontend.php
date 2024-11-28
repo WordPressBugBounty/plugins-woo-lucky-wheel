@@ -11,8 +11,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 class VI_WOO_LUCKY_WHEEL_Frontend_Frontend {
 	protected $settings;
-	protected $is_mobile;
-	protected $detect;
 	protected $pointer_position;
 	protected $characters_array;
 
@@ -53,6 +51,9 @@ class VI_WOO_LUCKY_WHEEL_Frontend_Frontend {
 	}
 
 	public function frontend_enqueue() {
+		if ( isset( $_COOKIE['wlwl_cookie'] ) ) {
+			return;
+		}
 		if ( ! $this->settings || $this->settings->get_params( 'general', 'enable' ) != 'on' ) {
 			return;
 		}
@@ -93,31 +94,23 @@ class VI_WOO_LUCKY_WHEEL_Frontend_Frontend {
 				return;
 			}
 		}
-		if ( isset( $_COOKIE['wlwl_cookie'] ) ) {
-			return;
-		}
-		$this->detect = new VillaTheme_Mobile_Detect();
-		if ( $this->detect->isMobile() && ! $this->detect->isTablet() ) {
-			$this->is_mobile = true;
-		} else {
-			$this->is_mobile = false;
-		}
-		if ( $this->is_mobile && $this->settings->get_params( 'general', 'mobile' ) != 'on' ) {
-			return;
-		}
-		if ( $this->is_mobile ) {
-			wp_enqueue_script( 'woocommerce-lucky-wheel-frontend-javascript', VI_WOO_LUCKY_WHEEL_JS . 'woocommerce-lucky-wheel-mobile.js', array( 'jquery' ), VI_WOO_LUCKY_WHEEL_VERSION, true );
-		} else {
-			wp_enqueue_script( 'woocommerce-lucky-wheel-frontend-javascript', VI_WOO_LUCKY_WHEEL_JS . 'woocommerce-lucky-wheel.js', array( 'jquery' ), VI_WOO_LUCKY_WHEEL_VERSION, true );
-		}
+		$mobile_enable =  $this->settings->get_params( 'general', 'mobile' ) === 'on';
+		$this->settings::enqueue_script(
+			array( 'woocommerce-lucky-wheel-frontend-javascript' ),
+			array( 'woocommerce-lucky-wheel' ),
+			array( 0 ),
+		);
 		$font = '';
 		if ( $this->settings->get_params( 'wheel_wrap', 'font' ) ) {
 			$font = $this->settings->get_params( 'wheel_wrap', 'font' );
 			wp_enqueue_style( 'woocommerce-lucky-wheel-google-font-' . strtolower( str_replace( '+', '-', $font ) ), '//fonts.googleapis.com/css?family=' . $font . ':300,400,700', array(), VI_WOO_LUCKY_WHEEL_VERSION );
 			$font = str_replace( '+', ' ', $font );
 		}
-		wp_enqueue_style( 'woocommerce-lucky-wheel-frontend-style', VI_WOO_LUCKY_WHEEL_CSS . 'woocommerce-lucky-wheel.css', array(), VI_WOO_LUCKY_WHEEL_VERSION );
-
+		$this->settings::enqueue_style(
+			array( 'woocommerce-lucky-wheel-frontend-style' ),
+			array('woocommerce-lucky-wheel' ),
+			array()
+		);
 		$css = '.wlwl_lucky_wheel_content {';
 		if ( $this->settings->get_params( 'wheel_wrap', 'bg_image' ) ) {
 			$bg_image_url = wc_is_valid_url( $this->settings->get_params( 'wheel_wrap', 'bg_image' ) ) ? $this->settings->get_params( 'wheel_wrap', 'bg_image' ) : wp_get_attachment_url( $this->settings->get_params( 'wheel_wrap', 'bg_image' ) );
@@ -177,6 +170,9 @@ class VI_WOO_LUCKY_WHEEL_Frontend_Frontend {
 		$css .= $this->settings->get_params( 'wheel_wrap', 'custom_css' );
 		wp_add_inline_style( 'woocommerce-lucky-wheel-frontend-style', wp_kses_post( $css ) );
 		$wheel = $this->settings->get_params( 'wheel' );
+        if (empty($wheel['coupon_type']) || !is_array($wheel['coupon_type'])){
+            return;
+        }
 		$label = array();
 		foreach ( $wheel['coupon_type'] as $count => $v ) {
 			$wheel_label = ( isset( $wheel['custom_label'][ $count ] ) && $wheel['custom_label'][ $count ] ) ? $wheel['custom_label'][ $count ] : $this->settings->get_params( 'wheel', 'label_coupon' );
@@ -251,35 +247,36 @@ class VI_WOO_LUCKY_WHEEL_Frontend_Frontend {
 			'wheel_dot_color'    => '#000000',
 			'wheel_border_color' => '#ffffff',
 			'wheel_center_color' => $this->settings->get_params( 'wheel_wrap', 'wheel_center_color' ),
-			'gdpr'               => $this->settings->get_params( 'wheel_wrap', 'gdpr' ),
+			'gdpr'               => $this->settings->get_params( 'wheel_wrap', 'gdpr' )=== 'on' ? 1 : '',
 			'gdpr_warning'       => esc_html__( 'Please agree with our term and condition.', 'woo-lucky-wheel' ),
 
 			'position'        => $this->settings->get_params( 'notify', 'position' ),
 			'show_again'      => $this->settings->get_params( 'notify', 'show_again' ),
 			'show_again_unit' => $this->settings->get_params( 'notify', 'show_again_unit' ),
 			'intent'          => $this->settings->get_params( 'notify', 'intent' ),
-			'hide_popup'      => $this->settings->get_params( 'notify', 'hide_popup' ),
+			'hide_popup'      => $this->settings->get_params( 'notify', 'hide_popup' ) === 'on' ? 1 : '',
 
 			'slice_text_color'                => ( isset( $wheel['slice_text_color'] ) && $wheel['slice_text_color'] ) ? $wheel['slice_text_color'] : '#ffffff',
-			'bg_color'                        => $this->settings->get_params( 'wheel', 'random_color' ) == 'on' ? $this->get_random_color() : $wheel['bg_color'],
+			'bg_color'                        => $wheel['bg_color'] ?? [],
 			'label'                           => $label,
 			'coupon_type'                     => $wheel['coupon_type'],
 			'spinning_time'                   => 8,
+			'wheel_size'                   => 100,
+			'font_size'                   => 100,
 			'auto_close'                      => $this->settings->get_params( 'result', 'auto_close' ),
 			'show_wheel'                      => wlwl_get_explode( $this->settings->get_params( 'notify', 'show_wheel' ), ',' ),
 			'time_if_close'                   => $time_if_close,
 			'empty_email_warning'             => esc_html__( '*Please enter your email', 'woo-lucky-wheel' ),
 			'invalid_email_warning'           => esc_html__( '*Please enter a valid email address', 'woo-lucky-wheel' ),
 			'limit_time_warning'              => $limit_time_warning,
-			'custom_field_name_enable'        => $this->settings->get_params( 'custom_field_name_enable' ),
-			'custom_field_name_enable_mobile' => $this->settings->get_params( 'custom_field_name_enable_mobile' ),
-			'custom_field_name_required'      => $this->settings->get_params( 'custom_field_name_required' ),
+			'custom_field_name_enable'        => $this->settings->get_params( 'custom_field_name_enable' )=== 'on' ? 1 : '',
+			'custom_field_name_enable_mobile' => $this->settings->get_params( 'custom_field_name_enable_mobile' )=== 'on' ? 1 : '',
+			'custom_field_name_required'      => $this->settings->get_params( 'custom_field_name_required' )=== 'on' ? 1 : '',
 			'custom_field_name_message'       => esc_html__( 'Name is required!', 'woo-lucky-wheel' ),
 			'show_full_wheel'                 => $this->settings->get_params( 'wheel', 'show_full_wheel' ),
-			'is_mobile'                       => $this->is_mobile,
+			'wlwl_mobile_enable'            => $mobile_enable
 		) );
 		add_action( 'wp_footer', array( $this, 'draw_wheel' ) );
-
 	}
 
 	/**
@@ -296,170 +293,37 @@ class VI_WOO_LUCKY_WHEEL_Frontend_Frontend {
 	}
 
 	public function draw_wheel() {
-
 		if ( isset( $_COOKIE['wlwl_cookie'] ) ) {
 			return;
 		}
-		if ( $this->is_mobile && $this->settings->get_params( 'general', 'mobile' ) != 'on' ) {
-			return;
-		}
+		echo '<div class="wlwl_lucky_wheel_wrap">';
 		wp_nonce_field( 'woocommerce_lucky_wheel_nonce_action', '_woocommerce_lucky_wheel_nonce' );
+		$class = array( 'wlwl_lucky_wheel_content' );//lucky_wheel_content_tablet,wlwl_lucky_wheel_content_mobile
+		if ( $this->pointer_position === 'top' ) {
+			$class[] = 'wlwl_margin_position';
+			$class[] = 'wlwl_spin_top';
+		} elseif ( $this->pointer_position === 'right' ) {
+			$class[] = 'wlwl_margin_position';
+		} elseif ( $this->pointer_position === 'bottom' ) {
+			$class[] = 'wlwl_margin_position';
+			$class[] = 'wlwl_spin_bottom';
+		}
 		?>
-        <div class="wlwl-overlay">
-        </div>
-		<?php
-		if ( $this->is_mobile ) {
-			?>
-            <div class="wlwl_lucky_wheel_content wlwl_lucky_wheel_content_mobile
-                <?php
-			if ( $this->pointer_position == 'top' ) {
-				echo esc_attr( 'wlwl_margin_position wlwl_spin_top' );
-			} elseif ( $this->pointer_position == 'right' ) {
-				echo esc_attr( 'wlwl_margin_position' );
-			} elseif ( $this->pointer_position == 'bottom' ) {
-				echo esc_attr( 'wlwl_margin_position wlwl_spin_bottom' );
-			}
-			?>">
-            <div class="wheel-content-wrapper">
-
-                <div class="wheel_content_right">
-
-                    <div class="wheel_description">
-						<?php echo do_shortcode( $this->settings->get_params( 'wheel_wrap', 'description' ) ); ?>
-                    </div>
-                    <div class="wlwl-congratulations-effect">
-                        <div class="wlwl-congratulations-effect-before"></div>
-                        <div class="wlwl-congratulations-effect-after"></div>
-                    </div>
-                    <div class="wlwl_user_lucky">
-						<?php
-						if ( 'on' == $this->settings->get_params( 'custom_field_name_enable' ) && 'on' == $this->settings->get_params( 'custom_field_name_enable_mobile' ) ) {
-							?>
-                            <div class="wlwl_field_name_wrap">
-                                <span id="wlwl_error_name"></span>
-                                <input type="text" class="wlwl_field_input wlwl_field_name" name="wlwl_player_name"
-                                       placeholder="<?php esc_html_e( "Please enter your name", 'woo-lucky-wheel' ) ?>"
-                                       id="wlwl_player_name">
-                            </div>
-							<?php
-						}
-						if ( 'on' == $this->settings->get_params( 'custom_field_mobile_enable' ) && 'on' == $this->settings->get_params( 'custom_field_mobile_enable_mobile' ) ) {
-							?>
-                            <div class="wlwl_field_mobile_wrap">
-                                <span id="wlwl_error_mobile"></span>
-                                <input type="tel" class="wlwl_field_input wlwl_field_mobile" name="wlwl_player_mobile"
-                                       placeholder="<?php esc_html_e( "Please enter your mobile", 'woo-lucky-wheel' ) ?>"
-                                       id="wlwl_player_mobile">
-                            </div>
-							<?php
-						}
-						?>
-                        <div class="wlwl_field_email_wrap">
-                            <span id="wlwl_error_mail"></span>
-                            <input type="email" class="wlwl_field_input wlwl_field_email" name="wlwl_player_mail"
-                                   placeholder="<?php esc_html_e( "Please enter your email", 'woo-lucky-wheel' ) ?>"
-                                   id="wlwl_player_mail">
-                        </div>
-                        <span class="wlwl_chek_mail wlwl_spin_button button-primary" id="wlwl_chek_mail">
-							<?php if ( $this->settings->get_params( 'wheel_wrap', 'spin_button' ) ) {
-								echo esc_html( $this->settings->get_params( 'wheel_wrap', 'spin_button' ) );
-							} else {
-								esc_html_e( "Try Your Lucky", 'woo-lucky-wheel' );
-							} ?>
-                            </span>
-						<?php
-						if ( 'on' == $this->settings->get_params( 'wheel_wrap', 'gdpr' ) ) {
-							?>
-                            <div class="wlwl-gdpr-checkbox-wrap">
-                                <input type="checkbox">
-                                <span><?php
-									if ( ! empty( $this->settings->get_params( 'wheel_wrap', 'gdpr_message' ) ) ) {
-										echo wp_kses_post( $this->settings->get_params( 'wheel_wrap', 'gdpr_message' ) );
-									} else {
-										esc_html_e( "I agree with the term and condition", 'woo-lucky-wheel' );
-									} ?></span>
-                            </div>
-							<?php
-						}
-						if ( 'on' === $this->settings->get_params( 'wheel_wrap', 'close_option' ) ) {
-							?>
-                            <div class="wlwl-show-again-option">
-                                <div class="wlwl-never-again">
-                                    <span><?php esc_html_e( "Never", 'woo-lucky-wheel' ); ?></span>
-                                </div>
-                                <div class="wlwl-reminder-later">
-                                    <span class="wlwl-reminder-later-a"><?php esc_html_e( "Remind later", 'woo-lucky-wheel' ); ?></span>
-                                </div>
-                                <div class="wlwl-close">
-                                    <span><?php esc_html_e( "No thanks", 'woo-lucky-wheel' ); ?></span>
-                                </div>
-                            </div>
-							<?php
-						}
-
-						?>
-                    </div>
-                    <div class="wheel_content_left">
-                        <div class="wlwl-frontend-result"></div>
-                        <div class="wheel_spin">
-                            <canvas id="wlwl_canvas">
-                            </canvas>
-                            <canvas id="wlwl_canvas1" class="<?php
-							if ( $this->pointer_position == 'top' ) {
-								echo esc_attr( 'canvas_spin_top' );
-							} elseif ( $this->pointer_position == 'bottom' ) {
-								echo esc_attr( 'canvas_spin_bottom' );
-							} ?>">
-                            </canvas>
-                            <canvas id="wlwl_canvas2">
-                            </canvas>
-                            <div class="wheel_spin_container">
-                                <div class="wlwl_pointer_before"></div>
-                                <div class="wlwl_pointer_content">
-                                    <span class="wlwl-location wlwl_pointer <?php
-                                    if ( $this->pointer_position == 'top' ) {
-	                                    echo esc_attr( 'pointer_spin_top' );
-                                    } elseif ( $this->pointer_position == 'bottom' ) {
-	                                    echo esc_attr( 'pointer_spin_bottom' );
-                                    } ?>"></span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-
-            </div>
-			<?php
-		} else {
-			?>
-            <div class="wlwl_lucky_wheel_content <?php
-			if ( $this->detect->isTablet() ) {
-				echo esc_attr( 'lucky_wheel_content_tablet ' );
-			}
-			if ( $this->pointer_position == 'top' ) {
-				echo esc_attr( 'wlwl_margin_position wlwl_spin_top' );
-			} elseif ( $this->pointer_position == 'right' ) {
-				echo esc_attr( 'wlwl_margin_position' );
-			} elseif ( $this->pointer_position == 'bottom' ) {
-				echo esc_attr( 'wlwl_margin_position wlwl_spin_bottom' );
-			}
-			?>">
+        <div class="wlwl-overlay"></div>
+        <div class="<?php echo esc_attr( implode( ' ', $class ) ) ?>">
             <div class="wheel-content-wrapper">
                 <div class="wheel_content_left">
-                    <div class="wheel_spin">
-                        <canvas id="wlwl_canvas">
-                        </canvas>
+                    <div class="wlwl-frontend-result"></div>
+                    <div class="wheel_spin wlwl_wheel_spin">
+                        <canvas id="wlwl_canvas"></canvas>
                         <canvas id="wlwl_canvas1" class="<?php
-						if ( $this->pointer_position == 'top' ) {
-							echo esc_attr( 'canvas_spin_top' );
-						} elseif ( $this->pointer_position == 'bottom' ) {
-							echo esc_attr( 'canvas_spin_bottom' );
-						} ?>">
-                        </canvas>
-                        <canvas id="wlwl_canvas2">
-                        </canvas>
-                        <div class="wheel_spin_container">
+				        if ( $this->pointer_position == 'top' ) {
+					        echo esc_attr( 'canvas_spin_top' );
+				        } elseif ( $this->pointer_position == 'bottom' ) {
+					        echo esc_attr( 'canvas_spin_bottom' );
+				        } ?>"></canvas>
+                        <canvas id="wlwl_canvas2"></canvas>
+                        <div class="wheel_spin_container wlwl_wheel_spin_container">
                             <div class="wlwl_pointer_before"></div>
                             <div class="wlwl_pointer_content">
                                 <span class="wlwl-location wlwl_pointer <?php
@@ -473,37 +337,26 @@ class VI_WOO_LUCKY_WHEEL_Frontend_Frontend {
                     </div>
                 </div>
                 <div class="wheel_content_right">
-
                     <div class="wheel_description">
-						<?php echo do_shortcode( $this->settings->get_params( 'wheel_wrap', 'description' ) ); ?>
+				        <?php echo do_shortcode( $this->settings->get_params( 'wheel_wrap', 'description' ) ); ?>
                     </div>
                     <div class="wlwl-congratulations-effect">
                         <div class="wlwl-congratulations-effect-before"></div>
                         <div class="wlwl-congratulations-effect-after"></div>
                     </div>
                     <div class="wlwl_user_lucky">
-						<?php
-						if ( 'on' == $this->settings->get_params( 'custom_field_name_enable' ) ) {
-							?>
+				        <?php
+				        if ( 'on' == $this->settings->get_params( 'custom_field_name_enable' ) ) {
+					        ?>
                             <div class="wlwl_field_name_wrap">
                                 <span id="wlwl_error_name"></span>
                                 <input type="text" class="wlwl_field_input wlwl_field_name" name="wlwl_player_name"
                                        placeholder="<?php esc_html_e( "Please enter your name", 'woo-lucky-wheel' ) ?>"
                                        id="wlwl_player_name">
                             </div>
-							<?php
-						}
-						if ( 'on' == $this->settings->get_params( 'custom_field_mobile_enable' ) ) {
-							?>
-                            <div class="wlwl_field_mobile_wrap">
-                                <span id="wlwl_error_mobile"></span>
-                                <input type="tel" class="wlwl_field_input wlwl_field_mobile" name="wlwl_player_mobile"
-                                       placeholder="<?php esc_html_e( "Please enter your mobile", 'woo-lucky-wheel' ) ?>"
-                                       id="wlwl_player_mobile">
-                            </div>
-							<?php
-						}
-						?>
+					        <?php
+				        }
+				        ?>
                         <div class="wlwl_field_email_wrap">
                             <span id="wlwl_error_mail"></span>
                             <input type="email" class="wlwl_field_input wlwl_field_email" name="wlwl_player_mail"
@@ -517,22 +370,22 @@ class VI_WOO_LUCKY_WHEEL_Frontend_Frontend {
 								esc_html_e( "Try Your Lucky", 'woo-lucky-wheel' );
 							} ?>
                             </span>
-						<?php
-						if ( 'on' == $this->settings->get_params( 'wheel_wrap', 'gdpr' ) ) {
-							?>
+				        <?php
+				        if ( 'on' == $this->settings->get_params( 'wheel_wrap', 'gdpr' ) ) {
+					        ?>
                             <div class="wlwl-gdpr-checkbox-wrap">
                                 <input type="checkbox">
                                 <span><?php
-									if ( ! empty( $this->settings->get_params( 'wheel_wrap', 'gdpr_message' ) ) ) {
-										echo wp_kses_post( $this->settings->get_params( 'wheel_wrap', 'gdpr_message' ) );
-									} else {
-										esc_html_e( "I agree with the term and condition", 'woo-lucky-wheel' );
-									} ?></span>
+							        if ( ! empty( $this->settings->get_params( 'wheel_wrap', 'gdpr_message' ) ) ) {
+								        echo wp_kses_post( $this->settings->get_params( 'wheel_wrap', 'gdpr_message' ) );
+							        } else {
+								        esc_html_e( "I agree with the term and condition", 'woo-lucky-wheel' );
+							        } ?></span>
                             </div>
-							<?php
-						}
-						if ( 'on' === $this->settings->get_params( 'wheel_wrap', 'close_option' ) ) {
-							?>
+					        <?php
+				        }
+				        if ( 'on' === $this->settings->get_params( 'wheel_wrap', 'close_option' ) ) {
+					        ?>
                             <div class="wlwl-show-again-option">
                                 <div class="wlwl-never-again">
                                     <span><?php esc_html_e( "Never", 'woo-lucky-wheel' ); ?></span>
@@ -544,29 +397,22 @@ class VI_WOO_LUCKY_WHEEL_Frontend_Frontend {
                                     <span><?php esc_html_e( "No thanks", 'woo-lucky-wheel' ); ?></span>
                                 </div>
                             </div>
-							<?php
-						}
+					        <?php
+				        }
 
-						?>
+				        ?>
                     </div>
                 </div>
             </div>
-
-			<?php
-		}
-		?>
-        <div class="wlwl-close-wheel"><span class="wlwl-cancel"></span></div>
-        <div class="wlwl-hide-after-spin">
-            <span class="wlwl-cancel">
-            </span>
-        </div>
+            <div class="wlwl-close-wheel"><span class="wlwl-cancel"></span></div>
+            <div class="wlwl-hide-after-spin"><span class="wlwl-cancel"></span></div>
         </div>
 		<?php
 		$wheel_icon_class = 'wlwl_wheel_icon woocommerce-lucky-wheel-popup-icon wlwl-wheel-position-' . $this->settings->get_params( 'notify', 'position' );
 		?>
         <canvas id="wlwl_popup_canvas" class="<?php echo esc_attr( $wheel_icon_class ) ?>" width="64" height="64"></canvas>
 		<?php
-
+		echo '</div>';
 	}
 
 	public function wc_price( $price, $args = array() ) {
@@ -631,7 +477,8 @@ class VI_WOO_LUCKY_WHEEL_Frontend_Frontend {
 				)
 			);
 		}
-		if ( ! $name && 'on' == $this->settings->get_params( 'custom_field_name_required' ) ) {
+		if ( ! $name && 'on' == $this->settings->get_params( 'custom_field_name_required' ) &&
+		     (!empty($_POST['is_desktop']) || ('on' == $this->settings->get_params( 'custom_field_name_enable_mobile' )) ) ) {
 			wp_send_json(
 				array(
 					'allow_spin' => esc_html__( 'Name is required', 'woo-lucky-wheel' ),
@@ -1008,277 +855,4 @@ class VI_WOO_LUCKY_WHEEL_Frontend_Frontend {
 		return $code;
 	}
 
-	public function get_random_color() {
-		$colors_array = array(
-			array(
-				"#ffcdd2",
-				"#b71c1c",
-				"#e57373",
-				"#e53935",
-				"#ffcdd2",
-				"#b71c1c",
-				"#e57373",
-				"#e53935",
-				"#ffcdd2",
-				"#b71c1c",
-				"#e57373",
-				"#e53935",
-				"#ffcdd2",
-				"#b71c1c",
-				"#e57373",
-				"#e53935",
-				"#ffcdd2",
-				"#b71c1c",
-				"#e57373",
-				"#e53935",
-			),
-			array(
-				"#e1bee7",
-				"#4a148c",
-				"#ba68c8",
-				"#8e24aa",
-				"#e1bee7",
-				"#4a148c",
-				"#ba68c8",
-				"#8e24aa",
-				"#e1bee7",
-				"#4a148c",
-				"#ba68c8",
-				"#8e24aa",
-				"#e1bee7",
-				"#4a148c",
-				"#ba68c8",
-				"#8e24aa",
-				"#e1bee7",
-				"#4a148c",
-				"#ba68c8",
-				"#8e24aa",
-			),
-			array(
-				"#d1c4e9",
-				"#311b92",
-				"#9575cd",
-				"#5e35b1",
-				"#d1c4e9",
-				"#311b92",
-				"#9575cd",
-				"#5e35b1",
-				"#d1c4e9",
-				"#311b92",
-				"#9575cd",
-				"#5e35b1",
-				"#d1c4e9",
-				"#311b92",
-				"#9575cd",
-				"#5e35b1",
-				"#d1c4e9",
-				"#311b92",
-				"#9575cd",
-				"#5e35b1",
-			),
-			array(
-				"#c5cae9",
-				"#1a237e",
-				"#7986cb",
-				"#3949ab",
-				"#c5cae9",
-				"#1a237e",
-				"#7986cb",
-				"#3949ab",
-				"#c5cae9",
-				"#1a237e",
-				"#7986cb",
-				"#3949ab",
-				"#c5cae9",
-				"#1a237e",
-				"#7986cb",
-				"#3949ab",
-				"#c5cae9",
-				"#1a237e",
-				"#7986cb",
-				"#3949ab",
-			),
-			array(
-				"#bbdefb",
-				"#64b5f6",
-				"#1e88e5",
-				"#0d47a1",
-				"#bbdefb",
-				"#64b5f6",
-				"#1e88e5",
-				"#0d47a1",
-				"#bbdefb",
-				"#64b5f6",
-				"#1e88e5",
-				"#0d47a1",
-				"#bbdefb",
-				"#64b5f6",
-				"#1e88e5",
-				"#0d47a1",
-				"#bbdefb",
-				"#64b5f6",
-				"#1e88e5",
-				"#0d47a1",
-			),
-			array(
-				"#b2dfdb",
-				"#004d40",
-				"#4db6ac",
-				"#00897b",
-				"#b2dfdb",
-				"#004d40",
-				"#4db6ac",
-				"#00897b",
-				"#b2dfdb",
-				"#004d40",
-				"#4db6ac",
-				"#00897b",
-				"#b2dfdb",
-				"#004d40",
-				"#4db6ac",
-				"#00897b",
-				"#b2dfdb",
-				"#004d40",
-				"#4db6ac",
-				"#00897b",
-			),
-			array(
-				"#c8e6c9",
-				"#1b5e20",
-				"#81c784",
-				"#43a047",
-				"#c8e6c9",
-				"#1b5e20",
-				"#81c784",
-				"#43a047",
-				"#c8e6c9",
-				"#1b5e20",
-				"#81c784",
-				"#43a047",
-				"#c8e6c9",
-				"#1b5e20",
-				"#81c784",
-				"#43a047",
-				"#c8e6c9",
-				"#1b5e20",
-				"#81c784",
-				"#43a047",
-			),
-			array(
-				"#f0f4c3",
-				"#827717",
-				"#dce775",
-				"#c0ca33",
-				"#f0f4c3",
-				"#827717",
-				"#dce775",
-				"#c0ca33",
-				"#f0f4c3",
-				"#827717",
-				"#dce775",
-				"#c0ca33",
-				"#f0f4c3",
-				"#827717",
-				"#dce775",
-				"#c0ca33",
-				"#f0f4c3",
-				"#827717",
-				"#dce775",
-				"#c0ca33",
-			),
-			array(
-				"#fff9c4",
-				"#f57f17",
-				"#fff176",
-				"#fdd835",
-				"#fff9c4",
-				"#f57f17",
-				"#fff176",
-				"#fdd835",
-				"#fff9c4",
-				"#f57f17",
-				"#fff176",
-				"#fdd835",
-				"#fff9c4",
-				"#f57f17",
-				"#fff176",
-				"#fdd835",
-				"#fff9c4",
-				"#f57f17",
-				"#fff176",
-				"#fdd835",
-			),
-			array(
-				"#ffe0b2",
-				"#e65100",
-				"#ffb74d",
-				"#fb8c00",
-				"#ffe0b2",
-				"#e65100",
-				"#ffb74d",
-				"#fb8c00",
-				"#ffe0b2",
-				"#e65100",
-				"#ffb74d",
-				"#fb8c00",
-				"#ffe0b2",
-				"#e65100",
-				"#ffb74d",
-				"#fb8c00",
-				"#ffe0b2",
-				"#e65100",
-				"#ffb74d",
-				"#fb8c00",
-			),
-			array(
-				"#d7ccc8",
-				"#3e2723",
-				"#a1887f",
-				"#6d4c41",
-				"#d7ccc8",
-				"#3e2723",
-				"#a1887f",
-				"#6d4c41",
-				"#d7ccc8",
-				"#3e2723",
-				"#a1887f",
-				"#6d4c41",
-				"#d7ccc8",
-				"#3e2723",
-				"#a1887f",
-				"#6d4c41",
-				"#d7ccc8",
-				"#3e2723",
-				"#a1887f",
-				"#6d4c41",
-			),
-			array(
-				"#cfd8dc",
-				"#263238",
-				"#90a4ae",
-				"#546e7a",
-				"#cfd8dc",
-				"#263238",
-				"#90a4ae",
-				"#546e7a",
-				"#cfd8dc",
-				"#263238",
-				"#90a4ae",
-				"#546e7a",
-				"#cfd8dc",
-				"#263238",
-				"#90a4ae",
-				"#546e7a",
-				"#cfd8dc",
-				"#263238",
-				"#90a4ae",
-				"#546e7a",
-			),
-		);
-		$index        = wp_rand( 0, 11 );
-		$colors       = $colors_array[ $index ];
-		$slices       = $this->settings->get_params( 'wheel', 'bg_color' );
-
-		return array_slice( $colors, 0, count( $slices ) );
-	}
 }

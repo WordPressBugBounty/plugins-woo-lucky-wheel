@@ -1,8 +1,8 @@
 <?php
 /**
  * Plugin Name: Lucky Wheel for WooCommerce
- * Description: Collect customer's emails by spinning the lucky wheel game to get discount coupons.
- * Version: 1.1.5
+ * Description: Engage customers with a fun spin-the-wheel game! Collect emails and reward them with discount coupons instantly.
+ * Version: 1.1.6
  * Author: VillaTheme
  * Author URI: http://villatheme.com
  * License:           GPL v2 or later
@@ -11,9 +11,9 @@
  * Domain Path: /languages
  * Copyright 2018-2024 VillaTheme.com. All rights reserved.
  * Requires at least: 5.0
- * Tested up to: 6.6
+ * Tested up to: 6.7
  * WC requires at least: 7.0.0
- * WC tested up to: 9.3
+ * WC tested up to: 9.4
  * Requires PHP: 7.0
  * Requires Plugins: woocommerce
  */
@@ -21,62 +21,53 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
-define( 'VI_WOO_LUCKY_WHEEL_VERSION', '1.1.5' );
-include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
-if ( is_plugin_active( 'woocommerce-lucky-wheel/woocommerce-lucky-wheel.php' ) ) {
-	return;
+if ( ! defined( 'VI_WOO_LUCKY_WHEEL_VERSION' ) ) {
+	define( 'VI_WOO_LUCKY_WHEEL_VERSION', '1.1.6' );
+	define( 'VI_WOO_LUCKY_WHEEL_DIR', plugin_dir_path( __FILE__ ) );
+	define( 'VI_WOO_LUCKY_WHEEL_INCLUDES', VI_WOO_LUCKY_WHEEL_DIR . "includes" . DIRECTORY_SEPARATOR );
+	define( 'VI_WOO_LUCKY_WHEEL_LANGUAGES', VI_WOO_LUCKY_WHEEL_DIR . "languages" . DIRECTORY_SEPARATOR );
+	define( 'VI_WOO_LUCKY_WHEEL_ADMIN', VI_WOO_LUCKY_WHEEL_DIR . "admin" . DIRECTORY_SEPARATOR );
+	define( 'VI_WOO_LUCKY_WHEEL_FRONTEND', VI_WOO_LUCKY_WHEEL_DIR . "frontend" . DIRECTORY_SEPARATOR );
+	$plugin_url = plugins_url( '', __FILE__ );
+	$plugin_url = str_replace( '/includes', '', $plugin_url );
+	define( 'VI_WOO_LUCKY_WHEEL_CSS', $plugin_url . "/css/" );
+	define( 'VI_WOO_LUCKY_WHEEL_JS', $plugin_url . "/js/" );
+	define( 'VI_WOO_LUCKY_WHEEL_IMAGES', $plugin_url . "/images/" );
 }
-
-define( 'VI_WOO_LUCKY_WHEEL_DIR', plugin_dir_path( __FILE__ ) );
-define( 'VI_WOO_LUCKY_WHEEL_INCLUDES', VI_WOO_LUCKY_WHEEL_DIR . "includes" . DIRECTORY_SEPARATOR );
-define( 'VI_WOO_LUCKY_WHEEL_LANGUAGES', VI_WOO_LUCKY_WHEEL_DIR . "languages" . DIRECTORY_SEPARATOR );
-define( 'VI_WOO_LUCKY_WHEEL_ADMIN', VI_WOO_LUCKY_WHEEL_DIR . "admin" . DIRECTORY_SEPARATOR );
-define( 'VI_WOO_LUCKY_WHEEL_FRONTEND', VI_WOO_LUCKY_WHEEL_DIR . "frontend" . DIRECTORY_SEPARATOR );
-$plugin_url = plugins_url( '', __FILE__ );
-$plugin_url = str_replace( '/includes', '', $plugin_url );
-define( 'VI_WOO_LUCKY_WHEEL_CSS', $plugin_url . "/css/" );
-define( 'VI_WOO_LUCKY_WHEEL_JS', $plugin_url . "/js/" );
-define( 'VI_WOO_LUCKY_WHEEL_IMAGES', $plugin_url . "/images/" );
-
-require_once VI_WOO_LUCKY_WHEEL_INCLUDES . "data.php";
-require_once VI_WOO_LUCKY_WHEEL_INCLUDES . "functions.php";
-require_once VI_WOO_LUCKY_WHEEL_INCLUDES . "mobile_detect.php";
-require_once VI_WOO_LUCKY_WHEEL_INCLUDES . "support.php";
-
-vi_include_folder( VI_WOO_LUCKY_WHEEL_ADMIN, 'VI_WOO_LUCKY_WHEEL_Admin_' );
-vi_include_folder( VI_WOO_LUCKY_WHEEL_FRONTEND, 'VI_WOO_LUCKY_WHEEL_Frontend_' );
-
-
 if ( ! class_exists( 'Woo_Lucky_Wheel' ) ):
 	class Woo_Lucky_Wheel {
 		protected $settings;
 
 		public function __construct() {
-
-			add_action( 'plugins_loaded', function () {
-				if ( ! class_exists( 'VillaTheme_Require_Environment' ) ) {
-					include_once VI_WOO_LUCKY_WHEEL_INCLUDES . 'includes/support.php';
-				}
-
-				$environment = new \VillaTheme_Require_Environment( [
-						'plugin_name'     => 'Lucky Wheel for WooCommerce',
-						'php_version'     => '7.0',
-						'wp_version'      => '5.0',
-						'wc_version'      => '7.0',
-						'require_plugins' => [
-							[
-								'slug' => 'woocommerce',
-								'name' => 'WooCommerce',
-							],
-						]
-					]
-				);
-
-				if ( $environment->has_error() ) {
-					return;
-				}
-			} );
 			add_action( 'before_woocommerce_init', array( $this, 'before_woocommerce_init' ) );
+			add_action( 'plugins_loaded', [$this,'check_environment'] );
+		}
+		public function check_environment() {
+			if ( defined( 'VI_WOOCOMMERCE_LUCKY_WHEEL_VERSION' ) || class_exists( 'Woocommerce_Lucky_Wheel' ) ) {
+				return;
+			}
+			if ( ! class_exists( 'VillaTheme_Require_Environment' ) ) {
+				include_once VI_WOO_LUCKY_WHEEL_INCLUDES . 'support.php';
+			}
+			$environment = new \VillaTheme_Require_Environment( [
+					'plugin_name'     => 'Lucky Wheel for WooCommerce',
+					'php_version'     => '7.0',
+					'wp_version'      => '5.0',
+					'require_plugins' => [
+						[
+							'slug' => 'woocommerce',
+							'name' => 'WooCommerce',
+							'file' => 'woocommerce/woocommerce.php',
+							'version' => '7.0',
+						],
+					]
+				]
+			);
+
+			if ( $environment->has_error() ) {
+				return;
+			}
+            $this->includes();
 			$this->settings = VI_WOO_LUCKY_WHEEL_DATA::get_instance();
 			add_action( 'init', array( $this, 'load_plugin_textdomain' ) );
 			add_action( 'init', array( $this, 'create_custom_post_type' ) );
@@ -89,6 +80,14 @@ if ( ! class_exists( 'Woo_Lucky_Wheel' ) ):
 				)
 			);
 		}
+        protected function includes(){
+	        require_once VI_WOO_LUCKY_WHEEL_INCLUDES . "data.php";
+	        require_once VI_WOO_LUCKY_WHEEL_INCLUDES . "functions.php";
+	        require_once VI_WOO_LUCKY_WHEEL_INCLUDES . "mobile_detect.php";
+	        require_once VI_WOO_LUCKY_WHEEL_INCLUDES . "support.php";
+	        vi_include_folder( VI_WOO_LUCKY_WHEEL_ADMIN, 'VI_WOO_LUCKY_WHEEL_Admin_' );
+	        vi_include_folder( VI_WOO_LUCKY_WHEEL_FRONTEND, 'VI_WOO_LUCKY_WHEEL_Frontend_' );
+        }
 
 		public function before_woocommerce_init() {
 			if ( class_exists( '\Automattic\WooCommerce\Utilities\FeaturesUtil' ) ) {

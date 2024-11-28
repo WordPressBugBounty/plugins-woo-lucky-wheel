@@ -1,10 +1,14 @@
-'use strict';
 jQuery(document).ready(function ($) {
+    'use strict';
     $('.vi-ui.tabular.menu .item').vi_tab({
         history: true,
         historyType: 'hash'
     });
-    $('.vi-ui.dropdown').dropdown();
+    if ($('.vi-ui.accordion').length) {
+        $('.vi-ui.accordion:not(.wlwl-accordion-init)').addClass('wlwl-accordion-init').vi_accordion('refresh');
+    }
+    $('.vi-ui.checkbox:not(.wlwl-checkbox-init)').addClass('wlwl-checkbox-init').off().checkbox();
+    $('.vi-ui.dropdown:not(.wlwl-dropdown-init)').addClass('wlwl-dropdown-init').off().dropdown();
 
     $('.wheel-settings .ui-sortable').sortable({
         update: function (event, ui) {
@@ -16,6 +20,9 @@ jQuery(document).ready(function ($) {
     $('.color-picker').iris({
         change: function (event, ui) {
             $(this).parent().find('.color-picker').css({backgroundColor: ui.color.toString()});
+            if ($(this).parent().find('#wheel_wrap_bg_color')){
+                $('.wlwl-image-container').find('.review-images').css({'background' : ui.color.toString()});
+            }
             let ele = $(this).data('ele');
             if (ele == 'highlight') {
                 $('#message-purchased').find('a').css({'color': ui.color.toString()});
@@ -27,20 +34,20 @@ jQuery(document).ready(function ($) {
         },
         hide: true,
         border: true
-    }).click(function () {
+    }).on('click',function () {
         $('.iris-picker').hide();
         $(this).closest('td').find('.iris-picker').show();
     });
 
-    $('body').click(function () {
+    $('body').on('click',function () {
         $('.iris-picker').hide();
     });
-    $('.color-picker').click(function (event) {
+    $('.color-picker').on('click',function (event) {
         event.stopPropagation();
     });
 
     //check Probability value
-    $('.probability').keyup(function () {
+    $('.probability').on('keyup',function () {
         let check_max = $(this).val();
         if (check_max > 100) {
             $(this).val(100);
@@ -202,19 +209,19 @@ jQuery(document).ready(function ($) {
     check_coupon();
 
     $('.wlwl_color_palette').on('click', function () {
-        let color_array;
-        color_array = $(this).parent().children().map(function () {
-            return $(this).attr('data-color_code');
-        }).get();
-        let color_size = color_array.length;
-        let piece_color;
-        piece_color = $('.wheel_col').find('.color-picker').map(function () {
+        let color_code = $(this).data('color_code');
+        let color_array = [],color_des = $('.color_palette').data('color_arr')[color_code];
+        if (color_des?.pointer){
+            $('#pointer_color').val(color_des.pointer).trigger('change');
+        }
+        $('#wheel_wrap_bg_color').val(color_code).trigger('change');
+        if (color_des?.color && color_des.color.length){
+            color_array = color_des.color;
+        }
+        let piece_color = $('.wheel_col').find('input[name="bg_color[]"]').map(function () {
             return $(this).val();
         }).get();
-        let piece_size = piece_color.length;
-        let i;
-        let j = 0;
-
+        let color_size = color_array.length,piece_size = piece_color.length,i, j = 0;
         for (i = 0; i < piece_size; i++) {
             if (j == color_size) {
                 j = 0;
@@ -259,11 +266,33 @@ jQuery(document).ready(function ($) {
 });
 
 jQuery(document).ready(function ($) {
+    'use strict';
     // Set all letiables to be used in scope
     let frame,
         metaBox = $('#wlwl-bg-image'), // Your meta box id here
         addImgLink = metaBox.find('.wlwl-upload-custom-img'),
-        imgContainer = metaBox.find('#wlwl-new-image');
+        imgContainer = metaBox.find('.wlwl-image-container');
+    $('.wheel_wrap_bg_image_custom').css('margin-top','15px');
+    $('.wheel_wrap_bg_image_type').dropdown({
+        onChange:function (val) {
+            handle_choose_bg_image_type(val);
+        }
+    });
+    handle_choose_bg_image_type($('.wheel_wrap_bg_image_type select').val())
+    function handle_choose_bg_image_type(val){
+        if (parseInt(val)){
+            $('.wheel_wrap_bg_image_custom').show();
+            if ($('.wlwl-remove-image').length){
+                $('.wlwl-upload-custom-img').hide();
+            }else {
+                $('.wlwl-upload-custom-img').show();
+            }
+        }else {
+            $('.wheel_wrap_bg_image_custom').hide();
+            $('.wheel_wrap_bg_image').val(woo_lucky_wheel_params_admin.bg_img_default);
+            imgContainer.find('.review-images').attr({src:woo_lucky_wheel_params_admin.bg_img_default});
+        }
+    }
 
     // ADD IMAGE LINK
     addImgLink.on('click', function (event) {
@@ -302,14 +331,9 @@ jQuery(document).ready(function ($) {
                 attachment_url = attachment.url;
             }
             // Send the attachment URL to our custom image input field.
-            imgContainer.append('<div class="wlwl-image-container"><img style="border: 1px solid;"class="review-images" src="' + attachment_url + '"/><input class="wheel_wrap_bg_image" name="wheel_wrap_bg_image" type="hidden" value="' + attachment.id + '"/><span class="wlwl-remove-image nagative vi-ui button">Remove</span></div>');
+            imgContainer.append('<img style="width: 300px;background:'+$('#wheel_wrap_bg_color').val() + '"class="review-images" src="' + attachment_url + '"/><input class="wheel_wrap_bg_image" name="wheel_wrap_bg_image" type="hidden" value="' + attachment.id + '"/><span class="wlwl-remove-image negative vi-ui button small">Remove</span>');
 
             $('.wlwl-upload-custom-img').hide();
-            $('.wlwl-remove-image').on('click', function (event) {
-                event.preventDefault();
-                $(this).parent().html('');
-                $('.wlwl-upload-custom-img').show();
-            })
 
         });
 
@@ -317,16 +341,14 @@ jQuery(document).ready(function ($) {
         frame.open();
     });
     // DELETE IMAGE LINK
-
-    $('.wlwl-remove-image').on('click', function (event) {
+    $(document).on('click','.wlwl-remove-image', function (event) {
         event.preventDefault();
         $(this).parent().html('');
         $('.wlwl-upload-custom-img').show();
     });
-
-
 });
 jQuery(document).ready(function ($) {
+    'use strict';
     // Set all letiables to be used in scope
     let frame1,
         metaBox1 = $('#wlwl-bg-image1'), // Your meta box id here
