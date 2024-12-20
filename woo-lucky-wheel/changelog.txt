@@ -1,3 +1,6 @@
+/**v1.1.7 - 2024.12.20**/
+- Updated: Compatibility with WC9.5
+
 /**1.1.6 - 2024.11.28**/
 - Added: Option help you can choose between using the plugin's default background image or replacing it with one of your own
 – Updated: Remove the option 'Enable mobile' and add an option 'Small screen'

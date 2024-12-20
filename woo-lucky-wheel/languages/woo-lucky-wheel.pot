@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Lucky Wheel for WooCommerce\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-11-28 08:37+0000\n"
+"POT-Creation-Date: 2024-12-20 04:26+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -25,7 +25,7 @@ msgid ""
 "shipping coupon\" (see the \"Free Shipping Requires\" setting)."
 msgstr ""
 
-#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/frontend/frontend.php:570
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/frontend/frontend.php:541
 msgid " seconds"
 msgstr ""
 
@@ -34,7 +34,7 @@ msgid ""
 " The API key for connecting with your MailChimp account. Get your API key "
 msgstr ""
 
-#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/frontend/frontend.php:578
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/frontend/frontend.php:549
 msgid " to be able to spin again."
 msgstr ""
 
@@ -96,26 +96,26 @@ msgstr ""
 msgid "\"Shop now\" button URL"
 msgstr ""
 
-#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/frontend/frontend.php:572
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/frontend/frontend.php:543
 #, php-format
 msgid "%s days %s hours %s minutes %s seconds"
 msgstr ""
 
-#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/frontend/frontend.php:574
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/frontend/frontend.php:545
 #, php-format
 msgid "%s hours %s minutes %s seconds"
 msgstr ""
 
-#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/frontend/frontend.php:576
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/frontend/frontend.php:547
 #, php-format
 msgid "%s minutes %s seconds"
 msgstr ""
 
-#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/frontend/frontend.php:270
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/frontend/frontend.php:260
 msgid "*Please enter a valid email address"
 msgstr ""
 
-#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/frontend/frontend.php:269
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/frontend/frontend.php:259
 msgid "*Please enter your email"
 msgstr ""
 
@@ -293,8 +293,8 @@ msgid ""
 "only work if there are items in the cart that are not on sale."
 msgstr ""
 
-#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/frontend/frontend.php:674
-#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/frontend/frontend.php:781
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/frontend/frontend.php:645
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/frontend/frontend.php:752
 msgid "Checkout"
 msgstr ""
 
@@ -304,12 +304,6 @@ msgstr ""
 
 #: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1050
 msgid "Clone"
-msgstr ""
-
-#. Description of the plugin
-msgid ""
-"Collect customer's emails by spinning the lucky wheel game to get discount "
-"coupons."
 msgstr ""
 
 #: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:738
@@ -332,8 +326,8 @@ msgstr ""
 msgid "Conditional tags"
 msgstr ""
 
-#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/frontend/frontend.php:610
-#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/frontend/frontend.php:724
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/frontend/frontend.php:581
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/frontend/frontend.php:695
 msgid ""
 "Congrats! You have won a {coupon_label} discount coupon. The coupon was sent "
 "to the email address that you had entered to spin. Thank You!"
@@ -457,7 +451,7 @@ msgstr ""
 msgid "Email heading"
 msgstr ""
 
-#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/frontend/frontend.php:476
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/frontend/frontend.php:447
 msgid "Email is invalid"
 msgstr ""
 
@@ -523,6 +517,12 @@ msgstr ""
 msgid ""
 "Enable to show the \"Apply Coupon\" button if the prize is WooCommerce "
 "Coupon."
+msgstr ""
+
+#. Description of the plugin
+msgid ""
+"Engage customers with a fun spin-the-wheel game! Collect emails and reward "
+"them with discount coupons instantly."
 msgstr ""
 
 #: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/admin/admin.php:1027
@@ -660,7 +660,7 @@ msgstr ""
 msgid "Hubspot"
 msgstr ""
 
-#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/frontend/frontend.php:382
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/frontend/frontend.php:353
 msgid "I agree with the term and condition"
 msgstr ""
 
@@ -786,15 +786,15 @@ msgstr ""
 msgid "Name"
 msgstr ""
 
-#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/frontend/frontend.php:484
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/frontend/frontend.php:455
 msgid "Name is required"
 msgstr ""
 
-#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/frontend/frontend.php:275
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/frontend/frontend.php:265
 msgid "Name is required!"
 msgstr ""
 
-#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/frontend/frontend.php:391
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/frontend/frontend.php:362
 msgid "Never"
 msgstr ""
 
@@ -819,7 +819,7 @@ msgstr ""
 msgid "No minimum"
 msgstr ""
 
-#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/frontend/frontend.php:397
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/frontend/frontend.php:368
 msgid "No thanks"
 msgstr ""
 
@@ -855,7 +855,7 @@ msgstr ""
 msgid "On mobile"
 msgstr ""
 
-#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/frontend/frontend.php:508
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/frontend/frontend.php:479
 msgid "OOPS! You are not lucky today. Sorry."
 msgstr ""
 
@@ -871,7 +871,7 @@ msgstr ""
 msgid "Phone number"
 msgstr ""
 
-#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/frontend/frontend.php:251
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/frontend/frontend.php:241
 msgid "Please agree with our term and condition."
 msgstr ""
 
@@ -880,11 +880,11 @@ msgstr ""
 msgid "Please enter category name"
 msgstr ""
 
-#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/frontend/frontend.php:363
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/frontend/frontend.php:334
 msgid "Please enter your email"
 msgstr ""
 
-#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/frontend/frontend.php:354
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/frontend/frontend.php:325
 msgid "Please enter your name"
 msgstr ""
 
@@ -974,7 +974,7 @@ msgstr ""
 msgid "Random one of these above - Premium version only"
 msgstr ""
 
-#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/frontend/frontend.php:394
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/frontend/frontend.php:365
 msgid "Remind later"
 msgstr ""
 
@@ -1085,7 +1085,7 @@ msgstr ""
 msgid "Small screen"
 msgstr ""
 
-#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/frontend/frontend.php:532
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/frontend/frontend.php:503
 msgid ""
 "Sorry, this email is marked as spam now. Please enter another email to "
 "continue."
@@ -1184,7 +1184,7 @@ msgid ""
 "which is design the same as button {shop_now}"
 msgstr ""
 
-#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/frontend/frontend.php:562
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/frontend/frontend.php:533
 msgid "This email has reach the maximum spins."
 msgstr ""
 
@@ -1220,7 +1220,7 @@ msgstr ""
 msgid "Total Spins"
 msgstr ""
 
-#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/frontend/frontend.php:370
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/frontend/frontend.php:341
 msgid "Try Your Lucky"
 msgstr ""
 
@@ -1426,7 +1426,7 @@ msgstr ""
 msgid "You can only spin 1 time every %s seconds"
 msgstr ""
 
-#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/frontend/frontend.php:578
+#: D:/git/free-version/woo-lucky-wheel/woo-lucky-wheel/frontend/frontend.php:549
 msgid "You have to wait "
 msgstr ""
 

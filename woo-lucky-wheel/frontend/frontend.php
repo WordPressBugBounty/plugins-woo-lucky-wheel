@@ -155,7 +155,7 @@ class VI_WOO_LUCKY_WHEEL_Frontend_Frontend {
 			$css .= '.wlwl_pointer:before{color:' . $this->settings->get_params( 'wheel_wrap', 'pointer_color' ) . ';}';
 		}
 		//wheel wrap design
-		$css .= '.wheel_content_right>.wlwl_user_lucky>.wlwl_spin_button{';
+		$css .= '.wheel_content_right .wlwl_user_lucky .wlwl_spin_button{';
 		if ( $this->settings->get_params( 'wheel_wrap', 'spin_button_color' ) ) {
 			$css .= 'color:' . $this->settings->get_params( 'wheel_wrap', 'spin_button_color' ) . ';';
 		}
@@ -230,17 +230,7 @@ class VI_WOO_LUCKY_WHEEL_Frontend_Frontend {
 				break;
 
 		}
-		$this->pointer_position = $this->settings->get_params( 'wheel_wrap', 'pointer_position' );
-		if ( $this->pointer_position == 'random' ) {
-			$pointer_positions      = array(
-				'center',
-				'top',
-				'right',
-				'bottom',
-			);
-			$ran                    = wp_rand( 0, 3 );
-			$this->pointer_position = $pointer_positions[ $ran ];
-		}
+		$this->pointer_position = 'center';
 		wp_localize_script( 'woocommerce-lucky-wheel-frontend-javascript', '_wlwl_get_email_params', array(
 			'ajaxurl'            => $this->settings->get_params( 'ajax_endpoint' ) == 'ajax' ? ( admin_url( 'admin-ajax.php' ) . '?action=wlwl_get_email' ) : site_url() . '/wp-json/woocommerce_lucky_wheel/spin',
 			'pointer_position'   => $this->pointer_position,
@@ -299,15 +289,6 @@ class VI_WOO_LUCKY_WHEEL_Frontend_Frontend {
 		echo '<div class="wlwl_lucky_wheel_wrap">';
 		wp_nonce_field( 'woocommerce_lucky_wheel_nonce_action', '_woocommerce_lucky_wheel_nonce' );
 		$class = array( 'wlwl_lucky_wheel_content' );//lucky_wheel_content_tablet,wlwl_lucky_wheel_content_mobile
-		if ( $this->pointer_position === 'top' ) {
-			$class[] = 'wlwl_margin_position';
-			$class[] = 'wlwl_spin_top';
-		} elseif ( $this->pointer_position === 'right' ) {
-			$class[] = 'wlwl_margin_position';
-		} elseif ( $this->pointer_position === 'bottom' ) {
-			$class[] = 'wlwl_margin_position';
-			$class[] = 'wlwl_spin_bottom';
-		}
 		?>
         <div class="wlwl-overlay"></div>
         <div class="<?php echo esc_attr( implode( ' ', $class ) ) ?>">
@@ -316,22 +297,12 @@ class VI_WOO_LUCKY_WHEEL_Frontend_Frontend {
                     <div class="wlwl-frontend-result"></div>
                     <div class="wheel_spin wlwl_wheel_spin">
                         <canvas id="wlwl_canvas"></canvas>
-                        <canvas id="wlwl_canvas1" class="<?php
-				        if ( $this->pointer_position == 'top' ) {
-					        echo esc_attr( 'canvas_spin_top' );
-				        } elseif ( $this->pointer_position == 'bottom' ) {
-					        echo esc_attr( 'canvas_spin_bottom' );
-				        } ?>"></canvas>
+                        <canvas id="wlwl_canvas1"></canvas>
                         <canvas id="wlwl_canvas2"></canvas>
                         <div class="wheel_spin_container wlwl_wheel_spin_container">
                             <div class="wlwl_pointer_before"></div>
                             <div class="wlwl_pointer_content">
-                                <span class="wlwl-location wlwl_pointer <?php
-                                if ( $this->pointer_position == 'top' ) {
-	                                echo esc_attr( 'pointer_spin_top' );
-                                } elseif ( $this->pointer_position == 'bottom' ) {
-	                                echo esc_attr( 'pointer_spin_bottom' );
-                                } ?>"></span>
+                                <span class="wlwl-location wlwl_pointer"></span>
                             </div>
                         </div>
                     </div>
