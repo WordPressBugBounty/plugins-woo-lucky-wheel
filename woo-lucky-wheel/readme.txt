@@ -292,7 +292,7 @@ Subscribed emails from lucky wheel spin and win will be saved to your database. 
 
 - [Project Page](https://villatheme.com/extensions/woocommerce-lucky-wheel/)
 - [Documentation](http://docs.villatheme.com/?item=woocommerce-lucky-wheel)
-- [Report Bugs/Issues](https://villatheme.com/supports)
+- [Report Bugs/Issues](https://villatheme.com/knowledge-base/security-is-our-priority/)
 
 == Frequently Asked Questions ==
 
@@ -311,6 +311,9 @@ Subscribed emails from lucky wheel spin and win will be saved to your database. 
 1. Subscribe email on popup
 
 == Changelog ==
+/**1.1.8 - 2025.01.21**/
+- Fixed: wheel not spinning
+
 /**v1.1.7 - 2024.12.20**/
 - Updated: Compatibility with WC9.5
 

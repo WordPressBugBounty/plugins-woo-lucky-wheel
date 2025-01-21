@@ -251,6 +251,7 @@ class VI_WOO_LUCKY_WHEEL_Frontend_Frontend {
 			'label'                           => $label,
 			'coupon_type'                     => $wheel['coupon_type'],
 			'spinning_time'                   => 8,
+			'wheel_speed'                   => 5,
 			'wheel_size'                   => 100,
 			'font_size'                   => 100,
 			'auto_close'                      => $this->settings->get_params( 'result', 'auto_close' ),
