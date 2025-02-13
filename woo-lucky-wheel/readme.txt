@@ -4,7 +4,7 @@ Donate link: https://www.villatheme.com/donate
 Tags: fortune wheel, mailchimp, wheelio for woocommerce, woocommerce fortune wheel, lucky wheel
 Requires at least: 5.0
 Tested up to: 6.7
-WC tested up to: 9.5
+WC tested up to: 9.6
 Stable tag: trunk
 License: GPL v2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -22,6 +22,7 @@ WooCommerce Lucky Wheel is a WooCommerce extension that helps you to convert you
 &#9658; **You can learn how to set Lucky wheel spin and win seeing this video guide**:
 
 [youtube https://youtu.be/ISib_bJsqug]
+[youtube https://youtu.be/D3DfnIOGuvw]
 
 - Allowing customers to subscribe emails through lucky wheel spin and win for discount coupons.
 
@@ -311,6 +312,9 @@ Subscribed emails from lucky wheel spin and win will be saved to your database. 
 1. Subscribe email on popup
 
 == Changelog ==
+/**1.1.9 - 2025.03.13**/
+- Updated: Compatibility with WC9.6
+
 /**1.1.8 - 2025.01.21**/
 - Fixed: wheel not spinning
 

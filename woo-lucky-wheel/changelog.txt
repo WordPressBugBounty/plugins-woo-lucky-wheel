@@ -1,3 +1,6 @@
+/**1.1.9 - 2025.03.13**/
+- Updated: Compatibility with WC9.6
+
 /**1.1.8 - 2025.01.21**/
 - Fixed: wheel not spinning
 

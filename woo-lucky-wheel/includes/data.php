@@ -30,7 +30,7 @@ class VI_WOO_LUCKY_WHEEL_DATA {
 				'position'      => 'bottom-right',
 				'size'          => 40,
 				'color'         => '',
-				'intent'        => 'popup_icon',
+				'intent'        => 'show_wheel',
 				'hide_popup'    => 'off',
 				'show_wheel'    => '1,5',//initial time
 				'scroll_amount' => '50',
@@ -113,7 +113,7 @@ class VI_WOO_LUCKY_WHEEL_DATA {
 				),
 				'currency'          => 'symbol',
 				'wheel_speed'       => 3,
-				'show_full_wheel'   => 'off',
+				'show_full_wheel'   => 'on',
 				'font_size'         => '100',
 				'wheel_size'        => '100',
 				'random_color'      => 'off',
