@@ -4,7 +4,7 @@ Donate link: https://www.villatheme.com/donate
 Tags: fortune wheel, mailchimp, wheelio for woocommerce, woocommerce fortune wheel, lucky wheel
 Requires at least: 5.0
 Tested up to: 6.7
-WC tested up to: 9.6
+WC tested up to: 9.7
 Stable tag: trunk
 License: GPL v2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -312,6 +312,9 @@ Subscribed emails from lucky wheel spin and win will be saved to your database. 
 1. Subscribe email on popup
 
 == Changelog ==
+/**1.1.10 - 2025.03.07**/
+- Updated: Allow setting empty - not to limit the number of spins per email
+
 /**1.1.9 - 2025.03.13**/
 - Updated: Compatibility with WC9.6
 

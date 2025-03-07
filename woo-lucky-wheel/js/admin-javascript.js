@@ -1,6 +1,6 @@
 jQuery(document).ready(function ($) {
     'use strict';
-    $('.vi-ui.tabular.menu .item').vi_tab({
+    $('.vi-ui.menu .item').vi_tab({
         history: true,
         historyType: 'hash'
     });
@@ -129,7 +129,7 @@ jQuery(document).ready(function ($) {
         return tong;
     }
 
-    $('#submit').on('click', function () {
+    $('.wlw-submit').on('click', function () {
         let tong = changes_probability();
         let label = document.getElementsByClassName('custom_type_label');
         if (tong == 100) {
@@ -153,13 +153,44 @@ jQuery(document).ready(function ($) {
 
                 }
             }
-            return true;
         } else {
             alert('The total probability must be 100%.');
             return false;
         }
+        if (getCookie('wlwl_cookie')) {
+            let notify_show_again = $('#notify_show_again').val(),
+                notify_show_again_unit = $('select[name="notify_show_again_unit"]').val(),
+                notify_time_on_close_unit = $('select[name="notify_time_on_close_unit"]').val(),
+                notify_time_on_close = $('#notify_time_on_close').val();
+            if (notify_time_on_close != woo_lucky_wheel_params_admin.time_on_close || notify_time_on_close_unit != woo_lucky_wheel_params_admin.time_on_close_unit ||
+                notify_show_again != woo_lucky_wheel_params_admin.show_again || notify_show_again_unit != woo_lucky_wheel_params_admin.show_again_unit) {
+                setCookie('wlwl_cookie', '', 0);
+            }
+        }
 
+        return true;
     });
+    function setCookie(cname, cvalue, expire) {
+        let d = new Date();
+        d.setTime(d.getTime() + (expire * 1000));
+        let expires = "expires=" + d.toUTCString();
+        document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+    }
+    function getCookie(cname) {
+        let name = cname + "=";
+        let decodedCookie = decodeURIComponent(document.cookie);
+        let ca = decodedCookie.split(';');
+        for (let i = 0; i < ca.length; i++) {
+            let c = ca[i];
+            while (c.charAt(0) == ' ') {
+                c = c.substring(1);
+            }
+            if (c.indexOf(name) == 0) {
+                return c.substring(name.length, c.length);
+            }
+        }
+        return "";
+    }
 
     function indexChangeCal() {
         let ind = document.getElementsByClassName('wheel_col_index');

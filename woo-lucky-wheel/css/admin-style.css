@@ -14,6 +14,14 @@
 .vi-ui.tab .accordion {
     margin-bottom: 30px;
 }
+
+.vi-ui.secondary.pointing.menu{
+    padding-top: 0;
+    position: sticky;
+    top: 32px;
+    background: #fff;
+    z-index: 9;
+}
 .ui.attached.segment {
     width: inherit;
 }

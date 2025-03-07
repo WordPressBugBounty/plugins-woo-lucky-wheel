@@ -465,7 +465,11 @@ class VI_WOO_LUCKY_WHEEL_Admin_Admin {
 			wp_localize_script( 'woocommerce-lucky-wheel-admin-javascript', 'woo_lucky_wheel_params_admin', array(
 				'url' => admin_url( 'admin-ajax.php' ),
 				'bg_img_default'   => VI_WOO_LUCKY_WHEEL_IMAGES . '2020.png',
-				'nonce' => wp_create_nonce( 'wlwl_nonce' )
+				'nonce' => wp_create_nonce( 'wlwl_nonce' ),
+				'time_on_close' => $this->settings->get_params( 'notify', 'time_on_close' ) ,
+				'show_again' =>  $this->settings->get_params( 'notify', 'show_again' )  ,
+				'time_on_close_unit' => $this->settings->get_params( 'notify', 'time_on_close_unit' ) ,
+				'show_again_unit' =>  $this->settings->get_params( 'notify', 'show_again_unit' )  ,
 			) );
 		}
 	}
@@ -594,6 +598,9 @@ class VI_WOO_LUCKY_WHEEL_Admin_Admin {
                 <td>
                     <input type="number" id="wlwl_spin_num" name="wlwl_spin_num" min="1"
                            value="<?php echo esc_attr( $this->settings->get_params( 'general', 'spin_num' ) ); ?>">
+                    <p class="description">
+	                    <?php esc_html_e( 'Leave empty to not set the limit.', 'woo-lucky-wheel' ); ?>
+                    </p>
                 </td>
             </tr>
             <tr>
@@ -632,6 +639,19 @@ class VI_WOO_LUCKY_WHEEL_Admin_Admin {
         return '';
     }
 	protected function popup_options(){
+        ?>
+        <div class="vi-ui secondary pointing tabular attached top menu">
+            <div class="active item" data-tab="popup_general">
+                <?php esc_html_e( 'General', 'woo-lucky-wheel' ) ?>
+            </div>
+            <div class="item" data-tab="popup_icon">
+                <?php esc_html_e( 'Icon Design', 'woo-lucky-wheel' ) ?>
+            </div>
+            <div class="item" data-tab="popup_assign">
+                <?php esc_html_e( 'Assign Page', 'woo-lucky-wheel' ) ?>
+            </div>
+        </div>
+        <?php
 		$notify_intent = $this->settings->get_params( 'notify', 'intent' );
 		ob_start();
 		?>
@@ -700,16 +720,24 @@ class VI_WOO_LUCKY_WHEEL_Admin_Admin {
 			],
 		];
 		$fields                 = [
-			'section_start' => [
-				'accordion' => 1,
-				'active'    => 1,
-				'class'     => 'wlwl-popup-general-accordion',
-				'title'     => esc_html__( 'Popup General', 'woo-lucky-wheel' ),
-			],
-			'section_end'   => [ 'accordion' => 1 ],
+			'section_start' => [],
+			'section_end'   => [],
+//			'section_start' => [
+//				'accordion' => 1,
+//				'active'    => 1,
+//				'class'     => 'wlwl-popup-general-accordion',
+//				'title'     => esc_html__( 'Popup General', 'woo-lucky-wheel' ),
+//			],
+//			'section_end'   => [ 'accordion' => 1 ],
 			'fields'        => $args,
 		];
-		$this->settings::villatheme_render_table_field( $fields );
+        ?>
+        <div class="vi-ui bottom attached active tab" data-tab="popup_general">
+            <?php
+            $this->settings::villatheme_render_table_field( $fields );
+            ?>
+        </div>
+        <?php
 		$notify_position = $this->settings->get_params( 'notify', 'position' );
 		ob_start();
 		?>
@@ -775,15 +803,23 @@ class VI_WOO_LUCKY_WHEEL_Admin_Admin {
 			],
 		];
 		$fields               = [
-			'section_start' => [
-				'accordion' => 1,
-				'class'     => 'wlwl-popup-icon-accordion',
-				'title'     => esc_html__( 'Popup Icon', 'woo-lucky-wheel' ),
-			],
-			'section_end'   => [ 'accordion' => 1 ],
+			'section_start' => [],
+			'section_end'   => [],
+//			'section_start' => [
+//				'accordion' => 1,
+//				'class'     => 'wlwl-popup-icon-accordion',
+//				'title'     => esc_html__( 'Popup Icon', 'woo-lucky-wheel' ),
+//			],
+//			'section_end'   => [ 'accordion' => 1 ],
 			'fields'        => $args,
 		];
-		$this->settings::villatheme_render_table_field( $fields );
+		?>
+        <div class="vi-ui bottom attached tab" data-tab="popup_icon">
+			<?php
+			$this->settings::villatheme_render_table_field( $fields );
+			?>
+        </div>
+		<?php
 		ob_start();
 		?>
         <input type="text" name="notify_conditional_tags"
@@ -856,18 +892,45 @@ class VI_WOO_LUCKY_WHEEL_Admin_Admin {
 			],
 		];
 		$fields                       = [
-			'section_start' => [
-				'accordion' => 1,
-				'class'     => 'wlwl-popup-assign-accordion',
-				'title'     => esc_html__( 'Popup Assign', 'woo-lucky-wheel' ),
-			],
-			'section_end'   => [ 'accordion' => 1 ],
+			'section_start' => [],
+			'section_end'   => [],
+//			'section_start' => [
+//				'accordion' => 1,
+//				'class'     => 'wlwl-popup-assign-accordion',
+//				'title'     => esc_html__( 'Popup Assign', 'woo-lucky-wheel' ),
+//			],
+//			'section_end'   => [ 'accordion' => 1 ],
 			'fields'        => $args,
 		];
-		$this->settings::villatheme_render_table_field( $fields );
+		?>
+        <div class="vi-ui bottom attached tab" data-tab="popup_assign">
+			<?php
+			$this->settings::villatheme_render_table_field( $fields );
+			?>
+        </div>
+		<?php
         return '';
 	}
 	protected function wheel_options() {
+        ?>
+        <div class="vi-ui secondary pointing tabular attached top menu">
+            <div class="item" data-tab="wheel_fields">
+				<?php esc_html_e( 'Input fields', 'woo-lucky-wheel' ) ?>
+            </div>
+            <div class="item active" data-tab="wheel_sildes">
+				<?php esc_html_e( 'Wheel Slides', 'woo-lucky-wheel' ) ?>
+            </div>
+            <div class="item" data-tab="wheel_after_spining">
+				<?php esc_html_e( 'After Finishing Spinning', 'woo-lucky-wheel' ) ?>
+            </div>
+            <div class="item" data-tab="wheel_design">
+				<?php esc_html_e( 'Design', 'woo-lucky-wheel' ) ?>
+            </div>
+            <div class="item" data-tab="wheel_recaptcha">
+				<?php esc_html_e( 'Google reCAPTCHA', 'woo-lucky-wheel' ) ?>
+            </div>
+        </div>
+        <?php
 		ob_start();
 		?>
         <table class="form-table">
@@ -939,15 +1002,23 @@ class VI_WOO_LUCKY_WHEEL_Admin_Admin {
 		<?php
 		$wheel_fields_html = ob_get_clean();
 		$fields            = [
-			'section_start' => [
-				'accordion' => 1,
-				'class'     => 'wlwl-wheel-fields-accordion',
-				'title'     => esc_html__( 'Wheel fields', 'woo-lucky-wheel' ),
-			],
-			'section_end'   => [ 'accordion' => 1 ],
+			'section_start' => [],
+			'section_end'   => [],
+//			'section_start' => [
+//				'accordion' => 1,
+//				'class'     => 'wlwl-wheel-fields-accordion',
+//				'title'     => esc_html__( 'Wheel fields', 'woo-lucky-wheel' ),
+//			],
+//			'section_end'   => [ 'accordion' => 1 ],
 			'fields_html'   => $wheel_fields_html,
 		];
-		$this->settings::villatheme_render_table_field( $fields );
+		?>
+        <div class="vi-ui bottom attached tab" data-tab="wheel_fields">
+			<?php
+			$this->settings::villatheme_render_table_field( $fields );
+			?>
+        </div>
+		<?php
 		ob_start();
 		?>
         <span class="vi-ui positive button preview-lucky-wheel labeled icon tiny">
@@ -956,6 +1027,9 @@ class VI_WOO_LUCKY_WHEEL_Admin_Admin {
         <div class="vi-ui message positive tiny">
             <ul class="list">
                 <li><?php echo wp_kses_post( __('Use <strong>{coupon_amount}</strong> for WooCommerce coupon type to refer to the amount of that coupon. e.g: Coupon type is percentage discount, coupon value is 10 then <strong>{coupon_amount}</strong> will become 10% when printing out on the wheel.','woo-lucky-wheel' ) ); ?></li>
+                <li><?php esc_html_e('You can add only 6 slides. Please update to the premium version to add unlimited slices.','woo-lucky-wheel' )  ?>
+                    <a class="vi-ui tiny button" href="https://1.envato.market/qXBNY"
+                       target="_blank"><?php esc_html_e( 'Unlock This Feature', 'woo-lucky-wheel' ); ?> </a></li>
             </ul>
         </div>
         <table class="form-table wheel-settings" >
@@ -1085,16 +1159,24 @@ class VI_WOO_LUCKY_WHEEL_Admin_Admin {
 		<?php
 		$wheel_html = ob_get_clean();
 		$fields     = [
-			'section_start' => [
-				'accordion' => 1,
-				'active'    => 1,
-				'class'     => 'wlwl-wheel-slide-accordion',
-				'title'     => esc_html__( 'Wheel Slides', 'woo-lucky-wheel' ),
-			],
-			'section_end'   => [ 'accordion' => 1 ],
+			'section_start' => [],
+			'section_end'   => [],
+//			'section_start' => [
+//				'accordion' => 1,
+//				'active'    => 1,
+//				'class'     => 'wlwl-wheel-slide-accordion',
+//				'title'     => esc_html__( 'Wheel Slides', 'woo-lucky-wheel' ),
+//			],
+//			'section_end'   => [ 'accordion' => 1 ],
 			'fields_html'   => $wheel_html,
 		];
-		$this->settings::villatheme_render_table_field( $fields );
+		?>
+        <div class="vi-ui bottom attached tab active" data-tab="wheel_sildes">
+			<?php
+			$this->settings::villatheme_render_table_field( $fields );
+			?>
+        </div>
+		<?php
 		$congratulations_effect = $this->settings->get_params( 'wheel_wrap', 'congratulations_effect' );
 		ob_start();
 		?>
@@ -1211,15 +1293,24 @@ class VI_WOO_LUCKY_WHEEL_Admin_Admin {
 		<?php
 		$wheel_html = ob_get_clean();
 		$fields     = [
-			'section_start' => [
-				'accordion' => 1,
-				'class'     => 'wlwl-wheel-after-finishing-spinning-accordion',
-				'title'     => esc_html__( 'After Finishing Spinning', 'woo-lucky-wheel' ),
-			],
-			'section_end'   => [ 'accordion' => 1 ],
+			'section_start' => [],
+			'section_end'   => [],
+//			'section_start' => [
+//				'accordion' => 1,
+//				'class'     => 'wlwl-wheel-after-finishing-spinning-accordion',
+//				'title'     => esc_html__( 'After Finishing Spinning', 'woo-lucky-wheel' ),
+//			],
+//			'section_end'   => [ 'accordion' => 1 ],
 			'fields_html'   => $wheel_html,
 		];
-		$this->settings::villatheme_render_table_field( $fields );
+
+		?>
+        <div class="vi-ui bottom attached tab" data-tab="wheel_after_spining">
+			<?php
+			$this->settings::villatheme_render_table_field( $fields );
+			?>
+        </div>
+		<?php
 		ob_start();
 		?>
         <table class="form-table wheel-settings">
@@ -1610,15 +1701,24 @@ class VI_WOO_LUCKY_WHEEL_Admin_Admin {
 		<?php
 		$wheel_html = ob_get_clean();
 		$fields = [
-			'section_start' => [
-				'accordion' => 1,
-				'class'     => 'wlwl-wheel-design-accordion',
-				'title'     => esc_html__( 'Wheel Design', 'woo-lucky-wheel' ),
-			],
-			'section_end'   => [ 'accordion' => 1 ],
+			'section_start' => [],
+			'section_end'   => [],
+//			'section_start' => [
+//				'accordion' => 1,
+//				'class'     => 'wlwl-wheel-design-accordion',
+//				'title'     => esc_html__( 'Wheel Design', 'woo-lucky-wheel' ),
+//			],
+//			'section_end'   => [ 'accordion' => 1 ],
 			'fields_html'   => $wheel_html,
 		];
-		$this->settings::villatheme_render_table_field( $fields );
+
+		?>
+        <div class="vi-ui bottom attached tab" data-tab="wheel_design">
+			<?php
+			$this->settings::villatheme_render_table_field( $fields );
+			?>
+        </div>
+		<?php
 		ob_start();
 		?>
         <table class="form-table">
@@ -1670,15 +1770,23 @@ class VI_WOO_LUCKY_WHEEL_Admin_Admin {
 		<?php
 		$wheel_html = ob_get_clean();
 		$fields = [
-			'section_start' => [
-				'accordion' => 1,
-				'class'     => 'wlwl-wheel-grecaptcha-accordion',
-				'title'     => esc_html__( 'Google reCAPTCHA', 'woo-lucky-wheel' ),
-			],
-			'section_end'   => [ 'accordion' => 1 ],
+			'section_start' => [],
+			'section_end'   => [ ],
+//			'section_start' => [
+//				'accordion' => 1,
+//				'class'     => 'wlwl-wheel-grecaptcha-accordion',
+//				'title'     => esc_html__( 'Google reCAPTCHA', 'woo-lucky-wheel' ),
+//			],
+//			'section_end'   => [ 'accordion' => 1 ],
 			'fields_html'   => $wheel_html,
 		];
-		$this->settings::villatheme_render_table_field( $fields );
+		?>
+        <div class="vi-ui bottom attached tab" data-tab="wheel_recaptcha">
+			<?php
+			$this->settings::villatheme_render_table_field( $fields );
+			?>
+        </div>
+		<?php
 		return '';
 	}
 	protected function coupon_options(){
@@ -2079,6 +2187,7 @@ class VI_WOO_LUCKY_WHEEL_Admin_Admin {
 		$fields     = [
 			'section_start' => [
 				'accordion' => 1,
+				'active' => 1,
 				'class'     => 'wlwl-wheel-after-finishing-spinning-accordion',
 				'title'     => esc_html__( 'Customer Notification', 'woo-lucky-wheel' ),
 			],
@@ -2309,7 +2418,7 @@ class VI_WOO_LUCKY_WHEEL_Admin_Admin {
 		}
 		if ( ! empty( $_POST['probability'] ) && is_array($_POST['probability'])) {
 			if ( count( $_POST['probability'] ) > 6 || count( $_POST['probability'] ) < 3 ) {
-				$this->error = esc_html__('Free version only includes from 3 to 6 slices. Upgrade to Premium version to add up to 20 slices.', 'woocommerce-lucky-wheel' );
+				$this->error = esc_html__('Free version only includes from 3 to 6 slices. Please upgrade to Premium version to add unlimited slices.', 'woocommerce-lucky-wheel' );
 				return;
 			}
 			if ( array_sum( $_POST['probability'] )!= 100) {

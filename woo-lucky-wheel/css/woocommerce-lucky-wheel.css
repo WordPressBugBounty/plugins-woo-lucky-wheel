@@ -43,7 +43,7 @@
 
 .wlwl-cancel:before {
     content: "\f103";
-    font-size: 35px;
+    font-size: 22px;
     cursor: pointer;
 }
 
@@ -84,11 +84,12 @@
 
 .wlwl-close-wheel, .wlwl-hide-after-spin {
     position: absolute;
-    bottom: 5px;
+    bottom: unset;
     line-height: 1;
-    right: 5px;
+    right: -28px;
     cursor: pointer;
     z-index: 100;
+    top: 5px;
 }
 
 .wlwl-hide-after-spin {
@@ -229,6 +230,7 @@
     text-align: center;
     text-transform: uppercase;
     box-sizing: border-box;
+    line-height: 1;
 }
 
 .wlwl_lucky_wheel_content.lucky_wheel_content_tablet .wheel-content-wrapper .wheel_content_right .wlwl_user_lucky .wlwl_spin_button {
@@ -274,14 +276,12 @@
     border: 1px solid red !important;
 }
 
-#wlwl_error_mobile,
-#wlwl_error_name,
-#wlwl_error_mail {
+.wlwl_error_field{
     position: absolute;
     font-size: 13px;
     left: 0;
     border-radius: 5px;
-    color: red;
+    color: inherit;
     bottom: -20px;
 }
 
@@ -366,8 +366,6 @@
     display: flex;
     font-size: 0;
     width: 100%;
-    justify-content: center;
-    justify-items: center;
     align-items: center;
     height: 100%;
 }

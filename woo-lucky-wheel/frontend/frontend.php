@@ -321,19 +321,19 @@ class VI_WOO_LUCKY_WHEEL_Frontend_Frontend {
 				        if ( 'on' == $this->settings->get_params( 'custom_field_name_enable' ) ) {
 					        ?>
                             <div class="wlwl_field_name_wrap">
-                                <span id="wlwl_error_name"></span>
                                 <input type="text" class="wlwl_field_input wlwl_field_name" name="wlwl_player_name"
                                        placeholder="<?php esc_html_e( "Please enter your name", 'woo-lucky-wheel' ) ?>"
                                        id="wlwl_player_name">
+                                <span id="wlwl_error_name" class="wlwl_error_field"></span>
                             </div>
 					        <?php
 				        }
 				        ?>
                         <div class="wlwl_field_email_wrap">
-                            <span id="wlwl_error_mail"></span>
                             <input type="email" class="wlwl_field_input wlwl_field_email" name="wlwl_player_mail"
                                    placeholder="<?php esc_html_e( "Please enter your email", 'woo-lucky-wheel' ) ?>"
                                    id="wlwl_player_mail">
+                            <span id="wlwl_error_mail" class="wlwl_error_field"></span>
                         </div>
                         <span class="wlwl_chek_mail wlwl_spin_button button-primary" id="wlwl_chek_mail">
 							<?php if ( $this->settings->get_params( 'wheel_wrap', 'spin_button' ) ) {
@@ -530,7 +530,8 @@ class VI_WOO_LUCKY_WHEEL_Frontend_Frontend {
 				$post_data['post_content'] = $name;
 				wp_update_post( $post_data );
 				$spin_meta = get_post_meta( $email_id, 'wlwl_spin_times', true );
-				if ( $spin_meta['spin_num'] >= $this->settings->get_params( 'general', 'spin_num' ) ) {
+				$spin_num  = $this->settings->get_params( 'general', 'spin_num' );
+				if (is_numeric($spin_num) &&  $spin_meta['spin_num'] >= floatval($spin_num) ) {
 					$allow = esc_html__( 'This email has reach the maximum spins.', 'woo-lucky-wheel' );
 				} elseif ( ( $now - $spin_meta['last_spin'] ) < $email_delay ) {
 					$wait      = $email_delay + $spin_meta['last_spin'] - $now;

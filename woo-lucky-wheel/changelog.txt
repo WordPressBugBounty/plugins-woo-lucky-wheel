@@ -1,4 +1,7 @@
-/**1.1.9 - 2025.03.13**/
+/**1.1.10 - 2025.03.07**/
+- Updated: Allow setting empty - not to limit the number of spins per email
+
+/**1.1.9 - 2025.02.13**/
 - Updated: Compatibility with WC9.6
 
 /**1.1.8 - 2025.01.21**/
