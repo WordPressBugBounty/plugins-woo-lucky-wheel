@@ -632,6 +632,18 @@ class VI_WOO_LUCKY_WHEEL_Admin_Admin {
                        href="https://1.envato.market/qXBNY"><?php esc_html_e( 'Upgrade This Feature', 'woo-lucky-wheel' ) ?></a>
                 </td>
             </tr>
+            <tr>
+                <th>
+                    <label><?php esc_html_e( 'Auto reset spins', 'woo-lucky-wheel' ); ?></label>
+                </th>
+                <td>
+                    <a class="vi-ui button" target="_blank"
+                       href="https://1.envato.market/qXBNY"><?php esc_html_e( 'Upgrade This Feature', 'woo-lucky-wheel' ) ?></a>
+                    <p class="description">
+                        <?php esc_html_e('Reset the total spins of every email to zero at a specific time', 'woo-lucky-wheel' ); ?>
+                    </p>
+                </td>
+            </tr>
 
             </tbody>
         </table>
@@ -2418,17 +2430,17 @@ class VI_WOO_LUCKY_WHEEL_Admin_Admin {
 		}
 		if ( ! empty( $_POST['probability'] ) && is_array($_POST['probability'])) {
 			if ( count( $_POST['probability'] ) > 6 || count( $_POST['probability'] ) < 3 ) {
-				$this->error = esc_html__('Free version only includes from 3 to 6 slices. Please upgrade to Premium version to add unlimited slices.', 'woocommerce-lucky-wheel' );
+				$this->error = esc_html__('Free version only includes from 3 to 6 slices. Please upgrade to Premium version to add unlimited slices.', 'woo-lucky-wheel' );
 				return;
 			}
 			if ( array_sum( $_POST['probability'] )!= 100) {
-				$this->error = esc_html__('The total probability must be equal to 100%!', 'woocommerce-lucky-wheel' );
+				$this->error = esc_html__('The total probability must be equal to 100%!', 'woo-lucky-wheel' );
 				return;
 			}
 			for ( $i = 0; $i < sizeof( wc_clean( $_POST['coupon_type'] ) ); $i ++ ) {
 				if ( in_array( $_POST['coupon_type'][ $i ], array( 'fixed_cart', 'fixed_product', 'percent' ) ) ) {
 					if ( $_POST['coupon_amount'][ $i ] < 0 ) {
-						$this->error = esc_html__('The amount of Valued-coupon must be greater than or equal to zero!', 'woocommerce-lucky-wheel' );
+						$this->error = esc_html__('The amount of Valued-coupon must be greater than or equal to zero!', 'woo-lucky-wheel' );
 						break;
 					}
 				}
@@ -2437,25 +2449,25 @@ class VI_WOO_LUCKY_WHEEL_Admin_Admin {
 				return;
 			}
 		} else {
-			$this->error = esc_html__('There must be at least 3 rows!', 'woocommerce-lucky-wheel' );
+			$this->error = esc_html__('There must be at least 3 rows!', 'woo-lucky-wheel' );
 			return;
 		}
 		if ( isset( $_POST['custom_type_label'] ) && is_array( $_POST['custom_type_label'] ) ) {
 			foreach ( $_POST['custom_type_label'] as $key => $val ) {
 				if ( $val === '' ) {
-					$this->error = esc_html__('Label cannot be empty.', 'woocommerce-lucky-wheel' );
+					$this->error = esc_html__('Label cannot be empty.', 'woo-lucky-wheel' );
 					return;
 				}
 				if ( isset( $_POST['wlwl_existing_coupon'],$_POST['coupon_type'][ $key ] ) && is_array( $_POST['wlwl_existing_coupon'] ) ) {
 					if ( $_POST['coupon_type'][ $key ] == 'existing_coupon' &&
                          ($_POST['wlwl_existing_coupon'][ $key ] == '' || $_POST['wlwl_existing_coupon'][ $key ] == 0 )) {
-						$this->error = esc_html__('Please enter value for existing coupon.', 'woocommerce-lucky-wheel' );
+						$this->error = esc_html__('Please enter value for existing coupon.', 'woo-lucky-wheel' );
 						return;
 					}
 				}
 				if ( isset( $_POST['custom_type_value'], $_POST['coupon_type'][ $key ] ) && is_array( $_POST['custom_type_value'] ) ) {
 					if ( $_POST['coupon_type'][ $key ] == 'custom' && $_POST['custom_type_value'][ $key ] == '' ) {
-						$this->error = esc_html__('Please enter value for custom type.', 'woocommerce-lucky-wheel' );
+						$this->error = esc_html__('Please enter value for custom type.', 'woo-lucky-wheel' );
 					}
 				}
 			}

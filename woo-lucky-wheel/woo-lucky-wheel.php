@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Lucky Wheel for WooCommerce
  * Description: Engage customers with a fun spin-the-wheel game! Collect emails and reward them with discount coupons instantly.
- * Version: 1.1.10
+ * Version: 1.1.11
  * Author: VillaTheme
  * Author URI: http://villatheme.com
  * License:           GPL v2 or later
@@ -11,9 +11,9 @@
  * Domain Path: /languages
  * Copyright 2018-2025 VillaTheme.com. All rights reserved.
  * Requires at least: 5.0
- * Tested up to: 6.7
+ * Tested up to: 6.8
  * WC requires at least: 7.0.0
- * WC tested up to: 9.7
+ * WC tested up to: 9.8
  * Requires PHP: 7.0
  * Requires Plugins: woocommerce
  */
@@ -22,7 +22,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 if ( ! defined( 'VI_WOO_LUCKY_WHEEL_VERSION' ) ) {
-	define( 'VI_WOO_LUCKY_WHEEL_VERSION', '1.1.10' );
+	define( 'VI_WOO_LUCKY_WHEEL_VERSION', '1.1.11' );
 	define( 'VI_WOO_LUCKY_WHEEL_DIR', plugin_dir_path( __FILE__ ) );
 	define( 'VI_WOO_LUCKY_WHEEL_INCLUDES', VI_WOO_LUCKY_WHEEL_DIR . "includes" . DIRECTORY_SEPARATOR );
 	define( 'VI_WOO_LUCKY_WHEEL_LANGUAGES', VI_WOO_LUCKY_WHEEL_DIR . "languages" . DIRECTORY_SEPARATOR );
@@ -71,6 +71,7 @@ if ( ! class_exists( 'Woo_Lucky_Wheel' ) ):
 			$this->settings = VI_WOO_LUCKY_WHEEL_DATA::get_instance();
 			add_action( 'init', array( $this, 'load_plugin_textdomain' ) );
 			add_action( 'init', array( $this, 'create_custom_post_type' ) );
+			add_action( 'add_meta_boxes', array( $this, 'wlwl_email_settings' ) );
 			add_filter( 'manage_wlwl_email_posts_columns', array( $this, 'add_column' ), 10, 1 );
 			add_action( 'manage_wlwl_email_posts_custom_column', array( $this, 'add_column_data' ), 10, 2 );
 			add_filter(
@@ -102,6 +103,18 @@ if ( ! class_exists( 'Woo_Lucky_Wheel' ) ):
 
 			return $links;
 		}
+		public function wlwl_email_settings(){
+			add_meta_box( 'wlwl_email_settings',
+				__( 'Wheel email settings', 'woo-lucky-wheel'  ),
+				array( $this, 'render_wlwl_email_settings' ),
+				'wlwl_email', 'normal' );
+		}
+        public function render_wlwl_email_settings(){
+            ?>
+            <a class="vi-ui button" target="_blank"
+               href="https://1.envato.market/qXBNY"><?php esc_html_e( 'Upgrade This Feature', 'woo-lucky-wheel' ) ?></a>
+            <?php
+        }
 
 		public function create_custom_post_type() {
 			if ( ! current_user_can( 'manage_options' ) ) {
@@ -206,7 +219,7 @@ if ( ! class_exists( 'Woo_Lucky_Wheel' ) ):
 				new VillaTheme_Support(
 					array(
 						'support'    => 'https://wordpress.org/support/plugin/woo-lucky-wheel/',
-						'docs'       => 'http://docs.villatheme.com/?item=woocommerce-lucky-wheel',
+						'docs'       => 'https://docs.villatheme.com/?item=woocommerce-lucky-wheel',
 						'review'     => 'https://wordpress.org/support/plugin/woo-lucky-wheel/reviews/?rate=5#rate-response',
 						'pro_url'    => 'https://1.envato.market/qXBNY',
 						'css'        => VI_WOO_LUCKY_WHEEL_CSS,
