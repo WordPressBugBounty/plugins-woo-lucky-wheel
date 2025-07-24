@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Lucky Wheel for WooCommerce
  * Description: Engage customers with a fun spin-the-wheel game! Collect emails and reward them with discount coupons instantly.
- * Version: 1.1.11
+ * Version: 1.1.12
  * Author: VillaTheme
  * Author URI: http://villatheme.com
  * License:           GPL v2 or later
@@ -13,7 +13,7 @@
  * Requires at least: 5.0
  * Tested up to: 6.8
  * WC requires at least: 7.0.0
- * WC tested up to: 9.8
+ * WC tested up to: 10.0
  * Requires PHP: 7.0
  * Requires Plugins: woocommerce
  */
@@ -22,7 +22,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 if ( ! defined( 'VI_WOO_LUCKY_WHEEL_VERSION' ) ) {
-	define( 'VI_WOO_LUCKY_WHEEL_VERSION', '1.1.11' );
+	define( 'VI_WOO_LUCKY_WHEEL_VERSION', '1.1.12' );
 	define( 'VI_WOO_LUCKY_WHEEL_DIR', plugin_dir_path( __FILE__ ) );
 	define( 'VI_WOO_LUCKY_WHEEL_INCLUDES', VI_WOO_LUCKY_WHEEL_DIR . "includes" . DIRECTORY_SEPARATOR );
 	define( 'VI_WOO_LUCKY_WHEEL_LANGUAGES', VI_WOO_LUCKY_WHEEL_DIR . "languages" . DIRECTORY_SEPARATOR );
