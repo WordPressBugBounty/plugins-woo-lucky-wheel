@@ -1,6 +1,9 @@
 *{
     box-sizing: border-box;
 }
+.wheel_col-non .wheel_email_template *{
+    display: none !important;
+}
 .wlwl-button-save-settings-container {
     position: sticky;
     bottom: 20px;

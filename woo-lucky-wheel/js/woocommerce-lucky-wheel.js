@@ -13,7 +13,14 @@
     let sliceDeg = 360 / slices;
     let deg = -(sliceDeg / 2);
     $(window).on('resize', function () {
-        wd_width= window.innerWidth;
+        let new_size = window.innerWidth;
+        if (!wd_width){
+            wd_width = new_size;
+        }
+        if (wd_width == new_size) {
+            return;
+        }
+        wd_width = new_size;
         wd_height= window.innerHeight;
         is_mobile = wd_width < 760;
         if (mobile_enable || !is_mobile) {
@@ -33,7 +40,6 @@
             $('.wlwl_lucky_wheel_wrap').addClass('wlwl_lucky_wheel_active');
             width = wd_width > wd_height ? wd_height : wd_width;
             width = is_mobile ? parseInt(width * 0.6 + 16) : parseInt(wheel_params.wheel_size * (width * 0.55 + 16) / 100);
-            design_wheel_with_custom_width();
             if ($('.wlwl_lucky_wheel_content_rendered').length){
                 drawWheel();
             }else {
@@ -144,6 +150,7 @@
                         url: wheel_params.ajaxurl,
                         data: {
                             origin_prize: wheel_params.coupon_type,
+                            current_currency: wheel_params?.current_currency,
                             user_email: wlwl_email,
                             user_name: wlwl_name,
                             is_desktop: !is_mobile ? 1: '',
@@ -418,6 +425,7 @@
         await drawCanvas('wlwl_canvas');
         await drawCanvas('wlwl_canvas1');
         await drawCanvas('wlwl_canvas2');
+        design_wheel_with_custom_width();
         if (show_popup){
             $('.woocommerce-lucky-wheel-popup-icon').trigger('click');
         }
@@ -426,12 +434,9 @@
         $('.wlwl_wheel_spin').css({'width': width + 'px', 'height': width + 'px'});
         $('.wlwl_lucky_wheel_content').removeClass('wlwl_lucky_wheel_content_mobile lucky_wheel_content_tablet');
         if (!is_mobile) {
-            if ('on' === wheel_params.show_full_wheel) {
-                $('.wlwl_lucky_wheel_content').css({'max-width': (width + 600) + 'px'});
-            } else {
-                $('.wlwl_lucky_wheel_content').css({'max-width': (0.6 * width + 600) + 'px'});
-            }
-            if (wd_width < 1024){
+            let max_width = 'on' === wheel_params.show_full_wheel ? (width + 600) : (0.6 * width + 600);
+            $('.wlwl_lucky_wheel_content').css({'max-width': Math.min(max_width, wd_width) + 'px'});
+            if (wd_width < 1024 || ((max_width + 28) >= wd_width)){
                 $('.wlwl_lucky_wheel_content').addClass('lucky_wheel_content_tablet');
             }
         }else {

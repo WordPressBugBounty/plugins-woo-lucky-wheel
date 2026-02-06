@@ -16,6 +16,12 @@ jQuery(document).ready(function ($) {
         }
     });
 
+    $(document).on('change', 'select[name="coupon_type[]"]', function () {
+        let $coupon_type = $(this);
+        let $row = $coupon_type.closest('tr');
+        let coupon_type = $coupon_type.val();
+        $row.attr('class', `wheel_col wheel_col-${coupon_type}`);
+    });
     /*Color picker*/
     $('.color-picker').iris({
         change: function (event, ui) {

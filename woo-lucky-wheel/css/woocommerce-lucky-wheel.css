@@ -81,7 +81,12 @@
     border-radius: 50%;
     align-items: center;
 }
-
+.lucky_wheel_content_tablet .wlwl-hide-after-spin,
+.lucky_wheel_content_tablet .wlwl-close-wheel,
+.wlwl_lucky_wheel_content_mobile .wlwl-hide-after-spin,
+.wlwl_lucky_wheel_content_mobile .wlwl-close-wheel{
+    right: 5px;
+}
 .wlwl-close-wheel, .wlwl-hide-after-spin {
     position: absolute;
     bottom: unset;
@@ -122,6 +127,8 @@
 .wheel_content_right ul,
 .wheel_content_right ul li {
     list-style: none;
+    margin: 0;
+    padding: 0;
 }
 
 .wlwl-show-again-option {
@@ -386,12 +393,13 @@
     position: absolute;
     text-align: center;
     vertical-align: middle;
-    display: table;
+    /*display: table;*/
     width: 100%;
     height: 100%;
     top: 0;
     left: 0;
     padding: 0 0 0 9%;
+    display: flex;
 }
 
 .wheel-content-wrapper .wlwl_pointer_content {

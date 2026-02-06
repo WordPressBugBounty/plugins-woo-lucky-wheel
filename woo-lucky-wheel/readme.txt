@@ -3,8 +3,8 @@ Contributors: villatheme, mrt3vn
 Donate link: https://www.villatheme.com/donate
 Tags: fortune wheel, mailchimp, wheelio for woocommerce, woocommerce fortune wheel, lucky wheel
 Requires at least: 5.0
-Tested up to: 6.8
-WC tested up to: 10.0
+Tested up to: 6.9
+WC tested up to: 10.4
 Stable tag: trunk
 License: GPL v2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -18,7 +18,6 @@ Lucky wheel spin and win attract customers to subscribe through spinning the luc
 WooCommerce Lucky Wheel is a WooCommerce extension that helps you to convert your site traffic into customers or at least, an email subscriber. It takes you a lot of work and money to have traffic to your store, so don’t waste it. Lucky wheel spin and win offers visitor entering their email address to spin the lucky wheel. Then the plugin will send a discount coupon to the subscribed email address. The subscribed email addresses from lucky wheel spin and win will be saved in back-end.
 
 >[Try the Demo](https://new2new.com/?item=woocommerce-lucky-wheel "Demo Lucky Wheel for WooCommerce") | [Documents](https://docs.villatheme.com/?item=woocommerce-lucky-wheel "Documents") | [Premium version](https://1.envato.market/qXBNY) | [Facebook group](https://www.facebook.com/groups/villatheme "VillaTheme")
-
 
 ###Preview Lucky Wheel for WooCommerce
 [youtube https://youtu.be/bfpzclEi1og]
@@ -231,7 +230,7 @@ Subscribed emails from lucky wheel spin and win will be saved to your database. 
 
 [Coupon Box for WooCommerce](https://wordpress.org/plugins/woo-coupon-box/)
 
-[CURCY - Multi Currency for WooCommerce - The best free currency exchange plugin - Run smoothly on WooCommerce 9.x](https://wordpress.org/plugins/woo-multi-currency/)
+[CURCY - Multi Currency for WooCommerce - Smoothly on WooCommerce 9.x](https://wordpress.org/plugins/woo-multi-currency/)
 
 [Customer Coupons for WooCommerce](https://wordpress.org/plugins/woo-customer-coupons/)
 
@@ -263,6 +262,8 @@ Subscribed emails from lucky wheel spin and win will be saved to your database. 
 
 [LookBook for WooCommerce - Shoppable with Product Tags](https://wordpress.org/plugins/woo-lookbook/)
 
+[Lucky Wheel Giveaway](https://wordpress.org/plugins/wp-lucky-wheel/)
+
 [Notification for WooCommerce | Boost Your Sales - Recent Sales Popup - Live Feed Sales - Upsells](https://wordpress.org/plugins/woo-notification/)
 
 [Orders Tracking for WooCommerce](https://wordpress.org/plugins/woo-orders-tracking/)
@@ -271,9 +272,9 @@ Subscribed emails from lucky wheel spin and win will be saved to your database. 
 
 [Pofily - WooCommerce Product Filters](https://wordpress.org/plugins/pofily-woo-product-filters/)
 
-[Product Builder for WooCommerce - Custom PC Builder](https://wordpress.org/plugins/woo-product-builder/)
+[PRENA - Product Pre-Orders for WooCommerce](https://wordpress.org/plugins/product-pre-orders-for-woo/)
 
-[Product Pre-Orders for WooCommerce](https://wordpress.org/plugins/product-pre-orders-for-woo/)
+[Product Builder for WooCommerce - Custom PC Builder](https://wordpress.org/plugins/woo-product-builder/)
 
 [Product Size Chart For WooCommerce](https://wordpress.org/plugins/product-size-chart-for-woo/)
 
@@ -295,13 +296,17 @@ Subscribed emails from lucky wheel spin and win will be saved to your database. 
 
 [TMDS - Dropshipping for TEMU and Woo](https://wordpress.org/plugins/tmds-dropshipping-for-temu-and-woo/)
 
-[VARGAL - Additional Variation Gallery for Woo](https://wordpress.org/plugins/vargal-additional-variation-gallery-for-woo/)
+[VARGAL - Additional Variation Gallery for WooCommerce](https://wordpress.org/plugins/vargal-additional-variation-gallery-for-woo/)
+
+[VillaTheme Core](https://wordpress.org/plugins/villatheme-core/)
+
+[VIMA - Multi Customer Addresses for Woo](https://wordpress.org/plugins/vima-multi-customer-addresses-for-woo/)
+
+[VISeek - Easy Custom Search](https://wordpress.org/plugins/viseek-easy-custom-search/)
 
 [W2S - Migrate WooCommerce to Shopify](https://wordpress.org/plugins/w2s-migrate-woo-to-shopify/)
 
 [WebPOS – Point of Sale for WooCommerce](https://wordpress.org/plugins/webpos-point-of-sale-for-woocommerce/)
-
-[WordPress Lucky Wheel - Spin a Sale](https://wordpress.org/plugins/wp-lucky-wheel/)
 
 [WPBulky - WordPress Bulk Edit Post Types](https://wordpress.org/plugins/wpbulky-wp-bulk-edit-post-types/)
 
@@ -334,6 +339,18 @@ Subscribed emails from lucky wheel spin and win will be saved to your database. 
 1. Subscribe email on popup
 
 == Changelog ==
+/**1.1.15 - 2026.01.17**/
+- Updated: VillaTheme support
+
+/**1.1.14 - 2025.12.27**/
+- Updated: Compatibility with PHP 8.2
+- Updated: Compatibility with CURCY
+
+/**1.1.13 - 2025.11.01**/
+- Updated: Compatibility with WooCommerce Email Template Customizer/Email Template Customizer for WooCommerce plugin from VillaTheme
+- Updated: Filter wlwl_replace_email_content to adjust the shortcode in the email
+- Updated: Compatibility with WC 10.3
+
 /**1.1.12 - 2025.07.24**/
 - Updated: VillaTheme support
 

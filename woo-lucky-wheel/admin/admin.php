@@ -383,21 +383,21 @@ class VI_WOO_LUCKY_WHEEL_Admin_Admin {
 			wp_enqueue_editor();
 			$this->settings::enqueue_style(
 				array(
-					'semantic-ui-accordion',
-					'semantic-ui-button',
-					'semantic-ui-checkbox',
-					'semantic-ui-dropdown',
-					'semantic-ui-segment',
-					'semantic-ui-form',
-					'semantic-ui-label',
-					'semantic-ui-input',
-					'semantic-ui-icon',
-					'semantic-ui-table',
-					'semantic-ui-message',
-					'semantic-ui-menu',
-					'semantic-ui-tab',
-					'transition',
-					'select2',
+					'wlwl_semantic-ui-accordion',
+					'wlwl_semantic-ui-button',
+					'wlwl_semantic-ui-checkbox',
+					'wlwl_semantic-ui-dropdown',
+					'wlwl_semantic-ui-segment',
+					'wlwl_semantic-ui-form',
+					'wlwl_semantic-ui-label',
+					'wlwl_semantic-ui-input',
+					'wlwl_semantic-ui-icon',
+					'wlwl_semantic-ui-table',
+					'wlwl_semantic-ui-message',
+					'wlwl_semantic-ui-menu',
+					'wlwl_semantic-ui-tab',
+					'wlwl_transition',
+					'wlwl_select2',
 				),
 				array(
 					'accordion',
@@ -438,12 +438,12 @@ class VI_WOO_LUCKY_WHEEL_Admin_Admin {
 				array(
 					'wordpress-lucky-wheel-fontselect',
 					'wordpress-lucky-wheel-address',
-					'semantic-ui-checkbox',
-					'semantic-ui-dropdown',
-					'semantic-ui-accordion',
-					'semantic-ui-tab',
-					'transition',
-					'select2'
+					'wlwl_semantic-ui-checkbox',
+					'wlwl_semantic-ui-dropdown',
+					'wlwl_semantic-ui-accordion',
+					'wlwl_semantic-ui-tab',
+					'wlwl_transition',
+					'wlwl_select2'
 				),
 				array(
 					'jquery.fontselect',
@@ -1039,6 +1039,27 @@ class VI_WOO_LUCKY_WHEEL_Admin_Admin {
         <div class="vi-ui message positive tiny">
             <ul class="list">
                 <li><?php echo wp_kses_post( __('Use <strong>{coupon_amount}</strong> for WooCommerce coupon type to refer to the amount of that coupon. e.g: Coupon type is percentage discount, coupon value is 10 then <strong>{coupon_amount}</strong> will become 10% when printing out on the wheel.','woo-lucky-wheel' ) ); ?></li>
+                <li>
+		            <?php
+		            echo wp_kses_post(__('You can use <a href="https://1.envato.market/BZZv1" target="_blank">WooCommerce Email Template Customizer</a> or <a href="http://bit.ly/woo-email-template-customizer" target="_blank">Email Template Customizer for WooCommerce</a> to create and customize your own email template for each prize. If no email template is selected, the default setting at <a href="#email">the \'Email\' tab</a> will be used.','woo-lucky-wheel'));
+		            ?>
+                </li>
+	            <?php
+	            if ( VI_WOO_LUCKY_WHEEL_Plugins_WooCommerce_Email_Template_Customizer::$is_active ) {
+		            ?>
+                    <li>
+                        <a href="edit.php?post_type=viwec_template"
+                           target="_blank"><?php esc_html_e( 'View all Email templates', 'woo-lucky-wheel' ) ?></a>
+			            <?php esc_html_e( 'or', 'woo-lucky-wheel' ) ?>
+                        <a href="post-new.php?post_type=viwec_template&sample=wlwl_coupon_email&style=basic"
+                           target="_blank"><?php esc_html_e( 'Create a new email template', 'woo-lucky-wheel' ) ?></a>
+                    </li>
+                    <li>
+			            <?php printf( esc_html( 'Important note: The custom email template must be assigned to each index (wheel segment). Otherwise, notification for that segment will use the default generic email instead. For more info, please see this %s.' ), '<a target="_blank" href="https://docs.villatheme.com/woocommerce-email-template-customizer/#configuration_child_menu_4818">documentation</a>' ); ?>
+                    </li>
+		            <?php
+	            }
+	            ?>
                 <li><?php esc_html_e('You can add only 6 slides. Please update to the premium version to add unlimited slices.','woo-lucky-wheel' )  ?>
                     <a class="vi-ui tiny button" href="https://1.envato.market/qXBNY"
                        target="_blank"><?php esc_html_e( 'Unlock This Feature', 'woo-lucky-wheel' ); ?> </a></li>
@@ -1053,22 +1074,28 @@ class VI_WOO_LUCKY_WHEEL_Admin_Admin {
                 <td><?php esc_attr_e( 'Value', 'woo-lucky-wheel' ) ?></td>
                 <td><?php esc_attr_e( 'Probability(%)', 'woo-lucky-wheel' ) ?></td>
                 <td><?php esc_attr_e( 'Color', 'woo-lucky-wheel' ) ?></td>
+	            <?php do_action('wlwl_wheel_settings_slices_column'); ?>
             </tr>
             </tbody>
             <tbody class="ui-sortable">
 			<?php
-			for ( $count = 0; $count < count( $this->settings->get_params( 'wheel', 'coupon_type' ) ); $count ++ ) {
+			$coupon_type         = $this->settings->get_params( 'wheel', 'coupon_type' );
+			if (!is_array($coupon_type)){
+				$coupon_type = [];
+			}
+			$coupon_count        = count( $coupon_type );
+			for ( $count = 0; $count < $coupon_count; $count ++ ) {
 				?>
-                <tr class="wheel_col">
+                <tr class="wheel_col <?php echo esc_attr( "wheel_col-{$coupon_type[ $count ]}" ); ?>">
                     <td class="wheel_col_index" width="40"><?php echo esc_html( $count + 1 ); ?></td>
                     <td class="wheel_col_coupons">
                         <select name="coupon_type[]" class="coupons_select vi-ui fluid dropdown">
-                            <option value="non" <?php selected( $this->settings->get_params( 'wheel', 'coupon_type' )[ $count ], 'non' ); ?>><?php esc_attr_e( 'Non', 'woo-lucky-wheel' ) ?></option>
-                            <option value="existing_coupon" <?php selected( $this->settings->get_params( 'wheel', 'coupon_type' )[ $count ], 'existing_coupon' ); ?>><?php esc_attr_e( 'Existing coupon', 'woo-lucky-wheel' ) ?></option>
-                            <option value="percent" <?php selected( $this->settings->get_params( 'wheel', 'coupon_type' )[ $count ], 'percent' ); ?>><?php esc_attr_e( 'Percentage discount', 'woo-lucky-wheel' ) ?></option>
-                            <option value="fixed_product" <?php selected( $this->settings->get_params( 'wheel', 'coupon_type' )[ $count ], 'fixed_product' ); ?>><?php esc_attr_e( 'Fixed product discount', 'woo-lucky-wheel' ) ?></option>
-                            <option value="fixed_cart" <?php selected( $this->settings->get_params( 'wheel', 'coupon_type' )[ $count ], 'fixed_cart' ); ?>><?php esc_attr_e( 'Fixed cart discount', 'woo-lucky-wheel' ) ?></option>
-                            <option value="custom" <?php selected( $this->settings->get_params( 'wheel', 'coupon_type' )[ $count ], 'custom' ); ?>><?php esc_attr_e( 'Custom', 'woo-lucky-wheel' ) ?></option>
+                            <option value="non" <?php selected( $coupon_type[ $count ], 'non' ); ?>><?php esc_attr_e( 'Non', 'woo-lucky-wheel' ) ?></option>
+                            <option value="existing_coupon" <?php selected( $coupon_type[ $count ], 'existing_coupon' ); ?>><?php esc_attr_e( 'Existing coupon', 'woo-lucky-wheel' ) ?></option>
+                            <option value="percent" <?php selected( $coupon_type[ $count ], 'percent' ); ?>><?php esc_attr_e( 'Percentage discount', 'woo-lucky-wheel' ) ?></option>
+                            <option value="fixed_product" <?php selected( $coupon_type[ $count ], 'fixed_product' ); ?>><?php esc_attr_e( 'Fixed product discount', 'woo-lucky-wheel' ) ?></option>
+                            <option value="fixed_cart" <?php selected( $coupon_type[ $count ], 'fixed_cart' ); ?>><?php esc_attr_e( 'Fixed cart discount', 'woo-lucky-wheel' ) ?></option>
+                            <option value="custom" <?php selected( $coupon_type[ $count ], 'custom' ); ?>><?php esc_attr_e( 'Custom', 'woo-lucky-wheel' ) ?></option>
                         </select>
                     </td>
                     <td class="wheel_col_coupons_value">
@@ -1079,23 +1106,23 @@ class VI_WOO_LUCKY_WHEEL_Admin_Admin {
                     </td>
                     <td class="wheel_col_coupons_value">
                         <input type="number" name="coupon_amount[]" min="0"
-                               class="coupon_amount <?php echo ( $this->settings->get_params( 'wheel', 'coupon_type' )[ $count ] == 'non' ) ? 'coupon-amount-readonly' : ''; ?>"
+                               class="coupon_amount <?php echo ( $coupon_type[ $count ] == 'non' ) ? 'coupon-amount-readonly' : ''; ?>"
                                value="<?php echo esc_attr( $this->settings->get_params( 'wheel', 'coupon_amount' )[ $count ] ); ?>"
                                placeholder="Coupon Amount"
-                               style="<?php if ( ! in_array( $this->settings->get_params( 'wheel', 'coupon_type' )[ $count ], array(
+                               style="<?php if ( ! in_array( $coupon_type[ $count ], array(
 							       'percent',
 							       'fixed_product',
 							       'fixed_cart',
 							       'non'
 						       ) ) ) {
 							       echo esc_attr( 'display:none;' );
-						       } ?>" <?php if ( isset( $this->settings->get_params( 'wheel', 'coupon_type' )[ $count ] ) && $this->settings->get_params( 'wheel', 'coupon_type' )[ $count ] == 'non' ) {
+						       } ?>" <?php if ( isset( $coupon_type[ $count ] ) && $coupon_type[ $count ] == 'non' ) {
 							echo esc_attr( 'readonly' );
 						} ?>/>
                         <input type="text" name="custom_type_value[]" class="custom_type_value"
                                value="<?php echo isset( $this->settings->get_params( 'wheel', 'custom_value' )[ $count ] ) ? esc_attr( $this->settings->get_params( 'wheel', 'custom_value' )[ $count ] ) : ''; ?>"
                                placeholder="Value/Code"
-                               style="<?php if ( in_array( $this->settings->get_params( 'wheel', 'coupon_type' )[ $count ], array(
+                               style="<?php if ( in_array( $coupon_type[ $count ], array(
 							       'existing_coupon',
 							       'percent',
 							       'fixed_product',
@@ -1105,7 +1132,7 @@ class VI_WOO_LUCKY_WHEEL_Admin_Admin {
 							       echo esc_attr( 'display:none;' );
 						       } ?>"/>
                         <div class="wlwl_existing_coupon"
-                             style="<?php if ( $this->settings->get_params( 'wheel', 'coupon_type' )[ $count ] != 'existing_coupon' ) {
+                             style="<?php if ( $coupon_type[ $count ] != 'existing_coupon' ) {
 							     echo esc_attr( 'display:none;' );
 						     } ?>">
                             <select name="wlwl_existing_coupon[]"
@@ -1135,6 +1162,7 @@ class VI_WOO_LUCKY_WHEEL_Admin_Admin {
                         <span class="remove_field negative vi-ui button"><?php esc_attr_e( 'Remove', 'woo-lucky-wheel' ); ?></span>
                         <span class="clone_piece positive vi-ui button"><?php esc_attr_e( 'Clone', 'woo-lucky-wheel' ); ?></span>
                     </td>
+	                <?php do_action('wlwl_wheel_settings_slices_column_content',$count); ?>
                 </tr>
 				<?php
 			}
@@ -1431,6 +1459,14 @@ class VI_WOO_LUCKY_WHEEL_Admin_Admin {
 								       echo esc_attr( $this->settings->get_params( 'wheel_wrap', 'pointer_color' ) );
 							       } ?>;">
                             <p class="description"><?php esc_html_e( 'Wheel pointer color', 'woo-lucky-wheel' ); ?></p>
+                        </div>
+                        <div class="field">
+                            <select name="pointer_effect" id="pointer_effect" class="vi-ui fluid dropdown">
+                                <option value="0" selected><?php esc_html_e( 'None', 'woo-lucky-wheel' ); ?></option>
+                                <option value="1" disabled><?php esc_html_e( 'Change color - Premium version only', 'woo-lucky-wheel' ); ?></option>
+                                <option value="2" disabled><?php esc_html_e( 'Move - Premium version only', 'woo-lucky-wheel' ); ?></option>
+                            </select>
+                            <p class="description"><?php esc_html_e( 'The wheel pointer\'s effect while spinning', 'woo-lucky-wheel' ); ?></p>
                         </div>
                     </div>
                 </td>
@@ -2522,6 +2558,7 @@ class VI_WOO_LUCKY_WHEEL_Admin_Admin {
 				'spinning_time'    => 8,
 				'coupon_type'      => isset( $_POST['coupon_type'] ) ? stripslashes_deep( array_map( 'sanitize_text_field', $_POST['coupon_type'] ) ) : array(),
 				'coupon_amount'    => isset( $_POST['coupon_amount'] ) ? array_map( 'sanitize_text_field', $_POST['coupon_amount'] ) : array(),
+				'email_templates'    => isset( $_POST['email_templates'] ) ? array_map( 'sanitize_text_field', $_POST['email_templates'] ) : array(),
 				'custom_value'     => isset( $_POST['custom_type_value'] ) ? array_map( 'wlwl_sanitize_text_field', $_POST['custom_type_value'] ) : array(),
 				'custom_label'     => isset( $_POST['custom_type_label'] ) ? array_map( 'wlwl_sanitize_text_field', $_POST['custom_type_label'] ) : array(),
 				'existing_coupon'  => isset( $_POST['wlwl_existing_coupon'] ) ? array_map( 'sanitize_text_field', $_POST['wlwl_existing_coupon'] ) : array(),

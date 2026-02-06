@@ -52,13 +52,13 @@ class VI_WOO_LUCKY_WHEEL_DATA {
  	<li><em><span style="color: #dbdbdb;">No cheating</span></em></li>
 </ul>',
 				'bg_image'               => VI_WOO_LUCKY_WHEEL_IMAGES . '2020.png',
-				'bg_color'               => '#189a7a',
+				'bg_color'               => '#36622b',
 				'text_color'             => '#ffffff',
 				'spin_button'            => 'Try Your Lucky',
 				'spin_button_color'      => '#000000',
 				'spin_button_bg_color'   => '#ffbe10',
 				'pointer_position'       => 'center',
-				'pointer_color'          => '#f70707',
+				'pointer_color'          => '#000000',
 				'wheel_center_image'     => '',
 				'wheel_center_color'     => '#ffffff',
 				'wheel_border_color'     => '#ffffff',
@@ -94,14 +94,7 @@ class VI_WOO_LUCKY_WHEEL_DATA {
 				),
 				'coupon_amount'     => array( '0', '5', '0', '10', '0', '15' ),
 				'probability'       => array( '25', '15', '25', '6', '25', '4' ),
-				'bg_color'          => array(
-					'#ffe0b2',
-					'#e65100',
-					'#ffb74d',
-					'#fb8c00',
-					'#ffe0b2',
-					'#e65100',
-				),
+				'bg_color'          => ['#c8e6c9', '#81c784', '#43a047', '#1b5e20', '#c8e6c9', '#81c784'],
 				'slice_text_color'  => '#fff',//free version
 				'slices_text_color' => array(
 					'#fff',

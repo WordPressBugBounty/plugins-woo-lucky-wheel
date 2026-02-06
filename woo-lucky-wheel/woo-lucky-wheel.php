@@ -2,18 +2,18 @@
 /**
  * Plugin Name: Lucky Wheel for WooCommerce
  * Description: Engage customers with a fun spin-the-wheel game! Collect emails and reward them with discount coupons instantly.
- * Version: 1.1.12
+ * Version: 1.1.15
  * Author: VillaTheme
  * Author URI: http://villatheme.com
  * License:           GPL v2 or later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
  * Text Domain: woo-lucky-wheel
  * Domain Path: /languages
- * Copyright 2018-2025 VillaTheme.com. All rights reserved.
+ * Copyright 2018-2026 VillaTheme.com. All rights reserved.
  * Requires at least: 5.0
- * Tested up to: 6.8
- * WC requires at least: 7.0.0
- * WC tested up to: 10.0
+ * Tested up to: 6.9
+ * WC requires at least: 7.0
+ * WC tested up to: 10.4
  * Requires PHP: 7.0
  * Requires Plugins: woocommerce
  */
@@ -22,12 +22,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 if ( ! defined( 'VI_WOO_LUCKY_WHEEL_VERSION' ) ) {
-	define( 'VI_WOO_LUCKY_WHEEL_VERSION', '1.1.12' );
+	define( 'VI_WOO_LUCKY_WHEEL_VERSION', '1.1.15' );
 	define( 'VI_WOO_LUCKY_WHEEL_DIR', plugin_dir_path( __FILE__ ) );
 	define( 'VI_WOO_LUCKY_WHEEL_INCLUDES', VI_WOO_LUCKY_WHEEL_DIR . "includes" . DIRECTORY_SEPARATOR );
 	define( 'VI_WOO_LUCKY_WHEEL_LANGUAGES', VI_WOO_LUCKY_WHEEL_DIR . "languages" . DIRECTORY_SEPARATOR );
 	define( 'VI_WOO_LUCKY_WHEEL_ADMIN', VI_WOO_LUCKY_WHEEL_DIR . "admin" . DIRECTORY_SEPARATOR );
 	define( 'VI_WOO_LUCKY_WHEEL_FRONTEND', VI_WOO_LUCKY_WHEEL_DIR . "frontend" . DIRECTORY_SEPARATOR );
+	define( 'VI_WOO_LUCKY_WHEEL_PLUGINS', VI_WOO_LUCKY_WHEEL_DIR . "plugins" . DIRECTORY_SEPARATOR );
 	$plugin_url = plugins_url( '', __FILE__ );
 	$plugin_url = str_replace( '/includes', '', $plugin_url );
 	define( 'VI_WOO_LUCKY_WHEEL_CSS', $plugin_url . "/css/" );
@@ -88,6 +89,7 @@ if ( ! class_exists( 'Woo_Lucky_Wheel' ) ):
 	        require_once VI_WOO_LUCKY_WHEEL_INCLUDES . "support.php";
 	        vi_include_folder( VI_WOO_LUCKY_WHEEL_ADMIN, 'VI_WOO_LUCKY_WHEEL_Admin_' );
 	        vi_include_folder( VI_WOO_LUCKY_WHEEL_FRONTEND, 'VI_WOO_LUCKY_WHEEL_Frontend_' );
+	        vi_include_folder( VI_WOO_LUCKY_WHEEL_PLUGINS, 'VI_WOO_LUCKY_WHEEL_Plugins_' );
         }
 
 		public function before_woocommerce_init() {
