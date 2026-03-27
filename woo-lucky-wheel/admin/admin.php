@@ -121,6 +121,10 @@ class VI_WOO_LUCKY_WHEEL_Admin_Admin {
 	}
 
 	public function preview_wheel_ajax() {
+		if ( ! current_user_can( 'manage_options' ) ) {
+			wp_die( -1 );
+		}
+		check_ajax_referer( 'wlwl_nonce', 'nonce' );
 		$label         = isset( $_GET['label'] ) ? wc_clean( $_GET['label'] ) : array();//phpcs:ignore WordPress.Security.NonceVerification.Recommended
 		$coupon_type   = isset( $_GET['coupon_type'] ) ? wc_clean( $_GET['coupon_type'] ) : array();//phpcs:ignore WordPress.Security.NonceVerification.Recommended
 		$coupon_amount = isset( $_GET['coupon_amount'] ) ? wc_clean( $_GET['coupon_amount'] ) : array();//phpcs:ignore WordPress.Security.NonceVerification.Recommended
@@ -147,6 +151,10 @@ class VI_WOO_LUCKY_WHEEL_Admin_Admin {
 	}
 
 	public function preview_emails_ajax() {
+		if ( ! current_user_can( 'manage_options' ) ) {
+			wp_die( -1 );
+		}
+		check_ajax_referer( 'wlwl_nonce', 'nonce' );
 		$content              = isset( $_GET['content'] ) ? wp_kses_post( stripslashes( $_GET['content'] ) ) : '';//phpcs:ignore WordPress.Security.NonceVerification.Recommended
 		$email_heading        = isset( $_GET['heading'] ) ? wc_clean( stripslashes( $_GET['heading'] ) ) : '';//phpcs:ignore WordPress.Security.NonceVerification.Recommended
 		$button_shop_url      = isset( $_GET['button_shop_url'] ) ? wc_clean( stripslashes( $_GET['button_shop_url'] ) ) : '';//phpcs:ignore WordPress.Security.NonceVerification.Recommended
@@ -188,12 +196,13 @@ class VI_WOO_LUCKY_WHEEL_Admin_Admin {
 		if ( ! current_user_can( 'manage_options' ) ) {
 			return;
 		}
+		check_ajax_referer( 'wlwl_nonce', 'nonce' );
 
 		ob_start();
 
-		$keyword = isset( $_GET['keyword'] ) ? sanitize_text_field( $_GET['keyword'] ) : '';
+		$keyword = isset( $_GET['keyword'] ) ? sanitize_text_field( wp_unslash( $_GET['keyword'] ) ) : '';
 		if ( ! $keyword ) {
-			$keyword = isset( $_POST['keyword'] ) ? sanitize_text_field( $_POST['keyword'] ) : '';
+			$keyword = isset( $_POST['keyword'] ) ? sanitize_text_field( wp_unslash( $_POST['keyword'] ) ) : '';
 		}
 		if ( empty( $keyword ) ) {
 			die();
@@ -225,10 +234,11 @@ class VI_WOO_LUCKY_WHEEL_Admin_Admin {
 		if ( ! current_user_can( 'manage_options' ) ) {
 			return;
 		}
+		check_ajax_referer( 'wlwl_nonce', 'nonce' );
 
 		ob_start();
 
-		$keyword = isset( $_GET['keyword'] ) ? sanitize_text_field( $_GET['keyword'] ) : '';
+		$keyword = isset( $_GET['keyword'] ) ? sanitize_text_field( wp_unslash( $_GET['keyword'] ) ) : '';
 
 		if ( empty( $keyword ) ) {
 			die();
@@ -292,8 +302,9 @@ class VI_WOO_LUCKY_WHEEL_Admin_Admin {
 		if ( ! current_user_can( 'manage_options' ) ) {
 			return;
 		}
+		check_ajax_referer( 'wlwl_nonce', 'nonce' );
 		ob_start();
-		$keyword = isset( $_GET['keyword'] ) ? sanitize_text_field( $_GET['keyword'] ) : '';
+		$keyword = isset( $_GET['keyword'] ) ? sanitize_text_field( wp_unslash( $_GET['keyword'] ) ) : '';
 		if ( empty( $keyword ) ) {
 			die();
 		}
@@ -338,10 +349,11 @@ class VI_WOO_LUCKY_WHEEL_Admin_Admin {
 		if ( ! current_user_can( 'manage_options' ) ) {
 			return;
 		}
+		check_ajax_referer( 'wlwl_nonce', 'nonce' );
 
 		ob_start();
 
-		$keyword = isset( $_GET['keyword'] ) ? sanitize_text_field( $_GET['keyword'] ) : '';
+		$keyword = isset( $_GET['keyword'] ) ? sanitize_text_field( wp_unslash( $_GET['keyword'] ) ) : '';
 
 		if ( empty( $keyword ) ) {
 			die();

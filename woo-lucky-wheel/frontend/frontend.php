@@ -367,7 +367,8 @@ class VI_WOO_LUCKY_WHEEL_Frontend_Frontend {
                 'custom_field_name_required'      => $this->settings->get_params( 'custom_field_name_required' ) === 'on' ? 1 : '',
                 'custom_field_name_message'       => esc_html__( 'Name is required!', 'woo-lucky-wheel' ),
                 'show_full_wheel'                 => $this->settings->get_params( 'wheel', 'show_full_wheel' ),
-                'wlwl_mobile_enable'              => $mobile_enable
+                'wlwl_mobile_enable'              => $mobile_enable,
+                'nonce'           => apply_filters('wlwl_get_wheel_nonce',1)?wp_create_nonce( 'woocommerce_lucky_wheel_nonce_action' ):'',
         ),apply_filters('wlwl_get_default_params',[])) );
         add_action( 'wp_footer', array( $this, 'draw_wheel' ) );
     }
@@ -390,7 +391,6 @@ class VI_WOO_LUCKY_WHEEL_Frontend_Frontend {
             return;
         }
         echo '<div class="wlwl_lucky_wheel_wrap">';
-        wp_nonce_field( 'woocommerce_lucky_wheel_nonce_action', '_woocommerce_lucky_wheel_nonce' );
         $class = array( 'wlwl_lucky_wheel_content' );//lucky_wheel_content_tablet,wlwl_lucky_wheel_content_mobile
         ?>
         <div class="wlwl-overlay"></div>
@@ -535,8 +535,8 @@ class VI_WOO_LUCKY_WHEEL_Frontend_Frontend {
     }
 
     public function get_email() {
-        if ( isset($_REQUEST['_woocommerce_lucky_wheel_nonce']) &&
-             !wp_verify_nonce(sanitize_text_field(wp_unslash($_REQUEST['_woocommerce_lucky_wheel_nonce'])), 'woocommerce_lucky_wheel_nonce_action') ) {
+        if (apply_filters('wlwl_get_wheel_nonce',1) && ( !isset($_REQUEST['_woocommerce_lucky_wheel_nonce']) ||
+             !wp_verify_nonce(sanitize_text_field(wp_unslash($_REQUEST['_woocommerce_lucky_wheel_nonce'])), 'woocommerce_lucky_wheel_nonce_action')) ) {
             $msg            = array(
                     'allow_spin'              => 'Invalid nonce, please reload and try again.',
             );
@@ -547,8 +547,8 @@ class VI_WOO_LUCKY_WHEEL_Frontend_Frontend {
             header( "Access-Control-Allow-Origin: *" );
             header( 'Access-Control-Allow-Methods: POST' );
         }
-        $email  = isset( $_POST["user_email"] ) ? sanitize_email( strtolower( $_POST["user_email"] ) ) : '';
-        $name   = ( isset( $_POST["user_name"] ) && $_POST["user_name"] ) ? sanitize_text_field( $_POST["user_name"] ) : 'Sir/Madam';
+        $email  = isset( $_POST["user_email"] ) ? sanitize_email( strtolower( wp_unslash( $_POST["user_email"] ) ) ) : '';
+        $name   = ( isset( $_POST["user_name"] ) && $_POST["user_name"] ) ? sanitize_text_field( wp_unslash( $_POST["user_name"] ) ) : 'Sir/Madam';
         $mobile = '';
         if ( ! $email || ! is_email( $email ) ) {
             wp_send_json(
@@ -751,7 +751,7 @@ class VI_WOO_LUCKY_WHEEL_Frontend_Frontend {
                             $result_notification = str_replace( '{coupon_code}', '<strong>' . $code . '</strong>', $result_notification );
                         }
                         $result_notification = str_replace( '{coupon_label}', '<strong>' . $wheel_label . '</strong>', $result_notification );
-                        $result_notification = str_replace( '{customer_name}', '<strong>' . ( isset( $_POST['user_name'] ) ? wc_clean( $_POST['user_name'] ) : '' ) . '</strong>', $result_notification );
+                        $result_notification = str_replace( '{customer_name}', '<strong>' . ( isset( $_POST['user_name'] ) ? sanitize_text_field( wp_unslash( $_POST['user_name'] ) ) : '' ) . '</strong>', $result_notification );
                         $result_notification = str_replace( '{customer_email}', '<strong>' . $email . '</strong>', $result_notification );
                         $result_notification = str_replace( '{checkout}', '<a href="' . wc_get_checkout_url() . '">' . esc_html__( 'Checkout', 'woo-lucky-wheel' ) . '</a>', $result_notification );
                     }
@@ -856,7 +856,7 @@ class VI_WOO_LUCKY_WHEEL_Frontend_Frontend {
                     $result_notification = str_replace( '{coupon_code}', '<strong>' . $code . '</strong>', $result_notification );
                 }
                 $result_notification = str_replace( '{coupon_label}', '<strong>' . $wheel_label . '</strong>', $result_notification );
-                $result_notification = str_replace( '{customer_name}', '<strong>' . ( isset( $_POST['user_name'] ) ? wc_clean( $_POST['user_name'] ) : '' ) . '</strong>', $result_notification );
+                $result_notification = str_replace( '{customer_name}', '<strong>' . ( isset( $_POST['user_name'] ) ? sanitize_text_field( wp_unslash( $_POST['user_name'] ) ) : '' ) . '</strong>', $result_notification );
                 $result_notification = str_replace( '{customer_email}', '<strong>' . $email . '</strong>', $result_notification );
                 $result_notification = str_replace( '{checkout}', '<a href="' . wc_get_checkout_url() . '">' . esc_html__( 'Checkout', 'woo-lucky-wheel' ) . '</a>', $result_notification );
                 $result_notification = str_replace( array( '\n', '/n' ), ' ', $result_notification );

@@ -462,7 +462,8 @@ jQuery(document).ready(function ($) {
             delay: 250,
             data: function (params) {
                 return {
-                    keyword: params.term
+                    keyword: params.term,
+                    nonce: woo_lucky_wheel_params_admin.nonce
                 };
             },
             processResults: function (data) {
@@ -488,7 +489,8 @@ jQuery(document).ready(function ($) {
             delay: 250,
             data: function (params) {
                 return {
-                    keyword: params.term
+                    keyword: params.term,
+                    nonce: woo_lucky_wheel_params_admin.nonce
                 };
             },
             processResults: function (data) {
@@ -513,7 +515,8 @@ jQuery(document).ready(function ($) {
             delay: 250,
             data: function (params) {
                 return {
-                    keyword: params.term
+                    keyword: params.term,
+                    nonce: woo_lucky_wheel_params_admin.nonce
                 };
             },
             processResults: function (data) {
@@ -557,6 +560,7 @@ jQuery(document).ready(function ($) {
             dataType: 'JSON',
             data: {
                 action: 'wlwl_preview_emails',
+                nonce: woo_lucky_wheel_params_admin.nonce,
                 heading: $('#heading').val(),
                 content: tinyMCE.get('content') ? tinyMCE.get('content').getContent() : $('#content').val(),
                 button_shop_url: $('#wlwl_button_shop_url').val(),
@@ -602,6 +606,7 @@ jQuery(document).ready(function ($) {
             dataType: 'JSON',
             data: {
                 action: 'wlwl_preview_wheel',
+                nonce: woo_lucky_wheel_params_admin.nonce,
                 label: label,
                 coupon_type: coupon_type,
                 coupon_amount: coupon_amount,

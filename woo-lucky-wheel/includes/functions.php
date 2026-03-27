@@ -44,9 +44,12 @@ if ( ! function_exists( 'wlwl_is_url_exist' ) ) {
 	function wlwl_is_url_exist( $url = '' ) {
 		try {
 			$r = wp_remote_get( $url );
+			if ( is_wp_error( $r ) ) {
+				return false;
+			}
+			$code = wp_remote_retrieve_response_code( $r );
 
-			return true;
-
+			return $code >= 200 && $code < 400;
 		} catch ( \Exception $e ) {
 			return false;
 		}

@@ -1,3 +1,6 @@
+/**1.2.0 - 2026.03.27**/
+- Updated: Optimize code
+
 /**1.1.15 - 2026.01.17**/
 - Updated: VillaTheme support
 

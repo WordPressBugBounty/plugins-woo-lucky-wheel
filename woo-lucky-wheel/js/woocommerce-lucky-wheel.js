@@ -154,7 +154,7 @@
                             user_email: wlwl_email,
                             user_name: wlwl_name,
                             is_desktop: !is_mobile ? 1: '',
-                            _woocommerce_lucky_wheel_nonce: $('#_woocommerce_lucky_wheel_nonce').val(),
+                            _woocommerce_lucky_wheel_nonce: wheel_params.nonce,
                         },
                         success: function (response) {
                             if (response.allow_spin === 'yes') {

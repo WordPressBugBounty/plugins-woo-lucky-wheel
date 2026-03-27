@@ -36,6 +36,9 @@ class VI_WOO_LUCKY_WHEEL_Admin_Mailchimp {
 							'Content-Type'  => 'application/json',
 						],
 					] );
+					if ( is_wp_error( $r ) ) {
+						return false;
+					}
 
 					$body = wp_remote_retrieve_body( $r );
 
@@ -81,6 +84,9 @@ class VI_WOO_LUCKY_WHEEL_Admin_Mailchimp {
 					],
 					'body'    => $data,
 				] );
+				if ( is_wp_error( $r ) ) {
+					return false;
+				}
 
 				$body = wp_remote_retrieve_body( $r );
 
