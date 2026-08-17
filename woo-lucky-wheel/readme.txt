@@ -4,7 +4,9 @@ Donate link: https://www.villatheme.com/donate
 Tags: fortune wheel, mailchimp, wheelio for woocommerce, woocommerce fortune wheel, lucky wheel
 Requires at least: 5.0
 Tested up to: 7.0
-WC tested up to: 10.8.1
+Requires PHP: 7.0
+WC requires at least: 7.0
+WC tested up to: 11.0
 Stable tag: trunk
 License: GPL v2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -17,7 +19,7 @@ Lucky wheel spin and win attract customers to subscribe through spinning the luc
 
 WooCommerce Lucky Wheel is a WooCommerce extension that helps you to convert your site traffic into customers or at least, an email subscriber. It takes you a lot of work and money to have traffic to your store, so don’t waste it. Lucky wheel spin and win offers visitor entering their email address to spin the lucky wheel. Then the plugin will send a discount coupon to the subscribed email address. The subscribed email addresses from lucky wheel spin and win will be saved in back-end.
 
->[Try the Demo](https://new2new.com/?item=woocommerce-lucky-wheel "Demo Lucky Wheel for WooCommerce") | [Documents](https://docs.villatheme.com/?item=woocommerce-lucky-wheel "Documents") | [Premium version](https://1.envato.market/qXBNY) | [Facebook group](https://www.facebook.com/groups/villatheme "VillaTheme")
+>[Try the Demo](https://new2new.com/?item=woocommerce-lucky-wheel "Demo Lucky Wheel for WooCommerce") | [Documents](https://docs.villatheme.com/?item=woocommerce-lucky-wheel "Documents") | [Premium version](https://villatheme.com/extensions/woocommerce-lucky-wheel/) | [Facebook group](https://www.facebook.com/groups/villatheme "VillaTheme")
 
 ###Preview Lucky Wheel for WooCommerce
 [youtube https://youtu.be/bfpzclEi1og]
@@ -327,8 +329,8 @@ Subscribed emails from lucky wheel spin and win will be saved to your database. 
 == Installation ==
 
 1. Unzip the download package
-1. Upload `woo-lucky-wheel` to the `/wp-content/plugins/` directory
-1. Activate the plugin through the 'Plugins' menu in WordPress
+2. Upload `woo-lucky-wheel` to the `/wp-content/plugins/` directory
+3. Activate the plugin through the 'Plugins' menu in WordPress
 
 == Frequently Asked Questions ==
 
@@ -339,224 +341,228 @@ Subscribed emails from lucky wheel spin and win will be saved to your database. 
 1. Subscribe email on popup
 
 == Changelog ==
-/**1.2.1 - 2026.06.20**/
+2026.08.17 - version 1.2.2
+- Updated: Compatibility check with WC 11.0
+- Updated: Optimize code
+
+2026.06.20 - version 1.2.1
 - Updated: VillaTheme support
 – Updated: Compatible with WP 7.0 and WC 10.8.1
 
-/**1.2.0 - 2026.03.27**/
+2026.03.27 - version 1.2.0
 - Updated: Optimize code
 
-/**1.1.15 - 2026.01.17**/
+2026.01.17 - version 1.1.15
 - Updated: VillaTheme support
 
-/**1.1.14 - 2025.12.27**/
+2025.12.27 - version 1.1.14
 - Updated: Compatibility with PHP 8.2
 - Updated: Compatibility with CURCY
 
-/**1.1.13 - 2025.11.01**/
+2025.11.01 - version 1.1.13
 - Updated: Compatibility with WooCommerce Email Template Customizer/Email Template Customizer for WooCommerce plugin from VillaTheme
 - Updated: Filter wlwl_replace_email_content to adjust the shortcode in the email
 - Updated: Compatibility with WC 10.3
 
-/**1.1.12 - 2025.07.24**/
+2025.07.24 - version 1.1.12
 - Updated: VillaTheme support
 
-/**1.1.11 - 2025.05.22**/
+2025.05.22 - version 1.1.11
 - Updated: VillaTheme support
 
-/**1.1.10 - 2025.03.07**/
+2025.03.07 - version 1.1.10
 - Updated: Allow setting empty - not to limit the number of spins per email
 
-/**1.1.9 - 2025.03.13**/
+2025.03.13 - version 1.1.9
 - Updated: Compatibility with WC9.6
 
-/**1.1.8 - 2025.01.21**/
+2025.01.21 - version 1.1.8
 - Fixed: wheel not spinning
 
-/**v1.1.7 - 2024.12.20**/
+2024.12.20 - version 1.1.7
 - Updated: Compatibility with WC9.5
 
-/**1.1.6 - 2024.11.28**/
+2024.11.28 - version 1.1.6
 - Added: Option help you can choose between using the plugin's default background image or replacing it with one of your own
 – Updated: Remove the option 'Enable mobile' and add an option 'Small screen'
 – Updated: Add 12 preset color palette selections for the wheel slides
 – Updated: New design for settings page
 - Updated: Compatibility with WC9.4 and WP6.7
 
-/**1.1.5 - 2024.10.11**/
+2024.10.11 - version 1.1.5
 – Updated: Compatible WC 9.3 and  WP 6.6
 - Updated: Class support
 
-/**1.1.4 - 2024.07.03**/
+2024.07.03 - version 1.1.4
 - Fixed: Style pointer
 – Updated: Compatible WC 9.0.2 and  WP 6.5.5
 - Updated: Security update
 - Updated: Update support file
 
-/**1.1.3 - 2024.04.13**/
+2024.04.13 - version 1.1.3
 – Added: do_shortcode email content
 – Updated: Compatible WC 8.7 and  WP 6.5.2
 - Fixed: Display GDPR
 
-/**1.1.2 - 2023.11.09**/
+2023.11.09 - version 1.1.2
 – Updated: Compatible with HPOS - WC 8.2.2 and  WP 6.4.1
 - Fixed: Get lists Mailchimp API
 
-/**1.1.1 - 2023.09.22**/
+2023.09.22 - version 1.1.1
 – Updated: Compatible with HPOS - WC 8.0.3 and  WP 6.3.0
 
-/**1.1.0 - 2023.07.15**/
+2023.07.15 - version 1.1.0
 – Updated: Compatible with HPOS - WC 7.8.0 and  WP 6.2.2
 - Updated: Update support file
 
-/**1.0.18 - 2023.02.28**/
+2023.02.28 - version 1.0.18
 - Fixed: fix domain file name
 
-/**1.0.17 - 2023.02.23**/
+2023.02.23 - version 1.0.17
 - Updated: Update support file
 – Updated: Compatible with WC 7.4.0 and WP6.1
 – Updated: Language file
 
-/**1.0.16 - 2022.06.02**/
+2022.06.02 - version 1.0.16
 - Updated: Allow to set coupon value = 0
 
-/**1.0.15 - 2022.05.21**/
+2022.05.21 - version 1.0.15
 - Updated: Compatible WooCommerce 6.5.0 and WP6.0
 - Updated: Update support file
 
-/**1.0.14 - 2022.05.02**/
+2022.05.02 - version 1.0.14
 - Fixed: Fixed mobile detect
 
-/**1.0.13 - 2022.04.28**/
+2022.04.28 - version 1.0.13
 - Fixed: Not showing the background image of the popup
 - Updated: Compatible WooCommerce 6.4.0
 
-/**1.0.12 - 2022.04.11**/
+2022.04.11 - version 1.0.12
 - Updated: Security update
 
-/**1.0.11 - 2022.04.07**/
+2022.04.07 - version 1.0.11
 - Updated: Security update
 
-/**1.0.10 - 2022.03.29 **/
+2022.03.29 - version 1.0.10
 - Updated: Update support file
 
-/**1.0.9 - 2022.03.21 **/
+2022.03.21 - version 1.0.9
 - Updated: Compatible WP 5.9 and WooCommerce 6.3.0
 - Updated: Update support file
 - Fixed: The display error on the backend
 
-/**1.0.8.3 - 2021.12.26 **/
+2021.12.26 - version 1.0.8.3
 - Updated: Compatible WooCommerce 6.0.0
 
-/**1.0.8.2 - 2021.08.16 **/
+2021.08.16 - version 1.0.8.2
 - Updated: Compatible with WP 5.8 and WooCommerce 5.5
 - Updated: Update support file
 
-/**1.0.8.1 - 2021.06.18 **/
+2021.06.18 - version 1.0.8.1
 - Updated: Update support file
 
-/**1.0.8 - 2021.06.01 **/
+2021.06.01 - version 1.0.8
 - Update: Dashboard notices
 
-/**v1.0.7.9 - 2021.03.12**/
+2021.03.12 - version 1.0.7.9
 - Updated: Remove default font-size of {coupon_code}
 
-/**v1.0.7.8 - 2020.08.14**/
-- Updated: Compatible with WP 5.5 and WC4.3
+2020.08.14 - version 1.0.7.8
+- Updated: Compatible with WP 5.5 and WC 4.3
 
-/**v1.0.7.7 - 2020.06.16**/
-- Added: Some hooks for integration purpose woo_lucky_wheel_get_email_before_validating_email, woo_lucky_wheel_get_email, woo_lucky_wheel_get_email_response
-- Updated: Compatible and WooCommerce 4.2
+2020.06.16 - version 1.0.7.7
+- Added: Some hooks for integration purpose: woo_lucky_wheel_get_email_before_validating_email, woo_lucky_wheel_get_email, woo_lucky_wheel_get_email_response
+- Updated: Compatible with WooCommerce 4.2
 
-/**v1.0.7.6 - 2020.04.23**/
+2020.04.23 - version 1.0.7.6
 - Updated: Class support
 
-/**v1.0.7.5 - 2020.03.23**/
-- Updated: Compatible with WP 5.4 and WC4.0
+2020.03.23 - version 1.0.7.5
+- Updated: Compatible with WP 5.4 and WC 4.0
 - Updated: Class support
 
-/**v1.0.7.4 - 2019.11.16**/
-- Updated: Compatible WP 5.3 and WooCommerce 3.8
+2019.11.16 - version 1.0.7.4
+- Updated: Compatible with WP 5.3 and WooCommerce 3.8
 
-/**v1.0.7.3 - 2019.10.09**/
+2019.10.09 - version 1.0.7.3
 - Updated: Premium URL
 
-**v1.0.7.2 - 2019.08.16**
-- Fixed: Currency symbol on wheel label does not displays space
-- Changed: Wheel spins with css
+2019.08.16 - version 1.0.7.2
+- Fixed: Currency symbol on wheel label does not display space
+- Changed: Wheel spins with CSS
 
-**v1.0.7.1 - 2019.05.10**
+2019.05.10 - version 1.0.7.1
 - Updated: Change plugin name
-- Updated: Change premium version url
+- Updated: Change premium version URL
 
-**v1.0.7 - 2019.03.30**
+2019.03.30 - version 1.0.7
 - Fixed: Error when updating WooCommerce
 - Updated: Able to dismiss ask-for-review message permanently
 
-**v1.0.6 - 2019.03.20**
+2019.03.20 - version 1.0.6
 - Fixed: Can not save settings when installing new in previous version
 - Fixed: Warning message when save settings
 - Updated: Make clicking "no thanks" have the same setting with "If customers close and not spin, show popup again after" option
 
-**v1.0.5 - 2019.01.14**
-- Fixed: Option Show only on Homepage, Blog page and Shop page
+2019.01.14 - version 1.0.5
+- Fixed: Option "Show only on Homepage, Blog page and Shop page"
 - Fixed: Blurry text on mobile
 - Added: Mailchimp API
 - Added: Unique coupon include/exclude products/categories
-- Added: Custom css field
-- Added: Option to show full wheel on desktop
+- Added: Custom CSS field
+- Added: Option to show the full wheel on desktop
 - Added: Preview emails
 - Added: Preview wheel
-- Added: Ajax endpoint
+- Added: AJAX endpoint
 - Updated: Shorten coupon code
-- Updated: All wheel slices labels is editable
-- Updated: Optimize getting data
+- Updated: Make all wheel slice labels editable
+- Updated: Optimize data retrieval
 - Updated: Class support
 
-**v1.0.4.5 - 2018.11.21**
+2018.11.21 - version 1.0.4.5
 - Updated: Class support
 
-**v1.0.4.4 - 2018.11.10**
+2018.11.10 - version 1.0.4.4
 - Updated: Class support
 
-**v1.0.4.3 - 2018.10.17**
+2018.10.17 - version 1.0.4.3
 - Updated: Class support
 
-**v1.0.4.2 - 2018.10.15**
+2018.10.15 - version 1.0.4.2
 - Fixed: Class support
 
-**v1.0.4.1 - 2018.09.19**
+2018.09.19 - version 1.0.4.1
 - Fixed: Coupon select
 
-**v1.0.4 - 2018.09.08**
-- Fixed: Ajax search product
+2018.09.08 - version 1.0.4
+- Fixed: AJAX product search
 - Fixed: Some texts not translated
 - Added: Slices text color option
-- Added: Option to set time to show popup again when customers close and do not spin
+- Added: Option to set the time to show the popup again when customers close it without spinning
 - Added: GDPR checkbox
 
-**v1.0.3.1 - 2018.05.11**
+2018.05.11 - version 1.0.3.1
 - Updated: Class support
 
-**v1.0.3 - 2018.04.26**
-- Added: Select Google fonts
+2018.04.26 - version 1.0.3
+- Added: Select Google Fonts
 - Added: Class woocommerce-lucky-wheel-popup-icon to embed in elsewhere
-- Fixed: Responsive on mobile
+- Fixed: Responsive layout on mobile
 
-**v1.0.2.1 - 2018.04.11**
+2018.04.11 - version 1.0.2.1
 - Fixed: Class support
-- Updated: Remove CSS, JS
+- Updated: Remove CSS and JS
 
-**v1.0.2-2018.04.04**
+2018.04.04 - version 1.0.2
 - Added: Existing coupon
 - Changed: Spinning speed
-- Changed: Wheel settings(back end)
+- Changed: Wheel settings in the backend
 
-**v1.0.1-2018.03.27**
+2018.03.27 - version 1.0.1
 - Added: Automatically show wheel
-- Added: Auto generate slices color
+- Added: Auto-generate slice colors
 - Added: Custom award type
-- Added: Villatheme support
+- Added: VillaTheme support
 
-**v1.0.0-2018.03.09**
+2018.03.09 - version 1.0.0
 - First release.

@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Lucky Wheel for WooCommerce
  * Description: Engage customers with a fun spin-the-wheel game! Collect emails and reward them with discount coupons instantly.
- * Version: 1.2.1
+ * Version: 1.2.2
  * Author: VillaTheme
  * Author URI: http://villatheme.com
  * License:           GPL v2 or later
@@ -13,7 +13,7 @@
  * Requires at least: 5.0
  * Tested up to: 7.0
  * WC requires at least: 7.0
- * WC tested up to: 10.8.1
+ * WC tested up to: 11.0
  * Requires PHP: 7.0
  * Requires Plugins: woocommerce
  */
@@ -22,7 +22,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 if ( ! defined( 'VI_WOO_LUCKY_WHEEL_VERSION' ) ) {
-	define( 'VI_WOO_LUCKY_WHEEL_VERSION', '1.2.1' );
+	define( 'VI_WOO_LUCKY_WHEEL_VERSION', '1.2.2' );
 	define( 'VI_WOO_LUCKY_WHEEL_DIR', plugin_dir_path( __FILE__ ) );
 	define( 'VI_WOO_LUCKY_WHEEL_INCLUDES', VI_WOO_LUCKY_WHEEL_DIR . "includes" . DIRECTORY_SEPARATOR );
 	define( 'VI_WOO_LUCKY_WHEEL_LANGUAGES', VI_WOO_LUCKY_WHEEL_DIR . "languages" . DIRECTORY_SEPARATOR );
@@ -114,7 +114,7 @@ if ( ! class_exists( 'Woo_Lucky_Wheel' ) ):
         public function render_wlwl_email_settings(){
             ?>
             <a class="vi-ui button" target="_blank"
-               href="https://1.envato.market/qXBNY"><?php esc_html_e( 'Upgrade This Feature', 'woo-lucky-wheel' ) ?></a>
+               href="https://villatheme.com/extensions/woocommerce-lucky-wheel/"><?php esc_html_e( 'Upgrade This Feature', 'woo-lucky-wheel' ) ?></a>
             <?php
         }
 
@@ -223,7 +223,7 @@ if ( ! class_exists( 'Woo_Lucky_Wheel' ) ):
 						'support'    => 'https://wordpress.org/support/plugin/woo-lucky-wheel/',
 						'docs'       => 'https://docs.villatheme.com/?item=woocommerce-lucky-wheel',
 						'review'     => 'https://wordpress.org/support/plugin/woo-lucky-wheel/reviews/?rate=5#rate-response',
-						'pro_url'    => 'https://1.envato.market/qXBNY',
+						'pro_url'    => 'https://villatheme.com/extensions/woocommerce-lucky-wheel/',
 						'css'        => VI_WOO_LUCKY_WHEEL_CSS,
 						'image'      => VI_WOO_LUCKY_WHEEL_IMAGES,
 						'slug'       => 'woo-lucky-wheel',

@@ -641,7 +641,7 @@ class VI_WOO_LUCKY_WHEEL_Admin_Admin {
                 </th>
                 <td>
                     <a class="vi-ui button" target="_blank"
-                       href="https://1.envato.market/qXBNY"><?php esc_html_e( 'Upgrade This Feature', 'woo-lucky-wheel' ) ?></a>
+                       href="https://villatheme.com/extensions/woocommerce-lucky-wheel/"><?php esc_html_e( 'Upgrade This Feature', 'woo-lucky-wheel' ) ?></a>
                 </td>
             </tr>
             <tr>
@@ -650,7 +650,7 @@ class VI_WOO_LUCKY_WHEEL_Admin_Admin {
                 </th>
                 <td>
                     <a class="vi-ui button" target="_blank"
-                       href="https://1.envato.market/qXBNY"><?php esc_html_e( 'Upgrade This Feature', 'woo-lucky-wheel' ) ?></a>
+                       href="https://villatheme.com/extensions/woocommerce-lucky-wheel/"><?php esc_html_e( 'Upgrade This Feature', 'woo-lucky-wheel' ) ?></a>
                     <p class="description">
                         <?php esc_html_e('Reset the total spins of every email to zero at a specific time', 'woo-lucky-wheel' ); ?>
                     </p>
@@ -778,7 +778,7 @@ class VI_WOO_LUCKY_WHEEL_Admin_Admin {
 		ob_start();
 		?>
         <a class="vi-ui button" target="_blank"
-           href="https://1.envato.market/qXBNY"><?php esc_html_e( 'Upgrade This Feature', 'woo-lucky-wheel' ) ?></a>
+           href="https://villatheme.com/extensions/woocommerce-lucky-wheel/"><?php esc_html_e( 'Upgrade This Feature', 'woo-lucky-wheel' ) ?></a>
 		<?php
 		$popup_icon_html     = ob_get_clean();
 		ob_start();
@@ -786,12 +786,12 @@ class VI_WOO_LUCKY_WHEEL_Admin_Admin {
         <div class="equal width fields">
             <div class="field">
                 <a class="vi-ui button" target="_blank"
-                   href="https://1.envato.market/qXBNY"><?php esc_html_e( 'Upgrade This Feature', 'woo-lucky-wheel' ) ?></a>
+                   href="https://villatheme.com/extensions/woocommerce-lucky-wheel/"><?php esc_html_e( 'Upgrade This Feature', 'woo-lucky-wheel' ) ?></a>
                 <p class="description"><?php esc_html_e( 'Color', 'woo-lucky-wheel' ); ?></p>
             </div>
             <div class="field">
                 <a class="vi-ui button" target="_blank"
-                   href="https://1.envato.market/qXBNY"><?php esc_html_e( 'Upgrade This Feature', 'woo-lucky-wheel' ) ?></a>
+                   href="https://villatheme.com/extensions/woocommerce-lucky-wheel/"><?php esc_html_e( 'Upgrade This Feature', 'woo-lucky-wheel' ) ?></a>
                 <p class="description"><?php esc_html_e( 'Background', 'woo-lucky-wheel' ); ?></p>
             </div>
         </div>
@@ -1006,19 +1006,19 @@ class VI_WOO_LUCKY_WHEEL_Admin_Admin {
                 </th>
                 <td>
                     <a class="vi-ui button" target="_blank"
-                       href="https://1.envato.market/qXBNY"><?php esc_html_e( 'Upgrade This Feature', 'woo-lucky-wheel' ) ?></a>
+                       href="https://villatheme.com/extensions/woocommerce-lucky-wheel/"><?php esc_html_e( 'Upgrade This Feature', 'woo-lucky-wheel' ) ?></a>
                 </td>
                 <td>
                     <a class="vi-ui button" target="_blank"
-                       href="https://1.envato.market/qXBNY"><?php esc_html_e( 'Upgrade This Feature', 'woo-lucky-wheel' ) ?></a>
+                       href="https://villatheme.com/extensions/woocommerce-lucky-wheel/"><?php esc_html_e( 'Upgrade This Feature', 'woo-lucky-wheel' ) ?></a>
                 </td>
                 <td>
                     <a class="vi-ui button" target="_blank"
-                       href="https://1.envato.market/qXBNY"><?php esc_html_e( 'Upgrade This Feature', 'woo-lucky-wheel' ) ?></a>
+                       href="https://villatheme.com/extensions/woocommerce-lucky-wheel/"><?php esc_html_e( 'Upgrade This Feature', 'woo-lucky-wheel' ) ?></a>
                 </td>
                 <td>
                     <a class="vi-ui button" target="_blank"
-                       href="https://1.envato.market/qXBNY"><?php esc_html_e( 'Upgrade This Feature', 'woo-lucky-wheel' ) ?></a>
+                       href="https://villatheme.com/extensions/woocommerce-lucky-wheel/"><?php esc_html_e( 'Upgrade This Feature', 'woo-lucky-wheel' ) ?></a>
                 </td>
             </tr>
             </tbody>
@@ -1053,7 +1053,7 @@ class VI_WOO_LUCKY_WHEEL_Admin_Admin {
                 <li><?php echo wp_kses_post( __('Use <strong>{coupon_amount}</strong> for WooCommerce coupon type to refer to the amount of that coupon. e.g: Coupon type is percentage discount, coupon value is 10 then <strong>{coupon_amount}</strong> will become 10% when printing out on the wheel.','woo-lucky-wheel' ) ); ?></li>
                 <li>
 		            <?php
-		            echo wp_kses_post(__('You can use <a href="https://1.envato.market/BZZv1" target="_blank">WooCommerce Email Template Customizer</a> or <a href="http://bit.ly/woo-email-template-customizer" target="_blank">Email Template Customizer for WooCommerce</a> to create and customize your own email template for each prize. If no email template is selected, the default setting at <a href="#email">the \'Email\' tab</a> will be used.','woo-lucky-wheel'));
+		            echo wp_kses_post(__('You can use <a href="https://villatheme.com/extensions/woocommerce-lucky-wheel/" target="_blank">WooCommerce Email Template Customizer</a> or <a href="http://bit.ly/woo-email-template-customizer" target="_blank">Email Template Customizer for WooCommerce</a> to create and customize your own email template for each prize. If no email template is selected, the default setting at <a href="#email">the \'Email\' tab</a> will be used.','woo-lucky-wheel'));
 		            ?>
                 </li>
 	            <?php
@@ -1073,7 +1073,7 @@ class VI_WOO_LUCKY_WHEEL_Admin_Admin {
 	            }
 	            ?>
                 <li><?php esc_html_e('You can add only 6 slides. Please update to the premium version to add unlimited slices.','woo-lucky-wheel' )  ?>
-                    <a class="vi-ui tiny button" href="https://1.envato.market/qXBNY"
+                    <a class="vi-ui tiny button" href="https://villatheme.com/extensions/woocommerce-lucky-wheel/"
                        target="_blank"><?php esc_html_e( 'Unlock This Feature', 'woo-lucky-wheel' ); ?> </a></li>
             </ul>
         </div>
@@ -1201,7 +1201,7 @@ class VI_WOO_LUCKY_WHEEL_Admin_Admin {
 
                     <p>
                         <a class="vi-ui button" target="_blank"
-                           href="https://1.envato.market/qXBNY"><?php esc_html_e( 'Random Color - Upgrade This Feature', 'woo-lucky-wheel' ) ?></a>
+                           href="https://villatheme.com/extensions/woocommerce-lucky-wheel/"><?php esc_html_e( 'Random Color - Upgrade This Feature', 'woo-lucky-wheel' ) ?></a>
                         <p class="description"><?php esc_html_e( 'Color is set randomly from predefined sets for each visitor', 'woo-lucky-wheel' ) ?></p>
                     </p>
                 </td>
@@ -1254,7 +1254,7 @@ class VI_WOO_LUCKY_WHEEL_Admin_Admin {
                 </th>
                 <td>
                     <a class="vi-ui button" target="_blank"
-                       href="https://1.envato.market/qXBNY"><?php esc_html_e( 'Upgrade This Feature', 'woo-lucky-wheel' ) ?></a>
+                       href="https://villatheme.com/extensions/woocommerce-lucky-wheel/"><?php esc_html_e( 'Upgrade This Feature', 'woo-lucky-wheel' ) ?></a>
                 </td>
             </tr>
             <tr>
@@ -1304,7 +1304,7 @@ class VI_WOO_LUCKY_WHEEL_Admin_Admin {
                 </th>
                 <td>
                     <a class="vi-ui button" target="_blank"
-                       href="https://1.envato.market/qXBNY"><?php esc_html_e( 'Upgrade This Feature', 'woo-lucky-wheel' ) ?></a>
+                       href="https://villatheme.com/extensions/woocommerce-lucky-wheel/"><?php esc_html_e( 'Upgrade This Feature', 'woo-lucky-wheel' ) ?></a>
                 </td>
             </tr>
             <tr>
@@ -1313,7 +1313,7 @@ class VI_WOO_LUCKY_WHEEL_Admin_Admin {
                 </th>
                 <td>
                     <a class="vi-ui button" target="_blank"
-                       href="https://1.envato.market/qXBNY"><?php esc_html_e( 'Upgrade This Feature', 'woo-lucky-wheel' ) ?></a>
+                       href="https://villatheme.com/extensions/woocommerce-lucky-wheel/"><?php esc_html_e( 'Upgrade This Feature', 'woo-lucky-wheel' ) ?></a>
                     <p class="description"><?php esc_html_e( 'Enable to show the "Apply Coupon" button if the prize is WooCommerce Coupon.', 'woo-lucky-wheel' ) ?></p>
                 </td>
             </tr>
@@ -1412,7 +1412,7 @@ class VI_WOO_LUCKY_WHEEL_Admin_Admin {
                         </div>
                         <div class="field">
                             <a class="vi-ui button" target="_blank"
-                               href="https://1.envato.market/qXBNY"><?php esc_html_e( 'Upgrade This Feature', 'woo-lucky-wheel' ) ?></a>
+                               href="https://villatheme.com/extensions/woocommerce-lucky-wheel/"><?php esc_html_e( 'Upgrade This Feature', 'woo-lucky-wheel' ) ?></a>
                             <p class="description"><?php esc_html_e( 'How long the wheel will spin. Valid duration from 3 to 15 seconds', 'woo-lucky-wheel' ); ?></p>
                         </div>
                     </div></td>
@@ -1425,12 +1425,12 @@ class VI_WOO_LUCKY_WHEEL_Admin_Admin {
                     <div class="equal width fields">
                         <div class="field">
                             <a class="vi-ui button" target="_blank"
-                               href="https://1.envato.market/qXBNY"><?php esc_html_e( 'Upgrade This Feature', 'woo-lucky-wheel' ) ?></a>
+                               href="https://villatheme.com/extensions/woocommerce-lucky-wheel/"><?php esc_html_e( 'Upgrade This Feature', 'woo-lucky-wheel' ) ?></a>
                             <p class="description"><?php esc_html_e( 'Adjust font size of text on the wheel by (%)', 'woo-lucky-wheel' ) ?></p>
                         </div>
                         <div class="field">
                             <a class="vi-ui button" target="_blank"
-                               href="https://1.envato.market/qXBNY"><?php esc_html_e( 'Upgrade This Feature', 'woo-lucky-wheel' ) ?></a>
+                               href="https://villatheme.com/extensions/woocommerce-lucky-wheel/"><?php esc_html_e( 'Upgrade This Feature', 'woo-lucky-wheel' ) ?></a>
                             <p class="description"><?php esc_html_e( 'Adjust the size of the wheel by(%)', 'woo-lucky-wheel' ) ?></p>
                         </div>
                     </div>
@@ -1442,7 +1442,7 @@ class VI_WOO_LUCKY_WHEEL_Admin_Admin {
                 </th>
                 <td>
                     <a class="vi-ui button" target="_blank"
-                       href="https://1.envato.market/qXBNY"><?php esc_html_e( 'Upgrade This Feature', 'woo-lucky-wheel' ) ?></a>
+                       href="https://villatheme.com/extensions/woocommerce-lucky-wheel/"><?php esc_html_e( 'Upgrade This Feature', 'woo-lucky-wheel' ) ?></a>
                 </td>
             </tr>
             <tr>
@@ -1489,7 +1489,7 @@ class VI_WOO_LUCKY_WHEEL_Admin_Admin {
                 </th>
                 <td id="wlwl-bg-image1">
                     <a class="vi-ui button" target="_blank"
-                       href="https://1.envato.market/qXBNY"><?php esc_html_e( 'Upgrade This Feature', 'woo-lucky-wheel' ) ?></a>
+                       href="https://villatheme.com/extensions/woocommerce-lucky-wheel/"><?php esc_html_e( 'Upgrade This Feature', 'woo-lucky-wheel' ) ?></a>
                 </td>
             </tr>
             <tr>
@@ -1518,12 +1518,12 @@ class VI_WOO_LUCKY_WHEEL_Admin_Admin {
                         </div>
                         <div class="field">
                             <a class="vi-ui button" target="_blank"
-                               href="https://1.envato.market/qXBNY"><?php esc_html_e( 'Upgrade This Feature', 'woo-lucky-wheel' ) ?></a>
+                               href="https://villatheme.com/extensions/woocommerce-lucky-wheel/"><?php esc_html_e( 'Upgrade This Feature', 'woo-lucky-wheel' ) ?></a>
                             <p class="description"><?php esc_html_e( 'Wheel border color', 'woo-lucky-wheel' ); ?></p>
                         </div>
                         <div class="field">
                             <a class="vi-ui button" target="_blank"
-                               href="https://1.envato.market/qXBNY"><?php esc_html_e( 'Upgrade This Feature', 'woo-lucky-wheel' ) ?></a>
+                               href="https://villatheme.com/extensions/woocommerce-lucky-wheel/"><?php esc_html_e( 'Upgrade This Feature', 'woo-lucky-wheel' ) ?></a>
                             <p class="description"><?php esc_html_e( 'Wheel border dot color', 'woo-lucky-wheel' ); ?></p>
                         </div>
                     </div>
@@ -1717,7 +1717,7 @@ class VI_WOO_LUCKY_WHEEL_Admin_Admin {
                 </th>
                 <td>
                     <a class="vi-ui button" target="_blank"
-                       href="https://1.envato.market/qXBNY"><?php esc_html_e( 'Upgrade This Feature', 'woo-lucky-wheel' ) ?></a>
+                       href="https://villatheme.com/extensions/woocommerce-lucky-wheel/"><?php esc_html_e( 'Upgrade This Feature', 'woo-lucky-wheel' ) ?></a>
                 </td>
             </tr>
             <tr>
@@ -1789,7 +1789,7 @@ class VI_WOO_LUCKY_WHEEL_Admin_Admin {
                 </th>
                 <td>
                     <a class="vi-ui button" target="_blank"
-                       href="https://1.envato.market/qXBNY"><?php esc_html_e( 'Upgrade This Feature', 'woo-lucky-wheel' ) ?></a>
+                       href="https://villatheme.com/extensions/woocommerce-lucky-wheel/"><?php esc_html_e( 'Upgrade This Feature', 'woo-lucky-wheel' ) ?></a>
                     <p class="description"><?php esc_html_e( 'Turn on to use Google ReCaptcha', 'woo-lucky-wheel' ) ?></p>
                 </td>
             </tr>
@@ -1799,7 +1799,7 @@ class VI_WOO_LUCKY_WHEEL_Admin_Admin {
                 </th>
                 <td>
                     <a class="vi-ui button" target="_blank"
-                       href="https://1.envato.market/qXBNY"><?php esc_html_e( 'Upgrade This Feature', 'woo-lucky-wheel' ) ?></a>
+                       href="https://villatheme.com/extensions/woocommerce-lucky-wheel/"><?php esc_html_e( 'Upgrade This Feature', 'woo-lucky-wheel' ) ?></a>
                 </td>
             </tr>
             <tr>
@@ -1857,7 +1857,7 @@ class VI_WOO_LUCKY_WHEEL_Admin_Admin {
                 <th><?php esc_html_e( 'Email restriction', 'woo-lucky-wheel' ) ?></th>
                 <td>
                     <a class="vi-ui button" target="_blank"
-                       href="https://1.envato.market/qXBNY"><?php esc_html_e( 'Upgrade This Feature', 'woo-lucky-wheel' ) ?></a>
+                       href="https://villatheme.com/extensions/woocommerce-lucky-wheel/"><?php esc_html_e( 'Upgrade This Feature', 'woo-lucky-wheel' ) ?></a>
                     <p class="description"><?php esc_html_e( 'Add received email to coupon\'s allowed emails list', 'woo-lucky-wheel' ) ?></p>
                 </td>
             </tr>
@@ -2167,7 +2167,7 @@ class VI_WOO_LUCKY_WHEEL_Admin_Admin {
                         <li>{date_expires}
                             - <?php esc_html_e( 'Expiry date of the coupon.', 'woo-lucky-wheel' ) ?></li>
                         <li>{featured_products} - <a class="vi-ui button" target="_blank"
-                                                    href="https://1.envato.market/qXBNY"><?php esc_html_e( 'Upgrade This Feature', 'woo-lucky-wheel' ) ?></a>
+                                                    href="https://villatheme.com/extensions/woocommerce-lucky-wheel/"><?php esc_html_e( 'Upgrade This Feature', 'woo-lucky-wheel' ) ?></a>
                             - <?php esc_html_e( 'List of featured products with product image thumbnail, product title, product price and a button linked to product page which is design the same as button {shop_now}(Beware of using this shortcode if your store has too many featured products)', 'woo-lucky-wheel' ) ?>
                             </li>
                         <li>{shop_now}
@@ -2182,7 +2182,7 @@ class VI_WOO_LUCKY_WHEEL_Admin_Admin {
                 </th>
                 <td>
                     <a class="vi-ui button" target="_blank"
-                       href="https://1.envato.market/qXBNY"><?php esc_html_e( 'Upgrade This Feature', 'woo-lucky-wheel' ) ?></a>
+                       href="https://villatheme.com/extensions/woocommerce-lucky-wheel/"><?php esc_html_e( 'Upgrade This Feature', 'woo-lucky-wheel' ) ?></a>
                 </td>
             </tr>
             <tr>
@@ -2191,7 +2191,7 @@ class VI_WOO_LUCKY_WHEEL_Admin_Admin {
                 </th>
                 <td>
                     <a class="vi-ui button" target="_blank"
-                       href="https://1.envato.market/qXBNY"><?php esc_html_e( 'Upgrade This Feature', 'woo-lucky-wheel' ) ?></a>
+                       href="https://villatheme.com/extensions/woocommerce-lucky-wheel/"><?php esc_html_e( 'Upgrade This Feature', 'woo-lucky-wheel' ) ?></a>
                     <p><?php esc_html_e( 'These products will be added at the end of email content with product image thumbnail, product title, product price and a button linked to product page which is design the same as button {shop_now}', 'woo-lucky-wheel' ) ?></p>
                 </td>
             </tr>
@@ -2201,7 +2201,7 @@ class VI_WOO_LUCKY_WHEEL_Admin_Admin {
                 </th>
                 <td>
                     <a class="vi-ui button" target="_blank"
-                       href="https://1.envato.market/qXBNY"><?php esc_html_e( 'Upgrade This Feature', 'woo-lucky-wheel' ) ?></a>
+                       href="https://villatheme.com/extensions/woocommerce-lucky-wheel/"><?php esc_html_e( 'Upgrade This Feature', 'woo-lucky-wheel' ) ?></a>
                 </td>
             </tr>
             <tr>
@@ -2219,7 +2219,7 @@ class VI_WOO_LUCKY_WHEEL_Admin_Admin {
                 </th>
                 <td>
                     <a class="vi-ui button" target="_blank"
-                       href="https://1.envato.market/qXBNY"><?php esc_html_e( 'Upgrade This Feature', 'woo-lucky-wheel' ) ?></a>
+                       href="https://villatheme.com/extensions/woocommerce-lucky-wheel/"><?php esc_html_e( 'Upgrade This Feature', 'woo-lucky-wheel' ) ?></a>
                 </td>
             </tr>
             <tr>
@@ -2228,7 +2228,7 @@ class VI_WOO_LUCKY_WHEEL_Admin_Admin {
                 </th>
                 <td>
                     <a class="vi-ui button" target="_blank"
-                       href="https://1.envato.market/qXBNY"><?php esc_html_e( 'Upgrade This Feature', 'woo-lucky-wheel' ) ?></a>
+                       href="https://villatheme.com/extensions/woocommerce-lucky-wheel/"><?php esc_html_e( 'Upgrade This Feature', 'woo-lucky-wheel' ) ?></a>
                 </td>
             </tr>
             <tr>
@@ -2237,7 +2237,7 @@ class VI_WOO_LUCKY_WHEEL_Admin_Admin {
                 </th>
                 <td>
                     <a class="vi-ui button" target="_blank"
-                       href="https://1.envato.market/qXBNY"><?php esc_html_e( 'Upgrade This Feature', 'woo-lucky-wheel' ) ?></a>
+                       href="https://villatheme.com/extensions/woocommerce-lucky-wheel/"><?php esc_html_e( 'Upgrade This Feature', 'woo-lucky-wheel' ) ?></a>
                 </td>
             </tr>
             </tbody>
@@ -2265,7 +2265,7 @@ class VI_WOO_LUCKY_WHEEL_Admin_Admin {
                 </th>
                 <td>
                     <a class="vi-ui button" target="_blank"
-                       href="https://1.envato.market/qXBNY"><?php esc_html_e( 'Upgrade This Feature', 'woo-lucky-wheel' ) ?></a>
+                       href="https://villatheme.com/extensions/woocommerce-lucky-wheel/"><?php esc_html_e( 'Upgrade This Feature', 'woo-lucky-wheel' ) ?></a>
                     <p class="description"><?php esc_html_e( 'Send admin notification when someone wins', 'woo-lucky-wheel' ) ?></p>
                 </td>
             </tr>
@@ -2275,7 +2275,7 @@ class VI_WOO_LUCKY_WHEEL_Admin_Admin {
                 </th>
                 <td>
                     <a class="vi-ui button" target="_blank"
-                       href="https://1.envato.market/qXBNY"><?php esc_html_e( 'Upgrade This Feature', 'woo-lucky-wheel' ) ?></a>
+                       href="https://villatheme.com/extensions/woocommerce-lucky-wheel/"><?php esc_html_e( 'Upgrade This Feature', 'woo-lucky-wheel' ) ?></a>
                     <p><?php esc_html_e( 'Send notification to this email when someone wins. The from email will be used if this field is blank', 'woo-lucky-wheel' ) ?></p>
                 </td>
             </tr>
@@ -2285,7 +2285,7 @@ class VI_WOO_LUCKY_WHEEL_Admin_Admin {
                 </th>
                 <td>
                     <a class="vi-ui button" target="_blank"
-                       href="https://1.envato.market/qXBNY"><?php esc_html_e( 'Upgrade This Feature', 'woo-lucky-wheel' ) ?></a>
+                       href="https://villatheme.com/extensions/woocommerce-lucky-wheel/"><?php esc_html_e( 'Upgrade This Feature', 'woo-lucky-wheel' ) ?></a>
 					<?php esc_html_e( 'The subject of emails sending to admin.', 'woo-lucky-wheel' ) ?>
 
                 </td>
@@ -2296,7 +2296,7 @@ class VI_WOO_LUCKY_WHEEL_Admin_Admin {
                 </th>
                 <td>
                     <a class="vi-ui button" target="_blank"
-                       href="https://1.envato.market/qXBNY"><?php esc_html_e( 'Upgrade This Feature', 'woo-lucky-wheel' ) ?></a>
+                       href="https://villatheme.com/extensions/woocommerce-lucky-wheel/"><?php esc_html_e( 'Upgrade This Feature', 'woo-lucky-wheel' ) ?></a>
                     <p><?php esc_html_e( 'The heading of emails sending to admin.', 'woo-lucky-wheel' ) ?></p>
                     <p>{coupon_label}
                         - <?php esc_html_e( 'Coupon label/custom label that customers win', 'woo-lucky-wheel' ) ?></p>
@@ -2311,7 +2311,7 @@ class VI_WOO_LUCKY_WHEEL_Admin_Admin {
                     <div class="field">
                         <div class="field">
                             <a class="vi-ui button" target="_blank"
-                               href="https://1.envato.market/qXBNY"><?php esc_html_e( 'Upgrade This Feature', 'woo-lucky-wheel' ) ?></a>
+                               href="https://villatheme.com/extensions/woocommerce-lucky-wheel/"><?php esc_html_e( 'Upgrade This Feature', 'woo-lucky-wheel' ) ?></a>
                         </div>
                         <div class="field">
                             <ul>
@@ -2407,7 +2407,7 @@ class VI_WOO_LUCKY_WHEEL_Admin_Admin {
                 </th>
                 <td>
                     <a class="vi-ui button" target="_blank"
-                       href="https://1.envato.market/qXBNY"><?php esc_html_e( 'Upgrade This Feature', 'woo-lucky-wheel' ) ?></a>
+                       href="https://villatheme.com/extensions/woocommerce-lucky-wheel/"><?php esc_html_e( 'Upgrade This Feature', 'woo-lucky-wheel' ) ?></a>
                 </td>
             </tr>
             <tr>
@@ -2416,7 +2416,7 @@ class VI_WOO_LUCKY_WHEEL_Admin_Admin {
                 </th>
                 <td>
                     <a class="vi-ui button" target="_blank"
-                       href="https://1.envato.market/qXBNY"><?php esc_html_e( 'Upgrade This Feature', 'woo-lucky-wheel' ) ?></a>
+                       href="https://villatheme.com/extensions/woocommerce-lucky-wheel/"><?php esc_html_e( 'Upgrade This Feature', 'woo-lucky-wheel' ) ?></a>
                 </td>
             </tr>
             <tr>
@@ -2425,7 +2425,7 @@ class VI_WOO_LUCKY_WHEEL_Admin_Admin {
                 </th>
                 <td>
                     <a class="vi-ui button" target="_blank"
-                       href="https://1.envato.market/qXBNY"><?php esc_html_e( 'Upgrade This Feature', 'woo-lucky-wheel' ) ?></a>
+                       href="https://villatheme.com/extensions/woocommerce-lucky-wheel/"><?php esc_html_e( 'Upgrade This Feature', 'woo-lucky-wheel' ) ?></a>
                 </td>
             </tr>
             <tr>
@@ -2434,7 +2434,7 @@ class VI_WOO_LUCKY_WHEEL_Admin_Admin {
                 </th>
                 <td>
                     <a class="vi-ui button" target="_blank"
-                       href="https://1.envato.market/qXBNY"><?php esc_html_e( 'Upgrade This Feature', 'woo-lucky-wheel' ) ?></a>
+                       href="https://villatheme.com/extensions/woocommerce-lucky-wheel/"><?php esc_html_e( 'Upgrade This Feature', 'woo-lucky-wheel' ) ?></a>
                 </td>
             </tr>
             <tr>
@@ -2443,7 +2443,7 @@ class VI_WOO_LUCKY_WHEEL_Admin_Admin {
                 </th>
                 <td>
                     <a class="vi-ui button" target="_blank"
-                       href="https://1.envato.market/qXBNY"><?php esc_html_e( 'Upgrade This Feature', 'woo-lucky-wheel' ) ?></a>
+                       href="https://villatheme.com/extensions/woocommerce-lucky-wheel/"><?php esc_html_e( 'Upgrade This Feature', 'woo-lucky-wheel' ) ?></a>
                 </td>
             </tr>
             <tr>
@@ -2452,7 +2452,7 @@ class VI_WOO_LUCKY_WHEEL_Admin_Admin {
                 </th>
                 <td>
                     <a class="vi-ui button" target="_blank"
-                       href="https://1.envato.market/qXBNY"><?php esc_html_e( 'Upgrade This Feature', 'woo-lucky-wheel' ) ?></a>
+                       href="https://villatheme.com/extensions/woocommerce-lucky-wheel/"><?php esc_html_e( 'Upgrade This Feature', 'woo-lucky-wheel' ) ?></a>
                 </td>
             </tr>
             <tr>
@@ -2461,7 +2461,7 @@ class VI_WOO_LUCKY_WHEEL_Admin_Admin {
                 </th>
                 <td>
                     <a class="vi-ui button" target="_blank"
-                       href="https://1.envato.market/qXBNY"><?php esc_html_e( 'Upgrade This Feature', 'woo-lucky-wheel' ) ?></a>
+                       href="https://villatheme.com/extensions/woocommerce-lucky-wheel/"><?php esc_html_e( 'Upgrade This Feature', 'woo-lucky-wheel' ) ?></a>
                 </td>
             </tr>
             </tbody>
