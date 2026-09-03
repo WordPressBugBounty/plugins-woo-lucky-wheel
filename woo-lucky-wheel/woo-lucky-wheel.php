@@ -1,8 +1,8 @@
 <?php
 /**
- * Plugin Name: Lucky Wheel for WooCommerce
+ * Plugin Name: Spinzo – Lucky Wheel for WooCommerce
  * Description: Engage customers with a fun spin-the-wheel game! Collect emails and reward them with discount coupons instantly.
- * Version: 1.2.2
+ * Version: 1.2.3
  * Author: VillaTheme
  * Author URI: http://villatheme.com
  * License:           GPL v2 or later
@@ -11,10 +11,10 @@
  * Domain Path: /languages
  * Copyright 2018-2026 VillaTheme.com. All rights reserved.
  * Requires at least: 5.0
- * Tested up to: 7.0
+ * Tested up to: 7.1
  * WC requires at least: 7.0
  * WC tested up to: 11.0
- * Requires PHP: 7.0
+ * Requires PHP: 7.4
  * Requires Plugins: woocommerce
  */
 
@@ -22,7 +22,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 if ( ! defined( 'VI_WOO_LUCKY_WHEEL_VERSION' ) ) {
-	define( 'VI_WOO_LUCKY_WHEEL_VERSION', '1.2.2' );
+	define( 'VI_WOO_LUCKY_WHEEL_VERSION', '1.2.3' );
 	define( 'VI_WOO_LUCKY_WHEEL_DIR', plugin_dir_path( __FILE__ ) );
 	define( 'VI_WOO_LUCKY_WHEEL_INCLUDES', VI_WOO_LUCKY_WHEEL_DIR . "includes" . DIRECTORY_SEPARATOR );
 	define( 'VI_WOO_LUCKY_WHEEL_LANGUAGES', VI_WOO_LUCKY_WHEEL_DIR . "languages" . DIRECTORY_SEPARATOR );
@@ -51,7 +51,7 @@ if ( ! class_exists( 'Woo_Lucky_Wheel' ) ):
 				include_once VI_WOO_LUCKY_WHEEL_INCLUDES . 'support.php';
 			}
 			$environment = new \VillaTheme_Require_Environment( [
-					'plugin_name'     => 'Lucky Wheel for WooCommerce',
+					'plugin_name'     => 'Spinzo – Lucky Wheel for WooCommerce',
 					'php_version'     => '7.0',
 					'wp_version'      => '5.0',
 					'require_plugins' => [
