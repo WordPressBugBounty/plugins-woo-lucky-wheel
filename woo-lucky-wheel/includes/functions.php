@@ -40,6 +40,25 @@ if ( ! function_exists( 'vi_include_folder' ) ) {
 		}
 	}
 }
+if ( ! function_exists( 'wlwl_send_spin_cors_headers' ) ) {
+	/**
+	 * Same-site CORS for REST spin endpoint (never wildcard).
+	 */
+	function wlwl_send_spin_cors_headers() {
+		$origin = get_http_origin();
+		if ( $origin ) {
+			$origin_host = wp_parse_url( $origin, PHP_URL_HOST );
+			$site_host   = wp_parse_url( home_url(), PHP_URL_HOST );
+			if ( $origin_host && $site_host && $origin_host === $site_host ) {
+				header( 'Access-Control-Allow-Origin: ' . esc_url_raw( $origin ) );
+				header( 'Access-Control-Allow-Credentials: true' );
+			}
+		}
+		header( 'Access-Control-Allow-Methods: POST' );
+		header( 'Vary: Origin' );
+	}
+}
+
 if ( ! function_exists( 'wlwl_is_url_exist' ) ) {
 	function wlwl_is_url_exist( $url = '' ) {
 		try {

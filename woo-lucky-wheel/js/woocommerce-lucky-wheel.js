@@ -270,6 +270,9 @@
                 r = width / 2 - 14;
             }
         }
+        if (r <= 0) {
+            return;
+        }
         ctx.arc(center, center, r, deg2rad(deg), deg2rad(deg + sliceDeg));
         ctx.lineTo(center, center);
         ctx.fill();
@@ -421,6 +424,10 @@
         }
     }
     async function drawWheel(show_popup = false){
+        let slice_radius = width / 2 - (width <= 480 ? 10 : 14);
+        if (slice_radius <= 0) {
+            return;
+        }
         center = (width) / 2;
         await drawCanvas('wlwl_canvas');
         await drawCanvas('wlwl_canvas1');

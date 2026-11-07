@@ -1,4 +1,7 @@
 <?php
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
 
 /**
  * Mobile Detect Library
@@ -658,7 +661,7 @@ if ( ! class_exists( 'VillaTheme_Mobile_Detect' ) ) {
 		 * @param string $userAgent Inject the User-Agent header. If null, will use HTTP_USER_AGENT
 		 *                          from the $headers array instead.
 		 */
-		public function __construct( array $headers = null, $userAgent = null ) {
+		public function __construct( ?array $headers = null, $userAgent = null ) {
 			$this->setHttpHeaders( $headers );
 			$this->setUserAgent( $userAgent );
 		}

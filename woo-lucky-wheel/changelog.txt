@@ -1,4 +1,10 @@
 *** Lucky Wheel for WooCommerce Changelog ***
+
+2026.11.07 - version 1.2.4
+- Updated: VillaThem support
+- Updated: Security hardening (settings capability, report nonce, remove extract)
+- Updated: Compatibility check with WC 11.1
+
 2026.08.22 - version 1.2.3
 - Updated: Compatibility check with WP 7.1
 - Updated: VillaThem support

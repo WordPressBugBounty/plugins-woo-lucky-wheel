@@ -75,20 +75,24 @@ class VI_WOO_LUCKY_WHEEL_Admin_Admin {
 	}
 
 	public function wc_price( $price, $args = array() ) {
-		extract(
-			apply_filters(
-				'wc_price_args', wp_parse_args(
-					$args, array(
-						'ex_tax_label'       => false,
-						'currency'           => get_option( 'woocommerce_currency' ),
-						'decimal_separator'  => get_option( 'woocommerce_price_decimal_sep' ),
-						'thousand_separator' => get_option( 'woocommerce_price_thousand_sep' ),
-						'decimals'           => get_option( 'woocommerce_price_num_decimals', 2 ),
-						'price_format'       => get_woocommerce_price_format(),
-					)
+		$args = apply_filters(
+			'wc_price_args',
+			wp_parse_args(
+				$args,
+				array(
+					'ex_tax_label'       => false,
+					'currency'           => get_option( 'woocommerce_currency' ),
+					'decimal_separator'  => get_option( 'woocommerce_price_decimal_sep' ),
+					'thousand_separator' => get_option( 'woocommerce_price_thousand_sep' ),
+					'decimals'           => get_option( 'woocommerce_price_num_decimals', 2 ),
+					'price_format'       => get_woocommerce_price_format(),
 				)
 			)
 		);
+		$currency           = $args['currency'];
+		$decimal_separator  = $args['decimal_separator'];
+		$thousand_separator = $args['thousand_separator'];
+		$decimals           = $args['decimals'];
 		$currency_pos = get_option( 'woocommerce_currency_pos' );
 		$price_format = '%1$s%2$s';
 
@@ -385,12 +389,14 @@ class VI_WOO_LUCKY_WHEEL_Admin_Admin {
 	}
 
 	public function admin_enqueue() {
+		// Lightweight menu icon CSS (required for wp-admin menu chrome on all screens).
 		$this->settings::enqueue_style(
 			array( 'woocommerce-lucky-wheel-admin-icon-style' ),
 			array( 'admin-icon-style' ),
 			array( 0 )
 		);
-		if ( isset( $_REQUEST['page'] ) && wc_clean($_REQUEST['page']) == 'woo-lucky-wheel' ) {//phpcs:ignore WordPress.Security.NonceVerification.Recommended
+		$page = isset( $_REQUEST['page'] ) ? wc_clean( wp_unslash( $_REQUEST['page'] ) ) : '';//phpcs:ignore WordPress.Security.NonceVerification.Recommended
+		if ( 'woo-lucky-wheel' === $page ) {
 			$this->settings::remove_other_script();
 			wp_enqueue_editor();
 			$this->settings::enqueue_style(
@@ -507,6 +513,15 @@ class VI_WOO_LUCKY_WHEEL_Admin_Admin {
 		        printf( '<div id="message" class="updated"><p><strong>%s</strong></p></div>', esc_html__( 'Your settings have been saved!', 'woo-lucky-wheel' ) );
 	        }
 	        ?>
+            <div class="vi-ui message positive tiny">
+                <p><?php esc_html_e( 'You can use the shortcode to display lucky wheel everywhere you want', 'woo-lucky-wheel' ); ?></p>
+                <p><strong>[woocommerce_lucky_wheel]</strong></p>
+                <p>
+                    <a class="vi-ui tiny button" target="_blank"
+                       href="https://villatheme.com/extensions/woocommerce-lucky-wheel/"><?php esc_html_e( 'Upgrade This Feature', 'woo-lucky-wheel' ); ?></a>
+                    <?php echo wp_kses_post( __( 'Shortcode wheel is available in the <a target="_blank" href="https://villatheme.com/extensions/woocommerce-lucky-wheel/">Premium version</a>.', 'woo-lucky-wheel' ) ); ?>
+                </p>
+            </div>
             <form action="" method="POST" class="vi-ui form">
 				<?php wp_nonce_field( 'wlwl_settings_page_save', 'wlwl_nonce_field' ); ?>
                 <div class="vi-ui top attached tabular menu">
@@ -608,7 +623,7 @@ class VI_WOO_LUCKY_WHEEL_Admin_Admin {
                     <label for="wlwl_spin_num"><?php esc_html_e( 'Times spinning per email', 'woo-lucky-wheel' ); ?></label>
                 </th>
                 <td>
-                    <input type="number" id="wlwl_spin_num" name="wlwl_spin_num" min="1"
+                    <input type="number" id="wlwl_spin_num" name="wlwl_spin_num"
                            value="<?php echo esc_attr( $this->settings->get_params( 'general', 'spin_num' ) ); ?>">
                     <p class="description">
 	                    <?php esc_html_e( 'Leave empty to not set the limit.', 'woo-lucky-wheel' ); ?>
@@ -642,6 +657,27 @@ class VI_WOO_LUCKY_WHEEL_Admin_Admin {
                 <td>
                     <a class="vi-ui button" target="_blank"
                        href="https://villatheme.com/extensions/woocommerce-lucky-wheel/"><?php esc_html_e( 'Upgrade This Feature', 'woo-lucky-wheel' ) ?></a>
+                    <p class="description"><?php esc_html_e( 'Restrict spinning by email domain using a white list or black list.', 'woo-lucky-wheel' ); ?></p>
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    <label><?php esc_html_e( 'White list', 'woo-lucky-wheel' ); ?></label>
+                </th>
+                <td>
+                    <a class="vi-ui button" target="_blank"
+                       href="https://villatheme.com/extensions/woocommerce-lucky-wheel/"><?php esc_html_e( 'Upgrade This Feature', 'woo-lucky-wheel' ) ?></a>
+                    <p class="description"><?php esc_html_e( 'Enter domains to this list, each domain per line. Ex: abc@email.com is "email.com".', 'woo-lucky-wheel' ); ?></p>
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    <label><?php esc_html_e( 'Black list', 'woo-lucky-wheel' ); ?></label>
+                </th>
+                <td>
+                    <a class="vi-ui button" target="_blank"
+                       href="https://villatheme.com/extensions/woocommerce-lucky-wheel/"><?php esc_html_e( 'Upgrade This Feature', 'woo-lucky-wheel' ) ?></a>
+                    <p class="description"><?php esc_html_e( 'Enter domains to this list, each domain per line. Ex: abc@email.com is "email.com".', 'woo-lucky-wheel' ); ?></p>
                 </td>
             </tr>
             <tr>
@@ -654,6 +690,36 @@ class VI_WOO_LUCKY_WHEEL_Admin_Admin {
                     <p class="description">
                         <?php esc_html_e('Reset the total spins of every email to zero at a specific time', 'woo-lucky-wheel' ); ?>
                     </p>
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    <label><?php esc_html_e( 'Reset total spins every', 'woo-lucky-wheel' ); ?></label>
+                </th>
+                <td>
+                    <a class="vi-ui button" target="_blank"
+                       href="https://villatheme.com/extensions/woocommerce-lucky-wheel/"><?php esc_html_e( 'Upgrade This Feature', 'woo-lucky-wheel' ) ?></a>
+                    <p class="description"><?php esc_html_e( 'Interval in day(s). Leave zero to disable. Premium version only.', 'woo-lucky-wheel' ); ?></p>
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    <label><?php esc_html_e( 'Run reset function at', 'woo-lucky-wheel' ); ?></label>
+                </th>
+                <td>
+                    <a class="vi-ui button" target="_blank"
+                       href="https://villatheme.com/extensions/woocommerce-lucky-wheel/"><?php esc_html_e( 'Upgrade This Feature', 'woo-lucky-wheel' ) ?></a>
+                    <p class="description"><?php esc_html_e( 'Site time (based on WordPress timezone) when the reset cron runs. Premium version only.', 'woo-lucky-wheel' ); ?></p>
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    <label><?php esc_html_e( 'Export / Import', 'woo-lucky-wheel' ); ?></label>
+                </th>
+                <td>
+                    <a class="vi-ui button" target="_blank"
+                       href="https://villatheme.com/extensions/woocommerce-lucky-wheel/"><?php esc_html_e( 'Upgrade This Feature', 'woo-lucky-wheel' ) ?></a>
+                    <p class="description"><?php esc_html_e( 'Export downloads current plugin settings as a JSON file. Import overwrites all current plugin settings on this site. Available in the Premium version.', 'woo-lucky-wheel' ); ?></p>
                 </td>
             </tr>
 
@@ -733,6 +799,11 @@ class VI_WOO_LUCKY_WHEEL_Admin_Admin {
                                     <label class="vi-ui label">%s</label>
                                 </div>', esc_attr( $this->settings->get_params( 'notify', 'show_wheel' ) ),
 					esc_html__( 'Seconds', 'woo-lucky-wheel' ) ),
+			],
+			'scroll_amount'        => [
+				'title' => esc_html__( 'Scroll amount(%)', 'woo-lucky-wheel' ),
+				'desc'  => esc_html__( 'Show wheel after users scroll down a specific value. Premium version only.', 'woo-lucky-wheel' ),
+				'html'  => '<a class="vi-ui button" target="_blank" href="https://villatheme.com/extensions/woocommerce-lucky-wheel/">' . esc_html__( 'Upgrade This Feature', 'woo-lucky-wheel' ) . '</a>',
 			],
 			'notify_time_on_close' => [
 				'title' => esc_html__( 'If the wheel is closed without a spin, show the popup again after', 'woo-lucky-wheel' ),
@@ -1086,6 +1157,7 @@ class VI_WOO_LUCKY_WHEEL_Admin_Admin {
                 <td><?php esc_attr_e( 'Value', 'woo-lucky-wheel' ) ?></td>
                 <td><?php esc_attr_e( 'Probability(%)', 'woo-lucky-wheel' ) ?></td>
                 <td><?php esc_attr_e( 'Color', 'woo-lucky-wheel' ) ?></td>
+                <td><?php esc_attr_e( 'Quantity', 'woo-lucky-wheel' ) ?></td>
 	            <?php do_action('wlwl_wheel_settings_slices_column'); ?>
             </tr>
             </tbody>
@@ -1174,6 +1246,10 @@ class VI_WOO_LUCKY_WHEEL_Admin_Admin {
                         <span class="remove_field negative vi-ui button"><?php esc_attr_e( 'Remove', 'woo-lucky-wheel' ); ?></span>
                         <span class="clone_piece positive vi-ui button"><?php esc_attr_e( 'Clone', 'woo-lucky-wheel' ); ?></span>
                     </td>
+                    <td>
+                        <a class="vi-ui tiny button" target="_blank"
+                           href="https://villatheme.com/extensions/woocommerce-lucky-wheel/"><?php esc_html_e( 'Upgrade This Feature', 'woo-lucky-wheel' ) ?></a>
+                    </td>
 	                <?php do_action('wlwl_wheel_settings_slices_column_content',$count); ?>
                 </tr>
 				<?php
@@ -1204,6 +1280,16 @@ class VI_WOO_LUCKY_WHEEL_Admin_Admin {
                            href="https://villatheme.com/extensions/woocommerce-lucky-wheel/"><?php esc_html_e( 'Random Color - Upgrade This Feature', 'woo-lucky-wheel' ) ?></a>
                         <p class="description"><?php esc_html_e( 'Color is set randomly from predefined sets for each visitor', 'woo-lucky-wheel' ) ?></p>
                     </p>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <strong><?php esc_html_e( '{quantity_label}', 'woo-lucky-wheel' ); ?></strong>
+                </td>
+                <td colspan="5">
+                    <a class="vi-ui button" target="_blank"
+                       href="https://villatheme.com/extensions/woocommerce-lucky-wheel/"><?php esc_html_e( 'Upgrade This Feature', 'woo-lucky-wheel' ) ?></a>
+                    <p class="description"><?php esc_html_e( 'Custom label when prize quantity is limited. Premium version only.', 'woo-lucky-wheel' ); ?></p>
                 </td>
             </tr>
             </tbody>
@@ -2464,13 +2550,43 @@ class VI_WOO_LUCKY_WHEEL_Admin_Admin {
                        href="https://villatheme.com/extensions/woocommerce-lucky-wheel/"><?php esc_html_e( 'Upgrade This Feature', 'woo-lucky-wheel' ) ?></a>
                 </td>
             </tr>
+            <tr>
+                <th>
+                    <label><?php esc_html_e( 'MailPoet', 'woo-lucky-wheel' ) ?></label>
+                </th>
+                <td>
+                    <a class="vi-ui button" target="_blank"
+                       href="https://villatheme.com/extensions/woocommerce-lucky-wheel/"><?php esc_html_e( 'Upgrade This Feature', 'woo-lucky-wheel' ) ?></a>
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    <label><?php esc_html_e( 'Mailster', 'woo-lucky-wheel' ) ?></label>
+                </th>
+                <td>
+                    <a class="vi-ui button" target="_blank"
+                       href="https://villatheme.com/extensions/woocommerce-lucky-wheel/"><?php esc_html_e( 'Upgrade This Feature', 'woo-lucky-wheel' ) ?></a>
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    <label><?php esc_html_e( 'FunnelKit', 'woo-lucky-wheel' ) ?></label>
+                </th>
+                <td>
+                    <a class="vi-ui button" target="_blank"
+                       href="https://villatheme.com/extensions/woocommerce-lucky-wheel/"><?php esc_html_e( 'Upgrade This Feature', 'woo-lucky-wheel' ) ?></a>
+                </td>
+            </tr>
             </tbody>
         </table>
         <?php
 		return '';
 	}
 	public function save_settings() {
-		if ( empty( $_POST['wlwl_nonce_field'] ) || ! wp_verify_nonce(sanitize_text_field( $_POST['wlwl_nonce_field']), 'wlwl_settings_page_save' ) ) {
+		if ( ! current_user_can( 'manage_options' ) ) {
+			return;
+		}
+		if ( empty( $_POST['wlwl_nonce_field'] ) || ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['wlwl_nonce_field'] ) ), 'wlwl_settings_page_save' ) ) {
 			return;
 		}
 		if ( !isset( $_POST['wlwl_save_settings'] ) ) {
@@ -2641,8 +2757,11 @@ class VI_WOO_LUCKY_WHEEL_Admin_Admin {
 		$total_spin = $email_subscribe = $coupon_given = 0;
 
 		if ( isset( $_POST['submit'] ) ) {//phpcs:ignore WordPress.Security.NonceVerification.Missing
-			$start    = sanitize_text_field( $_POST['wlwl_export_start'] );//phpcs:ignore WordPress.Security.NonceVerification.Missing
-			$end      = sanitize_text_field( $_POST['wlwl_export_end'] );//phpcs:ignore WordPress.Security.NonceVerification.Missing
+			if ( empty( $_POST['wlwl_report_nonce'] ) || ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['wlwl_report_nonce'] ) ), 'wlwl_export_emails' ) ) {
+				wp_die( esc_html__( 'Invalid nonce.', 'woo-lucky-wheel' ) );
+			}
+			$start    = isset( $_POST['wlwl_export_start'] ) ? sanitize_text_field( wp_unslash( $_POST['wlwl_export_start'] ) ) : '';
+			$end      = isset( $_POST['wlwl_export_end'] ) ? sanitize_text_field( wp_unslash( $_POST['wlwl_export_end'] ) ) : '';
 			$filename = "lucky_wheel_email";
 			if ( ! $start && ! $end ) {
 				$args1    = array(
@@ -2751,11 +2870,12 @@ class VI_WOO_LUCKY_WHEEL_Admin_Admin {
 					$the_query->the_post();
 					$id = get_the_ID();
 					if ( get_post_meta( $id, 'wlwl_spin_times', true ) ) {
-						$total_spin += get_post_meta( $id, 'wlwl_spin_times', true )['spin_num'];
+						$spin_times = get_post_meta( $id, 'wlwl_spin_times', true );
+						$total_spin += isset( $spin_times['spin_num'] ) ? absint( $spin_times['spin_num'] ) : 0;
 					}
 					if ( get_post_meta( $id, 'wlwl_email_coupons', true ) ) {
 						$coupon       = get_post_meta( $id, 'wlwl_email_coupons', true );
-						$coupon_given += sizeof( $coupon );
+						$coupon_given += is_array( $coupon ) ? count( $coupon ) : 0;
 					}
 				}
 				wp_reset_postdata();
@@ -2764,6 +2884,7 @@ class VI_WOO_LUCKY_WHEEL_Admin_Admin {
 		?>
         <div class="wrap">
             <form action="" method="post">
+                <?php wp_nonce_field( 'wlwl_export_emails', 'wlwl_report_nonce' ); ?>
                 <h2><?php esc_html_e( 'Lucky Wheel Report', 'woo-lucky-wheel' ) ?></h2>
 
                 <table cellspacing="0" id="status" class="widefat">

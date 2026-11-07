@@ -117,6 +117,7 @@ class VI_WOO_LUCKY_WHEEL_Frontend_Frontend {
             return;
         }
         $logic_value = $this->settings->get_params( 'notify', 'conditional_tags' );
+        // Only evaluate administrator-stored settings (never request params). Residual RCE risk if admin account is compromised — see security-audit-log.md.
         if ($logic_value){
             preg_match('/\)[^a-zA-Z]+\(|\)\(|[^a-zA-Z0-9()_\'"\s!|&,\[\]]/',$logic_value,$exclude);
             if (!empty($exclude)){
@@ -281,12 +282,15 @@ class VI_WOO_LUCKY_WHEEL_Frontend_Frontend {
         foreach ( $wheel['coupon_type'] as $count => $v ) {
             $wheel_label = ( isset( $wheel['custom_label'][ $count ] ) && $wheel['custom_label'][ $count ] ) ? $wheel['custom_label'][ $count ] : $this->settings->get_params( 'wheel', 'label_coupon' );
             if ( $wheel['coupon_type'][ $count ] == 'existing_coupon' ) {
-                $code   = get_post( $wheel['existing_coupon'][ $count ] )->post_title;
+                $coupon_post = isset( $wheel['existing_coupon'][ $count ] ) ? get_post( $wheel['existing_coupon'][ $count ] ) : null;
+                if ( $coupon_post ) {
+                $code   = $coupon_post->post_title;
                 $coupon = new WC_Coupon( $code );
                 if ( $coupon->get_discount_type() == 'percent' ) {
                     $wheel_label = str_replace( '{coupon_amount}', $coupon->get_amount() . '%', $wheel_label );
                 } else {
                     $wheel_label = str_replace( '{coupon_amount}', $this->wc_price( $coupon->get_amount() ), $wheel_label );
+                }
                 }
             } elseif ( in_array( $wheel['coupon_type'][ $count ], array(
                     'fixed_product',
@@ -489,20 +493,23 @@ class VI_WOO_LUCKY_WHEEL_Frontend_Frontend {
     }
 
     public function wc_price( $price, $args = array() ) {
-        extract(
-                apply_filters(
-                        'wc_price_args', wp_parse_args(
-                                $args, array(
-                                        'ex_tax_label'       => false,
-                                        'currency'           => apply_filters( 'wlwl_woocommerce_currency',get_option( 'woocommerce_currency' )),
-                                        'decimal_separator'  => apply_filters( 'wlwl_woocommerce_price_decimal_sep',get_option( 'woocommerce_price_decimal_sep' )),
-                                        'thousand_separator' => apply_filters( 'wlwl_woocommerce_price_thousand_sep',get_option( 'woocommerce_price_thousand_sep' )),
-                                        'decimals'           => apply_filters( 'wlwl_woocommerce_price_num_decimals', get_option( 'woocommerce_price_num_decimals', 2 ) ),
-                                        'price_format'       => get_woocommerce_price_format(),
-                                )
+        $args = apply_filters(
+                'wc_price_args',
+                wp_parse_args(
+                        $args, array(
+                                'ex_tax_label'       => false,
+                                'currency'           => apply_filters( 'wlwl_woocommerce_currency',get_option( 'woocommerce_currency' )),
+                                'decimal_separator'  => apply_filters( 'wlwl_woocommerce_price_decimal_sep',get_option( 'woocommerce_price_decimal_sep' )),
+                                'thousand_separator' => apply_filters( 'wlwl_woocommerce_price_thousand_sep',get_option( 'woocommerce_price_thousand_sep' )),
+                                'decimals'           => apply_filters( 'wlwl_woocommerce_price_num_decimals', get_option( 'woocommerce_price_num_decimals', 2 ) ),
+                                'price_format'       => get_woocommerce_price_format(),
                         )
                 )
         );
+        $currency           = $args['currency'];
+        $decimal_separator  = $args['decimal_separator'];
+        $thousand_separator = $args['thousand_separator'];
+        $decimals           = $args['decimals'];
         $currency_pos = get_option( 'woocommerce_currency_pos' );
 
         switch ( $currency_pos ) {
@@ -538,14 +545,13 @@ class VI_WOO_LUCKY_WHEEL_Frontend_Frontend {
         if (apply_filters('wlwl_get_wheel_nonce',1) && ( !isset($_REQUEST['_woocommerce_lucky_wheel_nonce']) ||
              !wp_verify_nonce(sanitize_text_field(wp_unslash($_REQUEST['_woocommerce_lucky_wheel_nonce'])), 'woocommerce_lucky_wheel_nonce_action')) ) {
             $msg            = array(
-                    'allow_spin'              => 'Invalid nonce, please reload and try again.',
+                    'allow_spin'              => esc_html__( 'Invalid nonce, please reload and try again.', 'woo-lucky-wheel' ),
             );
             wp_send_json( $msg );
             die;
         }
         if ( $this->settings->get_params( 'ajax_endpoint' ) === 'rest_api' ) {
-            header( "Access-Control-Allow-Origin: *" );
-            header( 'Access-Control-Allow-Methods: POST' );
+            wlwl_send_spin_cors_headers();
         }
         $email  = isset( $_POST["user_email"] ) ? sanitize_email( strtolower( wp_unslash( $_POST["user_email"] ) ) ) : '';
         $name   = ( isset( $_POST["user_name"] ) && $_POST["user_name"] ) ? sanitize_text_field( wp_unslash( $_POST["user_name"] ) ) : 'Sir/Madam';
@@ -591,20 +597,27 @@ class VI_WOO_LUCKY_WHEEL_Frontend_Frontend {
         }
         $now   = time();
         $wheel = $this->settings->get_params( 'wheel' );
-        $weigh = $wheel['probability'];
+        $weigh = ( isset( $wheel['probability'] ) && is_array( $wheel['probability'] ) ) ? $wheel['probability'] : array();
         if ( $this->settings->get_params( 'general', 'enable' ) != 'on' ) {
             $allow = 'Wrong email.';
             $data  = array( 'allow_spin' => $allow );
             wp_send_json( $data );
         }
-        if ( $this->settings->get_params( 'mailchimp', 'enable' ) == 'on' ) {
-            $mailchimp = new VI_WOO_LUCKY_WHEEL_Admin_Mailchimp();
-            $mailchimp->add_email( $email, $name, '', $mobile );
+        $probability_sum = 0;
+        foreach ( $weigh as $probability_value ) {
+            $probability_sum += floatval( $probability_value );
+        }
+        if ( $probability_sum < 1 ) {
+            wp_send_json(
+                    array(
+                            'allow_spin' => esc_html__( 'Unable to spin. Please contact the site administrator.', 'woo-lucky-wheel' ),
+                    )
+            );
         }
         do_action( 'woo_lucky_wheel_get_email_before_validating_email', $email, $name, $mobile );
         $trash_email = new WP_Query( array(
                 'post_type'      => 'wlwl_email',
-                'posts_per_page' => - 1,
+                'posts_per_page' => 1,
                 'title'          => $email,
                 'post_status'    => array( // (string | array) - use post status. Retrieves posts by Post Status, default value i'publish'.
                         'trash', // - post is in trashbin (available with Version 2.9).
@@ -619,7 +632,7 @@ class VI_WOO_LUCKY_WHEEL_Frontend_Frontend {
         $email_templates  = $this->settings->get_params( 'wheel', 'email_templates' );
         $wlwl_emails_args = array(
                 'post_type'      => 'wlwl_email',
-                'posts_per_page' => - 1,
+                'posts_per_page' => 1,
                 'title'          => $email,
                 'post_status'    => array( // (string | array) - use post status. Retrieves posts by Post Status, default value i'publish'.
                         'publish', // - a published post or page.
@@ -641,7 +654,12 @@ class VI_WOO_LUCKY_WHEEL_Frontend_Frontend {
                 $post_data['post_content'] = $name;
                 wp_update_post( $post_data );
                 $spin_meta = get_post_meta( $email_id, 'wlwl_spin_times', true );
-                $spin_num  = $this->settings->get_params( 'general', 'spin_num' );
+                if ( ! is_array( $spin_meta ) ) {
+                    $spin_meta = array();
+                }
+                $spin_meta['spin_num']  = isset( $spin_meta['spin_num'] ) ? absint( $spin_meta['spin_num'] ) : 0;
+                $spin_meta['last_spin'] = isset( $spin_meta['last_spin'] ) ? absint( $spin_meta['last_spin'] ) : 0;
+                $spin_num               = $this->settings->get_params( 'general', 'spin_num' );
                 if ( is_numeric( $spin_num ) && $spin_meta['spin_num'] >= floatval( $spin_num ) ) {
                     $allow = esc_html__( 'This email has reach the maximum spins.', 'woo-lucky-wheel' );
                 } elseif ( ( $now - $spin_meta['last_spin'] ) < $email_delay ) {
@@ -673,12 +691,7 @@ class VI_WOO_LUCKY_WHEEL_Frontend_Frontend {
                     for ( $i = 1; $i < sizeof( $weigh ); $i ++ ) {
                         $weigh[ $i ] += $weigh[ $i - 1 ];
                     }
-                    for ( $i = 0; $i < sizeof( $weigh ); $i ++ ) {
-                        if ( $wheel['probability'] == 0 ) {
-                            $weigh[ $i ] = 0;
-                        }
-                    }
-                    $random = wp_rand( 1, 100 );
+                    $random = wp_rand( 1, max( 1, (int) round( $probability_sum ) ) );
                     $stop   = 0;
                     foreach ( $weigh as $v ) {
                         if ( $random <= $v ) {
@@ -686,7 +699,7 @@ class VI_WOO_LUCKY_WHEEL_Frontend_Frontend {
                         }
                         $stop ++;
                     }
-                    if ( $wheel['coupon_type'][ $stop ] != 'non' ) {
+                    if ( isset( $wheel['coupon_type'][ $stop ] ) && $wheel['coupon_type'][ $stop ] != 'non' ) {
                         $result = 'win';
                         if ( $this->settings->get_params( 'result', 'notification' )['win'] ) {
                             $result_notification = $this->settings->get_params( 'result', 'notification' )['win'];
@@ -706,7 +719,14 @@ class VI_WOO_LUCKY_WHEEL_Frontend_Frontend {
                             update_post_meta( $email_id, 'wlwl_email_labels', $email_labels );
                             $result_notification = str_replace( '{coupon_code}', '<strong>' . $code . '</strong>', $result_notification );
                         } elseif ( $wheel['coupon_type'][ $stop ] == 'existing_coupon' ) {
-                            $code   = get_post( $wheel['existing_coupon'][ $stop ] )->post_title;
+                            $coupon_post = isset( $wheel['existing_coupon'][ $stop ] ) ? get_post( $wheel['existing_coupon'][ $stop ] ) : null;
+                            if ( ! $coupon_post ) {
+                                $result = 'lost';
+                                $result_notification = $this->settings->get_params( 'result', 'notification' )['lost']
+                                    ? $this->settings->get_params( 'result', 'notification' )['lost']
+                                    : esc_html__( 'OOPS! You are not lucky today. Sorry.', 'woo-lucky-wheel' );
+                            } else {
+                            $code   = $coupon_post->post_title;
                             $coupon = new WC_Coupon( $code );
                             if ( $coupon->get_discount_type() == 'percent' ) {
                                 $wheel_label = str_replace( '{coupon_amount}', $coupon->get_amount() . '%', $wheel_label );
@@ -728,6 +748,7 @@ class VI_WOO_LUCKY_WHEEL_Frontend_Frontend {
                             $email_labels[] = $wheel_label;
                             update_post_meta( $email_id, 'wlwl_email_labels', $email_labels );
                             $result_notification = str_replace( '{coupon_code}', '<strong>' . $coupon->get_code() . '</strong>', $result_notification );
+                            }
                         } else {
                             if ( $wheel['coupon_type'][ $stop ] == 'percent' ) {
                                 $wheel_label = str_replace( '{coupon_amount}', $wheel['coupon_amount'][ $stop ] . '%', $wheel_label );
@@ -750,10 +771,12 @@ class VI_WOO_LUCKY_WHEEL_Frontend_Frontend {
                             update_post_meta( $email_id, 'wlwl_email_labels', $email_labels );
                             $result_notification = str_replace( '{coupon_code}', '<strong>' . $code . '</strong>', $result_notification );
                         }
+                        if ( 'win' === $result ) {
                         $result_notification = str_replace( '{coupon_label}', '<strong>' . $wheel_label . '</strong>', $result_notification );
                         $result_notification = str_replace( '{customer_name}', '<strong>' . ( isset( $_POST['user_name'] ) ? sanitize_text_field( wp_unslash( $_POST['user_name'] ) ) : '' ) . '</strong>', $result_notification );
                         $result_notification = str_replace( '{customer_email}', '<strong>' . $email . '</strong>', $result_notification );
                         $result_notification = str_replace( '{checkout}', '<a href="' . wc_get_checkout_url() . '">' . esc_html__( 'Checkout', 'woo-lucky-wheel' ) . '</a>', $result_notification );
+                        }
                     }
                 }
             }
@@ -781,12 +804,7 @@ class VI_WOO_LUCKY_WHEEL_Frontend_Frontend {
             for ( $i = 1; $i < sizeof( $weigh ); $i ++ ) {
                 $weigh[ $i ] += $weigh[ $i - 1 ];
             }
-            for ( $i = 0; $i < sizeof( $weigh ); $i ++ ) {
-                if ( $wheel['probability'] == 0 ) {
-                    $weigh[ $i ] = 0;
-                }
-            }
-            $random = wp_rand( 1, 100 );
+            $random = wp_rand( 1, max( 1, (int) round( $probability_sum ) ) );
             $stop   = 0;
             foreach ( $weigh as $v ) {
                 if ( $random <= $v ) {
@@ -796,9 +814,9 @@ class VI_WOO_LUCKY_WHEEL_Frontend_Frontend {
             }
             $email_coupons = array();
             $email_labels  = array();
-            $wheel_label   = $wheel['custom_label'][ $stop ];
+            $wheel_label   = isset( $wheel['custom_label'][ $stop ] ) ? $wheel['custom_label'][ $stop ] : '';
 
-            if ( $wheel['coupon_type'][ $stop ] != 'non' ) {
+            if ( isset( $wheel['coupon_type'][ $stop ] ) && $wheel['coupon_type'][ $stop ] != 'non' ) {
                 $result = 'win';
                 if ( $this->settings->get_params( 'result', 'notification' )['win'] ) {
                     $result_notification = $this->settings->get_params( 'result', 'notification' )['win'];
@@ -815,7 +833,14 @@ class VI_WOO_LUCKY_WHEEL_Frontend_Frontend {
                     update_post_meta( $email_id, 'wlwl_email_labels', $email_labels );
                     $result_notification = str_replace( '{coupon_code}', '<strong>' . $code . '</strong>', $result_notification );
                 } elseif ( $wheel['coupon_type'][ $stop ] == 'existing_coupon' ) {
-                    $code   = get_post( $wheel['existing_coupon'][ $stop ] )->post_title;
+                    $coupon_post = isset( $wheel['existing_coupon'][ $stop ] ) ? get_post( $wheel['existing_coupon'][ $stop ] ) : null;
+                    if ( ! $coupon_post ) {
+                        $result              = 'lost';
+                        $result_notification = $this->settings->get_params( 'result', 'notification' )['lost']
+                            ? $this->settings->get_params( 'result', 'notification' )['lost']
+                            : esc_html__( 'OOPS! You are not lucky today. Sorry.', 'woo-lucky-wheel' );
+                    } else {
+                    $code   = $coupon_post->post_title;
                     $coupon = new WC_Coupon( $code );
                     if ( $coupon->get_discount_type() == 'percent' ) {
                         $wheel_label = str_replace( '{coupon_amount}', $coupon->get_amount() . '%', $wheel_label );
@@ -835,6 +860,7 @@ class VI_WOO_LUCKY_WHEEL_Frontend_Frontend {
                     $email_labels[] = $wheel_label;
                     update_post_meta( $email_id, 'wlwl_email_labels', $email_labels );
                     $result_notification = str_replace( '{coupon_code}', '<strong>' . $coupon->get_code() . '</strong>', $result_notification );
+                    }
                 } else {
                     if ( $wheel['coupon_type'][ $stop ] == 'percent' ) {
                         $wheel_label = str_replace( '{coupon_amount}', $wheel['coupon_amount'][ $stop ] . '%', $wheel_label );
@@ -855,12 +881,18 @@ class VI_WOO_LUCKY_WHEEL_Frontend_Frontend {
                     update_post_meta( $email_id, 'wlwl_email_labels', $email_labels );
                     $result_notification = str_replace( '{coupon_code}', '<strong>' . $code . '</strong>', $result_notification );
                 }
+                if ( 'win' === $result ) {
                 $result_notification = str_replace( '{coupon_label}', '<strong>' . $wheel_label . '</strong>', $result_notification );
                 $result_notification = str_replace( '{customer_name}', '<strong>' . ( isset( $_POST['user_name'] ) ? sanitize_text_field( wp_unslash( $_POST['user_name'] ) ) : '' ) . '</strong>', $result_notification );
                 $result_notification = str_replace( '{customer_email}', '<strong>' . $email . '</strong>', $result_notification );
                 $result_notification = str_replace( '{checkout}', '<a href="' . wc_get_checkout_url() . '">' . esc_html__( 'Checkout', 'woo-lucky-wheel' ) . '</a>', $result_notification );
                 $result_notification = str_replace( array( '\n', '/n' ), ' ', $result_notification );
+                }
             }
+        }
+        if ( 'yes' === $allow && $this->settings->get_params( 'mailchimp', 'enable' ) == 'on' ) {
+            $mailchimp = new VI_WOO_LUCKY_WHEEL_Admin_Mailchimp();
+            $mailchimp->add_email( $email, $name, '', $mobile );
         }
         do_action( 'woo_lucky_wheel_get_email', $email, $name, $mobile );
         $data = array(

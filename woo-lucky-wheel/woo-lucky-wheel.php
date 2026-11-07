@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Spinzo – Lucky Wheel for WooCommerce
  * Description: Engage customers with a fun spin-the-wheel game! Collect emails and reward them with discount coupons instantly.
- * Version: 1.2.3
+ * Version: 1.2.4
  * Author: VillaTheme
  * Author URI: http://villatheme.com
  * License:           GPL v2 or later
@@ -13,7 +13,7 @@
  * Requires at least: 5.0
  * Tested up to: 7.1
  * WC requires at least: 7.0
- * WC tested up to: 11.0
+ * WC tested up to: 11.1
  * Requires PHP: 7.4
  * Requires Plugins: woocommerce
  */
@@ -22,7 +22,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 if ( ! defined( 'VI_WOO_LUCKY_WHEEL_VERSION' ) ) {
-	define( 'VI_WOO_LUCKY_WHEEL_VERSION', '1.2.3' );
+	define( 'VI_WOO_LUCKY_WHEEL_VERSION', '1.2.4' );
 	define( 'VI_WOO_LUCKY_WHEEL_DIR', plugin_dir_path( __FILE__ ) );
 	define( 'VI_WOO_LUCKY_WHEEL_INCLUDES', VI_WOO_LUCKY_WHEEL_DIR . "includes" . DIRECTORY_SEPARATOR );
 	define( 'VI_WOO_LUCKY_WHEEL_LANGUAGES', VI_WOO_LUCKY_WHEEL_DIR . "languages" . DIRECTORY_SEPARATOR );
@@ -52,7 +52,7 @@ if ( ! class_exists( 'Woo_Lucky_Wheel' ) ):
 			}
 			$environment = new \VillaTheme_Require_Environment( [
 					'plugin_name'     => 'Spinzo – Lucky Wheel for WooCommerce',
-					'php_version'     => '7.0',
+					'php_version'     => '7.4',
 					'wp_version'      => '5.0',
 					'require_plugins' => [
 						[
@@ -170,8 +170,9 @@ if ( ! class_exists( 'Woo_Lucky_Wheel' ) ):
 		public function add_column_data( $column, $post_id ) {
 			switch ( $column ) {
 				case 'customer_name':
-					if ( get_post( $post_id )->post_content ) {
-						echo wp_kses_post( get_the_content( $post_id ) );
+					$customer_name = get_post_field( 'post_content', $post_id );
+					if ( $customer_name ) {
+						echo wp_kses_post( $customer_name );
 					}
 					break;
 				case 'spins':

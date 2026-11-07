@@ -6,7 +6,7 @@ Requires at least: 5.0
 Tested up to: 7.1
 Requires PHP: 7.4
 WC requires at least: 7.0
-WC tested up to: 11.0
+WC tested up to: 11.1
 Stable tag: trunk
 License: GPL v2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -341,6 +341,12 @@ Subscribed emails from lucky wheel spin and win will be saved to your database. 
 1. Subscribe email on popup
 
 == Changelog ==
+
+2026.11.07 - version 1.2.4
+- Updated: VillaThem support
+- Updated: Security hardening (settings capability, report nonce, remove extract)
+- Updated: Compatibility check with WC 11.1
+
 2026.08.22 - version 1.2.3
 - Updated: Compatibility check with WP 7.1
 - Updated: VillaThem support
