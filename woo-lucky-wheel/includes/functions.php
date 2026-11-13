@@ -270,6 +270,19 @@ if ( ! function_exists( 'wlwl_sanitize_text_field' ) ) {
 		return sanitize_text_field( stripslashes( $string ) );
 	}
 }
+if ( ! function_exists( 'wlwl_sanitize_visitor_name' ) ) {
+	/**
+	 * Sanitize visitor-supplied spin name and strip shortcode delimiters.
+	 *
+	 * @param string $name Raw visitor name.
+	 * @return string
+	 */
+	function wlwl_sanitize_visitor_name( $name ) {
+		$name = sanitize_text_field( $name );
+
+		return str_replace( array( '[', ']' ), '', $name );
+	}
+}
 if ( ! function_exists( 'woocommerce_version_check' ) ) {
 	function woocommerce_version_check( $version = '3.0' ) {
 		global $woocommerce;

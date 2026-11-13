@@ -46,14 +46,15 @@ class VI_WOO_LUCKY_WHEEL_Frontend_Frontend {
                 $subject = $viwec_email->get_subject();
                 $replace = [
                         '{wlwl_coupon_label}'  => $coupon_label,
-                        '{wlwl_customer_name}' => $customer_name,
+                        '{wlwl_customer_name}' => esc_html( $customer_name ),
                         '{wlwl_coupon_code}'   => strtoupper( $coupon_code ),
                         '{wlwl_date_expires}'  => empty( $date_expires ) ? esc_html__( 'never expires', 'woo-lucky-wheel' ) : date_i18n( 'F d, Y', strtotime( $date_expires ) ),
                 ];
                 $replace = apply_filters( 'wlwl_replace_email_content', $replace, $user_email, '', $coupon_label, $coupon_code, $date_expires );
                 if ( is_array( $replace ) && ! empty( $replace ) ) {
-                    $content = str_replace( array_keys( $replace ), array_values( $replace ), $content );
-                    $subject = str_replace( array_keys( $replace ), array_values( $replace ), $subject );
+                    $replace['{wlwl_customer_name}'] = esc_html( $customer_name );
+                    $content                         = str_replace( array_keys( $replace ), array_values( $replace ), $content );
+                    $subject                         = str_replace( array_keys( $replace ), array_values( $replace ), $subject );
                 }
             }
         }
@@ -61,31 +62,26 @@ class VI_WOO_LUCKY_WHEEL_Frontend_Frontend {
             $button_shop_now = '<a href="' . esc_url( $this->settings->get_params( 'button_shop_url' ) ) . '" target="_blank" style="text-decoration:none;display:inline-block;padding:10px 30px;margin:10px 0;font-size:16px;color:#ffffff;background:#000;">' . esc_html__( 'Shop now', 'woo-lucky-wheel' ) . '</a>';
             $email_temp      = $this->settings->get_params( 'result', 'email' );
             $content         = stripslashes( $email_temp['content'] );
+            // Process admin-template shortcodes before visitor placeholders are applied.
+            $content         = wp_kses_post( do_shortcode( $content ) );
             $replace         = [
                     '{coupon_label}'  => $coupon_label,
-                    '{customer_name}' => $customer_name,
+                    '{customer_name}' => esc_html( $customer_name ),
                     '{coupon_code}'   => strtoupper( $coupon_code ),
                     '{date_expires}'  => empty( $date_expires ) ? esc_html__( 'never expires', 'woo-lucky-wheel' ) : date_i18n( 'F d, Y', strtotime( $date_expires ) ),
                     '{shop_now}'      => $button_shop_now,
             ];
             $replace         = apply_filters( 'wlwl_replace_email_content', $replace, $user_email, '', $coupon_label, $coupon_code, $date_expires );
             if ( is_array( $replace ) && ! empty( $replace ) ) {
-                $content = str_replace( array_keys( $replace ), array_values( $replace ), $content );
+                $replace['{customer_name}'] = esc_html( $customer_name );
+                $content                    = str_replace( array_keys( $replace ), array_values( $replace ), $content );
             }
-//			$content         = str_replace( '{coupon_label}', $coupon_label, $content );
-//			$content         = str_replace( '{customer_name}', $customer_name, $content );
-//			$content         = str_replace( '{coupon_code}', strtoupper( $coupon_code ), $content );
-//			$content         = str_replace( '{date_expires}', empty( $date_expires ) ? esc_html__( 'never expires', 'woo-lucky-wheel' ) : date_i18n( 'F d, Y', strtotime( $date_expires ) ), $content );
-//			$content         = str_replace( '{shop_now}', $button_shop_now, $content );
             $subject       = stripslashes( $email_temp['subject'] );
             $email_heading = $email_temp['heading'];
             if ( isset( $replace['{coupon_label}'] ) ) {
                 $subject       = str_replace( '{coupon_label}', $replace['{coupon_label}'], $subject );
                 $email_heading = str_replace( '{coupon_label}', $replace['{coupon_label}'], $email_heading );
             }
-//			$subject         = str_replace( '{coupon_label}', $coupon_label, $subject );
-//			$email_heading   = str_replace( '{coupon_label}', $coupon_label, $email_heading );
-            $content = wp_kses_post( do_shortcode( $content ) );
             $content = $email->style_inline( $mailer->wrap_message( $email_heading, $content ) );
         }
         $headers = "Content-Type: text/html\r\n";
@@ -554,7 +550,7 @@ class VI_WOO_LUCKY_WHEEL_Frontend_Frontend {
             wlwl_send_spin_cors_headers();
         }
         $email  = isset( $_POST["user_email"] ) ? sanitize_email( strtolower( wp_unslash( $_POST["user_email"] ) ) ) : '';
-        $name   = ( isset( $_POST["user_name"] ) && $_POST["user_name"] ) ? sanitize_text_field( wp_unslash( $_POST["user_name"] ) ) : 'Sir/Madam';
+        $name   = ( isset( $_POST['user_name'] ) && $_POST['user_name'] ) ? wlwl_sanitize_visitor_name( wp_unslash( $_POST['user_name'] ) ) : 'Sir/Madam';
         $mobile = '';
         if ( ! $email || ! is_email( $email ) ) {
             wp_send_json(
@@ -591,9 +587,9 @@ class VI_WOO_LUCKY_WHEEL_Frontend_Frontend {
         $stop   = - 1;
         $result = 'lost';
         if ( $this->settings->get_params( 'result', 'notification' )['lost'] ) {
-            $result_notification = $this->settings->get_params( 'result', 'notification' )['lost'];
+            $result_notification = do_shortcode( $this->settings->get_params( 'result', 'notification' )['lost'] );
         } else {
-            $result_notification = esc_html__( 'OOPS! You are not lucky today. Sorry.', 'woo-lucky-wheel' );
+            $result_notification = do_shortcode( esc_html__( 'OOPS! You are not lucky today. Sorry.', 'woo-lucky-wheel' ) );
         }
         $now   = time();
         $wheel = $this->settings->get_params( 'wheel' );
@@ -702,9 +698,9 @@ class VI_WOO_LUCKY_WHEEL_Frontend_Frontend {
                     if ( isset( $wheel['coupon_type'][ $stop ] ) && $wheel['coupon_type'][ $stop ] != 'non' ) {
                         $result = 'win';
                         if ( $this->settings->get_params( 'result', 'notification' )['win'] ) {
-                            $result_notification = $this->settings->get_params( 'result', 'notification' )['win'];
+                            $result_notification = do_shortcode( $this->settings->get_params( 'result', 'notification' )['win'] );
                         } else {
-                            $result_notification = esc_html__( 'Congrats! You have won a {coupon_label} discount coupon. The coupon was sent to the email address that you had entered to spin. Thank You!', 'woo-lucky-wheel' );
+                            $result_notification = do_shortcode( esc_html__( 'Congrats! You have won a {coupon_label} discount coupon. The coupon was sent to the email address that you had entered to spin. Thank You!', 'woo-lucky-wheel' ) );
                         }
                         $email_template = isset( $email_templates[ $stop ] ) ? $email_templates[ $stop ] : '';
                         $wheel_label    = $wheel['custom_label'][ $stop ];
@@ -722,9 +718,11 @@ class VI_WOO_LUCKY_WHEEL_Frontend_Frontend {
                             $coupon_post = isset( $wheel['existing_coupon'][ $stop ] ) ? get_post( $wheel['existing_coupon'][ $stop ] ) : null;
                             if ( ! $coupon_post ) {
                                 $result = 'lost';
-                                $result_notification = $this->settings->get_params( 'result', 'notification' )['lost']
-                                    ? $this->settings->get_params( 'result', 'notification' )['lost']
-                                    : esc_html__( 'OOPS! You are not lucky today. Sorry.', 'woo-lucky-wheel' );
+                                $result_notification = do_shortcode(
+                                    $this->settings->get_params( 'result', 'notification' )['lost']
+                                        ? $this->settings->get_params( 'result', 'notification' )['lost']
+                                        : esc_html__( 'OOPS! You are not lucky today. Sorry.', 'woo-lucky-wheel' )
+                                );
                             } else {
                             $code   = $coupon_post->post_title;
                             $coupon = new WC_Coupon( $code );
@@ -773,8 +771,8 @@ class VI_WOO_LUCKY_WHEEL_Frontend_Frontend {
                         }
                         if ( 'win' === $result ) {
                         $result_notification = str_replace( '{coupon_label}', '<strong>' . $wheel_label . '</strong>', $result_notification );
-                        $result_notification = str_replace( '{customer_name}', '<strong>' . ( isset( $_POST['user_name'] ) ? sanitize_text_field( wp_unslash( $_POST['user_name'] ) ) : '' ) . '</strong>', $result_notification );
-                        $result_notification = str_replace( '{customer_email}', '<strong>' . $email . '</strong>', $result_notification );
+                        $result_notification = str_replace( '{customer_name}', '<strong>' . esc_html( $name ) . '</strong>', $result_notification );
+                        $result_notification = str_replace( '{customer_email}', '<strong>' . esc_html( $email ) . '</strong>', $result_notification );
                         $result_notification = str_replace( '{checkout}', '<a href="' . wc_get_checkout_url() . '">' . esc_html__( 'Checkout', 'woo-lucky-wheel' ) . '</a>', $result_notification );
                         }
                     }
@@ -819,9 +817,9 @@ class VI_WOO_LUCKY_WHEEL_Frontend_Frontend {
             if ( isset( $wheel['coupon_type'][ $stop ] ) && $wheel['coupon_type'][ $stop ] != 'non' ) {
                 $result = 'win';
                 if ( $this->settings->get_params( 'result', 'notification' )['win'] ) {
-                    $result_notification = $this->settings->get_params( 'result', 'notification' )['win'];
+                    $result_notification = do_shortcode( $this->settings->get_params( 'result', 'notification' )['win'] );
                 } else {
-                    $result_notification = esc_html__( 'Congrats! You have won a {coupon_label} discount coupon. The coupon was sent to the email address that you had entered to spin. Thank You!', 'woo-lucky-wheel' );
+                    $result_notification = do_shortcode( esc_html__( 'Congrats! You have won a {coupon_label} discount coupon. The coupon was sent to the email address that you had entered to spin. Thank You!', 'woo-lucky-wheel' ) );
                 }
                 $email_template = isset( $email_templates[ $stop ] ) ? $email_templates[ $stop ] : '';
                 if ( $wheel['coupon_type'][ $stop ] == 'custom' ) {
@@ -836,9 +834,11 @@ class VI_WOO_LUCKY_WHEEL_Frontend_Frontend {
                     $coupon_post = isset( $wheel['existing_coupon'][ $stop ] ) ? get_post( $wheel['existing_coupon'][ $stop ] ) : null;
                     if ( ! $coupon_post ) {
                         $result              = 'lost';
-                        $result_notification = $this->settings->get_params( 'result', 'notification' )['lost']
-                            ? $this->settings->get_params( 'result', 'notification' )['lost']
-                            : esc_html__( 'OOPS! You are not lucky today. Sorry.', 'woo-lucky-wheel' );
+                        $result_notification = do_shortcode(
+                            $this->settings->get_params( 'result', 'notification' )['lost']
+                                ? $this->settings->get_params( 'result', 'notification' )['lost']
+                                : esc_html__( 'OOPS! You are not lucky today. Sorry.', 'woo-lucky-wheel' )
+                        );
                     } else {
                     $code   = $coupon_post->post_title;
                     $coupon = new WC_Coupon( $code );
@@ -883,8 +883,8 @@ class VI_WOO_LUCKY_WHEEL_Frontend_Frontend {
                 }
                 if ( 'win' === $result ) {
                 $result_notification = str_replace( '{coupon_label}', '<strong>' . $wheel_label . '</strong>', $result_notification );
-                $result_notification = str_replace( '{customer_name}', '<strong>' . ( isset( $_POST['user_name'] ) ? sanitize_text_field( wp_unslash( $_POST['user_name'] ) ) : '' ) . '</strong>', $result_notification );
-                $result_notification = str_replace( '{customer_email}', '<strong>' . $email . '</strong>', $result_notification );
+                $result_notification = str_replace( '{customer_name}', '<strong>' . esc_html( $name ) . '</strong>', $result_notification );
+                $result_notification = str_replace( '{customer_email}', '<strong>' . esc_html( $email ) . '</strong>', $result_notification );
                 $result_notification = str_replace( '{checkout}', '<a href="' . wc_get_checkout_url() . '">' . esc_html__( 'Checkout', 'woo-lucky-wheel' ) . '</a>', $result_notification );
                 $result_notification = str_replace( array( '\n', '/n' ), ' ', $result_notification );
                 }
@@ -898,7 +898,7 @@ class VI_WOO_LUCKY_WHEEL_Frontend_Frontend {
         $data = array(
                 'allow_spin'          => $allow,
                 'stop_position'       => $stop,
-                'result_notification' => do_shortcode( $result_notification ),
+                'result_notification' => $result_notification,
                 'result'              => $result,
         );
         $data = apply_filters( 'woo_lucky_wheel_get_email_response', $data, $email, $name, $mobile );

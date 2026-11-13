@@ -6,7 +6,7 @@ Requires at least: 5.0
 Tested up to: 7.1
 Requires PHP: 7.4
 WC requires at least: 7.0
-WC tested up to: 11.1
+WC tested up to: 11.2
 Stable tag: trunk
 License: GPL v2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -342,10 +342,21 @@ Subscribed emails from lucky wheel spin and win will be saved to your database. 
 
 == Changelog ==
 
-2026.11.07 - version 1.2.4
-- Updated: VillaThem support
-- Updated: Security hardening (settings capability, report nonce, remove extract)
-- Updated: Compatibility check with WC 11.1
+2026.11.13 - version 1.2.5
+- Fixed: Unauthenticated shortcode execution via visitor name in coupon email and spin notifications
+- Fixed: Mailchimp subscribe runs only after spin eligibility gates
+- Fixed: REST spin CORS no longer uses Access-Control-Allow-Origin *
+- Fixed: Empty/invalid probability fails closed without wp_rand errors
+- Fixed: Null-safe existing coupon and wlwl_spin_times meta on spin
+- Fixed: Emails list customer name uses post content correctly
+- Updated: Bound spin email lookups to a single post match
+- Updated: Settings save applies wp_unslash before sanitize; empty spin_num unlimited UX
+- Updated: PHP 8.5 nullable mobile_detect constructor
+
+2026.11.07 – version 1.2.4
+– Updated: VillaThem support
+– Updated: Security hardening (settings capability, report nonce, remove extract)
+– Updated: Compatibility check with WC 11.1
 
 2026.08.22 - version 1.2.3
 - Updated: Compatibility check with WP 7.1
